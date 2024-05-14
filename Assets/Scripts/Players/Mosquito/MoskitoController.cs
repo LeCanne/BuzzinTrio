@@ -23,6 +23,7 @@ public class MoskitoController : MonoBehaviour
     void Update()
     {
         PhysicsUpdater();
+        Movement();
     }
 
     public bool Grounded()
@@ -44,10 +45,17 @@ public class MoskitoController : MonoBehaviour
 
     private void PhysicsUpdater()
     {
+        //Apply Gravity
+
         if(Grounded() == false && rbMoskito.velocity.y < 0)
         {
             rbMoskito.AddForce(Physics.gravity, ForceMode.Acceleration);
         }
+    }
+
+    private void Movement()
+    {
+
     }
 }
 
