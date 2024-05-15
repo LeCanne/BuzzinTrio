@@ -47,9 +47,18 @@ public class MoskitoCamera : MonoBehaviour
 
         if(m_Position.magnitude > 0)
         {
-            
-            transform.Rotate(0, vec.x * speed * Time.deltaTime, 0, Space.World);
-            transform.Rotate(-vec.y * speed * Time.deltaTime,0, 0, Space.Self);
+            transform.Rotate(-vec.y * speed * Time.deltaTime, 0, 0, Space.Self);
+          
+
+            if (Vector3.Dot(transform.up, Vector3.down) > 0)
+            {
+                transform.Rotate(0, -vec.x * speed * Time.deltaTime, 0, Space.World);
+            }
+            else
+            {
+                transform.Rotate(0, vec.x * speed * Time.deltaTime, 0, Space.World);
+            }
+               
 
 
         }
