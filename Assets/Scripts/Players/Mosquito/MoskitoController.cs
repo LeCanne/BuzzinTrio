@@ -13,6 +13,7 @@ public class MoskitoController : MonoBehaviour
     public float flyDrag;
     public float groundDrag;
     public float InitialLift;
+    public GameObject Camera;
 
     [Header("PhysicsChecks")]
     public LayerMask maskToCheck;
@@ -25,6 +26,7 @@ public class MoskitoController : MonoBehaviour
     private InputAction _move;
     private InputAction _fly;
     private Vector2 _moveDirection = Vector2.zero;
+    public float FlightSpeed;
 
     [Header("Checker")]
     private bool _inFly;
@@ -49,14 +51,14 @@ public class MoskitoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        transform.rotation = Camera.transform.rotation;
         Movement();
     }
 
     private void FixedUpdate()
     {
         PhysicsUpdater();
-      
+        MovementPhysics();
     }
 
     #region Physics
@@ -78,7 +80,15 @@ public class MoskitoController : MonoBehaviour
     }
 
   
-
+    private void MovementPhysics()
+    {
+        if (_inFly == true)
+        {
+            rbMoskito.AddForce(transform.forward * _moveDirection.y * 100);
+            rbMoskito.AddForce(transform.right * _moveDirection.x * 100);
+        }
+      
+    }
     private void PhysicsUpdater()
     {
         //Apply Gravity.
@@ -107,6 +117,7 @@ public class MoskitoController : MonoBehaviour
     private void Movement()
     {
         _moveDirection = _move.ReadValue<Vector2>();
+        Debug.Log(_moveDirection);
 
         
         //JumpStartCalculations
@@ -115,8 +126,7 @@ public class MoskitoController : MonoBehaviour
 
     private void JumpStart()
     {
-
-
+        
         if (_fly.triggered)
         {
             if (Grounded() == true)

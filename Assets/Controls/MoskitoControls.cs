@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-
 public partial class @MoskitoControls: IInputActionCollection2, IDisposable
 {
     public InputActionAsset asset { get; }
@@ -41,6 +40,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""33f79e66-6d9e-4ae2-948f-5f214bdee676"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""c0a950ee-af91-409a-9929-c4d9c6ebc6d6"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -73,9 +81,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ae000121-ab1f-478f-930c-1631020ac5a9"",
-                    ""path"": ""<Joystick>/stick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone,NormalizeVector2"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -86,7 +94,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""id"": ""36e3af98-af10-4d59-848b-86c7978b048f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": true,
@@ -135,6 +143,28 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72cf4b4a-3587-4e69-affd-3443ffc6b598"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d54dcf75-b954-423d-84ea-1c844079f664"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +175,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Moskito = asset.FindActionMap("Moskito", throwIfNotFound: true);
         m_Moskito_Fly = m_Moskito.FindAction("Fly", throwIfNotFound: true);
         m_Moskito_Move = m_Moskito.FindAction("Move", throwIfNotFound: true);
+        m_Moskito_Camera = m_Moskito.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -208,12 +239,14 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private List<IMoskitoActions> m_MoskitoActionsCallbackInterfaces = new List<IMoskitoActions>();
     private readonly InputAction m_Moskito_Fly;
     private readonly InputAction m_Moskito_Move;
+    private readonly InputAction m_Moskito_Camera;
     public struct MoskitoActions
     {
         private @MoskitoControls m_Wrapper;
         public MoskitoActions(@MoskitoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Fly => m_Wrapper.m_Moskito_Fly;
         public InputAction @Move => m_Wrapper.m_Moskito_Move;
+        public InputAction @Camera => m_Wrapper.m_Moskito_Camera;
         public InputActionMap Get() { return m_Wrapper.m_Moskito; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -229,6 +262,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
         }
 
         private void UnregisterCallbacks(IMoskitoActions instance)
@@ -239,6 +275,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
         }
 
         public void RemoveCallbacks(IMoskitoActions instance)
@@ -260,5 +299,6 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     {
         void OnFly(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }
