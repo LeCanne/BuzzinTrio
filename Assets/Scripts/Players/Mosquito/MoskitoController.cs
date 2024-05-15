@@ -9,7 +9,10 @@ public class MoskitoController : MonoBehaviour
 {
 
     private Rigidbody rbMoskito;
-
+    [Header("PhysicsParameters")]
+    public float flyDrag;
+    public float groundDrag;
+    public float InitialLift;
 
     [Header("PhysicsChecks")]
     public LayerMask maskToCheck;
@@ -53,7 +56,7 @@ public class MoskitoController : MonoBehaviour
     private void FixedUpdate()
     {
         PhysicsUpdater();
-        AirResistance();
+      
     }
 
     #region Physics
@@ -74,18 +77,7 @@ public class MoskitoController : MonoBehaviour
 
     }
 
-    public void AirResistance()
-    {
-        var rb = rbMoskito;
-        var p = 1.225f;
-        var cd = .47f;
-        var a = Mathf.PI * 1.2f * 1.2f;
-        var v = rb.velocity.magnitude;
-
-        var direction = -rb.velocity.normalized;
-        var forceAmount = (p * v * v * cd * a) / 2;
-        rb.AddForce(direction * forceAmount);
-    }
+  
 
     private void PhysicsUpdater()
     {
@@ -117,24 +109,50 @@ public class MoskitoController : MonoBehaviour
         _moveDirection = _move.ReadValue<Vector2>();
 
         
-
+        //JumpStartCalculations
         JumpStart();
     }
 
     private void JumpStart()
     {
-        if(Grounded() == true)
+
+
+        if (_fly.triggered)
         {
-            if (_fly.triggered)
+            if (Grounded() == true)
             {
-                rbMoskito.AddForce(new Vector3(0,10,0), ForceMode.Impulse);
+                rbMoskito.AddForce(new Vector3(0, InitialLift, 0), ForceMode.Impulse);
                 _inFly = true;
-                
+               
             }
+            else
+            {
+                
+                    _inFly = !_inFly;
+                Debug.Log(_inFly);
+               
+
+            }
+
         }
 
+
+
+
+
         //Change gravity according to state.
-        _inFly = true ? rbMoskito.useGravity = false : rbMoskito.useGravity = true;
+        if (_inFly == true)
+        {
+            rbMoskito.drag = flyDrag;
+            rbMoskito.useGravity = false;
+
+        }
+        else
+        {
+            rbMoskito.drag = groundDrag;
+            rbMoskito.useGravity = true;
+        }
+          
 
 
     }
