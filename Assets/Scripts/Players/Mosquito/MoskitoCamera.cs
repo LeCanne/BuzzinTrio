@@ -25,7 +25,7 @@ public class MoskitoCamera : MonoBehaviour
     }
     void Start()
     {
-        
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     
@@ -38,6 +38,7 @@ public class MoskitoCamera : MonoBehaviour
 
    void MouseRotation()
     {
+        
         m_Position = rotationCamera.ReadValue<Vector2>();
        
         Vector3 vec = transform.eulerAngles;
@@ -47,9 +48,10 @@ public class MoskitoCamera : MonoBehaviour
         if(m_Position.magnitude > 0)
         {
             
-            transform.eulerAngles += new Vector3(-vec.y, vec.x, 0) * speed * Time.deltaTime;
+            transform.Rotate(0, vec.x * speed * Time.deltaTime, 0, Space.World);
+            transform.Rotate(-vec.y * speed * Time.deltaTime,0, 0, Space.Self);
 
-            
+
         }
         
         
@@ -57,12 +59,12 @@ public class MoskitoCamera : MonoBehaviour
 
     void RotationResetter()
     {
-        if(transform.eulerAngles.x < -90)
+        if(transform.eulerAngles.x <= -90)
         {
-            transform.eulerAngles = new Vector3(360, transform.eulerAngles.y, 0);
+            transform.eulerAngles = new Vector3(359.9f, transform.eulerAngles.y, 0);
         }
 
-        if(transform.eulerAngles.x > 360)
+        if(transform.eulerAngles.x >= 360)
         {
             transform.eulerAngles = new Vector3(-90, transform.eulerAngles.y, 0);
         }

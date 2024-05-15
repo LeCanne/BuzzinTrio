@@ -84,8 +84,8 @@ public class MoskitoController : MonoBehaviour
     {
         if (_inFly == true)
         {
-            rbMoskito.AddForce(transform.forward * _moveDirection.y * 100);
-            rbMoskito.AddForce(transform.right * _moveDirection.x * 100);
+            rbMoskito.AddForce(transform.forward * _moveDirection.y * 10);
+            rbMoskito.AddForce(transform.right * _moveDirection.x * 10);
         }
       
     }
