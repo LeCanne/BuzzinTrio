@@ -25,27 +25,47 @@ public class MoskitoController : MonoBehaviour
     public MoskitoControls MoskControls;
     private InputAction _move;
     private InputAction _fly;
+    private InputAction _attack;
     private Vector2 _moveDirection = Vector2.zero;
     public float FlightSpeed;
+    public float AttackBoostSpeed;
+    
 
     [Header("Checker")]
     private bool _inFly;
+    private float attackTimer;
+    private float attackCurrent;
+    public float attackDuration;
+    
+    [Header("AttachedObjects")]
+    public GameObject HitBox;
 
     private void Awake()
     {
+        
         MoskControls = new MoskitoControls();
+        _move = MoskControls.Moskito.Move;
+        _fly = MoskControls.Moskito.Fly;
+        _attack = MoskControls.Moskito.Sting;
     }
     private void OnEnable()
     {
-        _move = MoskControls.Moskito.Move;
-        _fly = MoskControls.Moskito.Fly;
+        _move.Enable();
+        _fly.Enable();
+        _attack.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _move.Disable();
+        _fly.Disable();
+        _attack.Disable();
     }
     // Start is called before the first frame update
     void Start()
     {
         rbMoskito = GetComponent<Rigidbody>();
-        _move.Enable();
-        _fly.Enable();
+       
     }
 
     // Update is called once per frame
@@ -53,6 +73,11 @@ public class MoskitoController : MonoBehaviour
     {
         transform.rotation = Camera.transform.rotation;
         Movement();
+        if(_inFly == true)
+        {
+            StingAttack();
+        }
+      
     }
 
     private void FixedUpdate()
@@ -99,7 +124,7 @@ public class MoskitoController : MonoBehaviour
             {
                 rbMoskito.AddForce(Physics.gravity, ForceMode.Acceleration);
                 Mathf.Clamp(Mathf.Abs(rbMoskito.velocity.y), 0, 1);
-                Debug.Log(rbMoskito.velocity.y);
+                
             }
         }
 
@@ -112,18 +137,44 @@ public class MoskitoController : MonoBehaviour
             rbMoskito.velocity *= 0.99f;
         }
     }
-    #endregion 
+    #endregion
 
+    #region Movement&PlayerCapacities 
     private void Movement()
     {
         _moveDirection = _move.ReadValue<Vector2>();
-        Debug.Log(_moveDirection);
+      
 
         
         //JumpStartCalculations
         JumpStart();
     }
 
+    private void StingAttack()
+    {
+        if (_attack.triggered && attackTimer < 0)
+        {
+            attackTimer = 3;
+            rbMoskito.AddForce(transform.forward * AttackBoostSpeed , ForceMode.Impulse);
+            attackCurrent = attackDuration;
+            HitBox.SetActive(true);
+        }
+
+        if(attackTimer >= 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+
+        if(attackCurrent <= 0)
+        {
+            HitBox.SetActive(false);
+        }
+        else
+        {
+            attackCurrent -= Time.deltaTime;
+        }
+       
+    }
     private void JumpStart()
     {
         
@@ -139,7 +190,7 @@ public class MoskitoController : MonoBehaviour
             {
                 
                     _inFly = !_inFly;
-                Debug.Log(_inFly);
+               
                
 
             }
@@ -166,6 +217,9 @@ public class MoskitoController : MonoBehaviour
 
 
     }
+
+    
+    #endregion
 }
 
-   
+

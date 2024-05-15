@@ -8,14 +8,18 @@ public class MoskitoCamera : MonoBehaviour
     public float speed;
     public GameObject positionHold;
     private Vector2 m_Position;
+    private Vector3 origin;
     private MoskitoControls m_Controls;
     private InputAction rotationCamera;
+
+    public bool checkStung;
 
 
 
     private void Awake()
     {
         m_Controls = new MoskitoControls();
+        origin = positionHold.transform.position;
     }
     private void OnEnable()
     {
@@ -31,8 +35,17 @@ public class MoskitoCamera : MonoBehaviour
     
     void Update()
     {
-        MouseRotation();
-        RotationResetter();
+        if(checkStung == false)
+        {
+            ResetCam();
+            MouseRotation();
+            RotationResetter();
+        }
+
+        else
+        {
+            positionHold.transform.position = new Vector3(origin.z, origin.y, origin.z - 2);
+        }
         transform.position = positionHold.transform.position;
     }
 
@@ -77,5 +90,10 @@ public class MoskitoCamera : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(-90, transform.eulerAngles.y, 0);
         }
+    }
+
+    void ResetCam()
+    {
+       // positionHold.transform.position = origin;
     }
 }

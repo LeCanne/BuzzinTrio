@@ -53,6 +53,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sting"",
+                    ""type"": ""Button"",
+                    ""id"": ""6210c147-0722-4074-a528-9a76cfee8bf6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -160,9 +169,31 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""id"": ""d54dcf75-b954-423d-84ea-1c844079f664"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
                     ""groups"": """",
                     ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""33246fb4-2ed2-4b67-8bd5-0232819f6378"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16aa52f5-953e-4ba1-9080-ef204178d078"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -176,6 +207,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Moskito_Fly = m_Moskito.FindAction("Fly", throwIfNotFound: true);
         m_Moskito_Move = m_Moskito.FindAction("Move", throwIfNotFound: true);
         m_Moskito_Camera = m_Moskito.FindAction("Camera", throwIfNotFound: true);
+        m_Moskito_Sting = m_Moskito.FindAction("Sting", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,6 +272,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Moskito_Fly;
     private readonly InputAction m_Moskito_Move;
     private readonly InputAction m_Moskito_Camera;
+    private readonly InputAction m_Moskito_Sting;
     public struct MoskitoActions
     {
         private @MoskitoControls m_Wrapper;
@@ -247,6 +280,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         public InputAction @Fly => m_Wrapper.m_Moskito_Fly;
         public InputAction @Move => m_Wrapper.m_Moskito_Move;
         public InputAction @Camera => m_Wrapper.m_Moskito_Camera;
+        public InputAction @Sting => m_Wrapper.m_Moskito_Sting;
         public InputActionMap Get() { return m_Wrapper.m_Moskito; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -265,6 +299,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
+            @Sting.started += instance.OnSting;
+            @Sting.performed += instance.OnSting;
+            @Sting.canceled += instance.OnSting;
         }
 
         private void UnregisterCallbacks(IMoskitoActions instance)
@@ -278,6 +315,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
+            @Sting.started -= instance.OnSting;
+            @Sting.performed -= instance.OnSting;
+            @Sting.canceled -= instance.OnSting;
         }
 
         public void RemoveCallbacks(IMoskitoActions instance)
@@ -300,5 +340,6 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         void OnFly(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnSting(InputAction.CallbackContext context);
     }
 }
