@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 <<<<<<<< Updated upstream:Assets/Prefab/Players/Moskito/MoskitoPlayer.prefab.meta
 guid: 8b6d96652b0b31e42b60f74db0b2d0ba
 PrefabImporter:
@@ -8,14 +7,6 @@ guid: 564dc7c009ef5b846a775714b732dffb
 folderAsset: yes
 DefaultImporter:
 >>>>>>>> Stashed changes:Assets/Meshes/Moustique/Materials.meta
-=======
-<<<<<<<< HEAD:Assets/Meshes/Moustique/MosquitoV5.prefab.meta
-guid: a269b07c377a0864c8ccacf7b4f4f1d8
-========
-guid: 8b6d96652b0b31e42b60f74db0b2d0ba
->>>>>>>> f58997732a734bb013460f25de52372128695861:Assets/Prefab/Players/Moskito/MoskitoPlayer.prefab.meta
-PrefabImporter:
->>>>>>> Stashed changes
   externalObjects: {}
   userData: 
   assetBundleName: 
