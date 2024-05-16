@@ -9,8 +9,12 @@ public class MoskitoCamera : MonoBehaviour
     public GameObject positionHold;
     private Vector2 m_Position;
     private Vector3 origin;
+    private Transform posCam;
+    public GameObject moskitoSkin;
     private MoskitoControls m_Controls;
+    public MoskitoController m_Controller;
     private InputAction rotationCamera;
+    
 
     public bool checkStung;
 
@@ -18,24 +22,32 @@ public class MoskitoCamera : MonoBehaviour
 
     private void Awake()
     {
-        m_Controls = new MoskitoControls();
-        origin = positionHold.transform.position;
+
+       
+        origin = positionHold.transform.localPosition;
+        
     }
     private void OnEnable()
     {
-        rotationCamera = m_Controls.Moskito.Camera;
-
-        rotationCamera.Enable();
+       
     }
     void Start()
     {
         transform.eulerAngles = new Vector3(0, 0, 0);
+        m_Controls = m_Controller.MoskControls;
+
+        rotationCamera = m_Controls.Moskito.Camera;
+
+        rotationCamera.Enable();
     }
 
     
     void Update()
     {
-        if(checkStung == false)
+        //We only move the camera holder.
+        transform.position = positionHold.transform.position;
+
+        if (checkStung == false)
         {
             ResetCam();
             MouseRotation();
@@ -44,9 +56,11 @@ public class MoskitoCamera : MonoBehaviour
 
         else
         {
-            positionHold.transform.position = new Vector3(origin.z, origin.y, origin.z - 2);
+            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, new Vector3(origin.z, origin.y, origin.z - 2), 3 * Time.deltaTime);
+            transform.LookAt(moskitoSkin.transform);
         }
-        transform.position = positionHold.transform.position;
+       
+      
     }
 
    void MouseRotation()
@@ -94,6 +108,14 @@ public class MoskitoCamera : MonoBehaviour
 
     void ResetCam()
     {
-       // positionHold.transform.position = origin;
+        if(Vector3.Distance(positionHold.transform.localPosition, origin) > 0.2f)
+        {
+            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, origin, 3 * Time.deltaTime);
+        }
+        else
+        {
+            positionHold.transform.localPosition = origin;
+        }
+      
     }
 }

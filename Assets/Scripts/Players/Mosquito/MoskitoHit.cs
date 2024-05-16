@@ -6,6 +6,8 @@ public class MoskitoHit : MonoBehaviour
 {
     public MoskitoController moskitoController;
     public StuckController stuckController;
+    public MoskitoCamera moskitoCam;
+    public GameObject Skito;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +24,21 @@ public class MoskitoHit : MonoBehaviour
     {
         if(other.gameObject.tag == "Human")
         {
-            Debug.Log("hit");
+            Debug.Log("HitPlayer");
+            Skito.transform.parent = other.gameObject.transform;
             moskitoController.enabled = false;
             stuckController.enabled = true;
+            moskitoCam.checkStung = true;
             
+        }
+
+        if(other.gameObject.tag == "Untagged")
+        {
+            Debug.Log("HitWall");
+            Skito.transform.parent = other.gameObject.transform;
+            moskitoController.enabled = false;
+            stuckController.enabled = true;
+            moskitoCam.checkStung = true;
         }
     }
 }

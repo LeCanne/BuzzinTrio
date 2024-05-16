@@ -8,9 +8,11 @@ public class StuckController : MonoBehaviour
     [Header ("Dependencies")]
     private MoskitoControls m_Controls;
     private MoskitoController _MoskitoController;
+    public MoskitoCamera moskitoCamera;
     private Rigidbody rigidMoskito;
     private InputAction _spam;
     private int spamCurrent;
+    public PlayerInput player;
     [Header ("Parameters")]
     public int SpamCount;
     // Start is called before the first frame update
@@ -20,11 +22,13 @@ public class StuckController : MonoBehaviour
         _spam = m_Controls.Moskito.Sting;
         rigidMoskito = GetComponent<Rigidbody>();
         _MoskitoController = GetComponent<MoskitoController>();
+        player.actions = m_Controls.asset;
     }
 
     private void OnEnable()
     {
         _spam.Enable();
+       // player.actions = m_Controls.asset;
     }
     void Start()
     {
@@ -34,6 +38,7 @@ public class StuckController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         Unstuck();
     }
 
@@ -50,6 +55,8 @@ public class StuckController : MonoBehaviour
             _MoskitoController.enabled = true;
             rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
             spamCurrent = 0;
+            gameObject.transform.parent = null;
+            moskitoCamera.checkStung = false;
             this.enabled = false;
 
         }

@@ -198,9 +198,140 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Human"",
+            ""id"": ""517c74ba-b80b-455a-ab12-e2e3e52fc614"",
+            ""actions"": [
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
+                    ""id"": ""7ca55fbd-8383-463b-8c7d-3f5284af3dd0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""e3107169-abc5-4ab2-ad2f-0ffd2f92d23d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""173e80f8-80d0-4973-915e-66189ca04b5e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""7d509f7e-7141-4c35-a2b3-d328e06e1378"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d9dfa0de-a5e9-4d18-bc65-ad7f8b845aa6"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""331a467b-4cb3-4974-a1cc-87d80811be9b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f034372b-a517-478f-967d-d9e84fc370c3"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c6e10d61-40c6-403d-a973-0d60402d58b4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19b90b74-f33a-40de-a911-48b7687368fd"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba2298e3-96ee-4570-b773-cf76d3d6357f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""UniversalControlScheme"",
+            ""bindingGroup"": ""UniversalControlScheme"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Moskito
         m_Moskito = asset.FindActionMap("Moskito", throwIfNotFound: true);
@@ -208,6 +339,10 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Moskito_Move = m_Moskito.FindAction("Move", throwIfNotFound: true);
         m_Moskito_Camera = m_Moskito.FindAction("Camera", throwIfNotFound: true);
         m_Moskito_Sting = m_Moskito.FindAction("Sting", throwIfNotFound: true);
+        // Human
+        m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
+        m_Human_Walk = m_Human.FindAction("Walk", throwIfNotFound: true);
+        m_Human_Camera = m_Human.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -335,11 +470,79 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         }
     }
     public MoskitoActions @Moskito => new MoskitoActions(this);
+
+    // Human
+    private readonly InputActionMap m_Human;
+    private List<IHumanActions> m_HumanActionsCallbackInterfaces = new List<IHumanActions>();
+    private readonly InputAction m_Human_Walk;
+    private readonly InputAction m_Human_Camera;
+    public struct HumanActions
+    {
+        private @MoskitoControls m_Wrapper;
+        public HumanActions(@MoskitoControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Walk => m_Wrapper.m_Human_Walk;
+        public InputAction @Camera => m_Wrapper.m_Human_Camera;
+        public InputActionMap Get() { return m_Wrapper.m_Human; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HumanActions set) { return set.Get(); }
+        public void AddCallbacks(IHumanActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HumanActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HumanActionsCallbackInterfaces.Add(instance);
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
+        }
+
+        private void UnregisterCallbacks(IHumanActions instance)
+        {
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
+        }
+
+        public void RemoveCallbacks(IHumanActions instance)
+        {
+            if (m_Wrapper.m_HumanActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHumanActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HumanActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HumanActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HumanActions @Human => new HumanActions(this);
+    private int m_UniversalControlSchemeSchemeIndex = -1;
+    public InputControlScheme UniversalControlSchemeScheme
+    {
+        get
+        {
+            if (m_UniversalControlSchemeSchemeIndex == -1) m_UniversalControlSchemeSchemeIndex = asset.FindControlSchemeIndex("UniversalControlScheme");
+            return asset.controlSchemes[m_UniversalControlSchemeSchemeIndex];
+        }
+    }
     public interface IMoskitoActions
     {
         void OnFly(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnSting(InputAction.CallbackContext context);
+    }
+    public interface IHumanActions
+    {
+        void OnWalk(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

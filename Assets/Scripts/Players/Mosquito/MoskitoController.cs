@@ -39,20 +39,26 @@ public class MoskitoController : MonoBehaviour
     
     [Header("AttachedObjects")]
     public GameObject HitBox;
+    public PlayerInput Input;
+    
 
     private void Awake()
     {
         
         MoskControls = new MoskitoControls();
+        Input.actions = MoskControls.asset;
+        Debug.Log(Input.actions);
         _move = MoskControls.Moskito.Move;
         _fly = MoskControls.Moskito.Fly;
         _attack = MoskControls.Moskito.Sting;
+        
     }
     private void OnEnable()
     {
         _move.Enable();
         _fly.Enable();
         _attack.Enable();
+
     }
 
     private void OnDisable()
@@ -65,12 +71,16 @@ public class MoskitoController : MonoBehaviour
     void Start()
     {
         rbMoskito = GetComponent<Rigidbody>();
-       
+        _move.Enable();
+        _fly.Enable();
+        _attack.Enable();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         transform.rotation = Camera.transform.rotation;
         Movement();
         if(_inFly == true)
@@ -180,6 +190,7 @@ public class MoskitoController : MonoBehaviour
         
         if (_fly.triggered)
         {
+            Debug.Log("ye");
             if (Grounded() == true)
             {
                 rbMoskito.AddForce(new Vector3(0, InitialLift, 0), ForceMode.Impulse);
