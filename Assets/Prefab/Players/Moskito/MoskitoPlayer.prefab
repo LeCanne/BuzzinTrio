@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 84f0e38e034a73a49bf7e343ccbe671b,
     type: 3}
-  m_NotificationBehavior: 3
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -1096,7 +1096,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e3107169-abc5-4ab2-ad2f-0ffd2f92d23d
     m_ActionName: Human/Camera[/Mouse/delta]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Moskito
   m_SplitScreenIndex: -1

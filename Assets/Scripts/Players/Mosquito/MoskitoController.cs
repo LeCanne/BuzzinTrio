@@ -44,21 +44,18 @@ public class MoskitoController : MonoBehaviour
 
     private void Awake()
     {
-        
-        MoskControls = new MoskitoControls();
-        Input.actions = MoskControls.asset;
-        Debug.Log(Input.actions);
-        _move = MoskControls.Moskito.Move;
-        _fly = MoskControls.Moskito.Fly;
-        _attack = MoskControls.Moskito.Sting;
+      
         
     }
     private void OnEnable()
     {
-        _move.Enable();
-        _fly.Enable();
-        _attack.Enable();
 
+        MoskControls = new MoskitoControls();
+        Input.actions = MoskControls.asset;
+
+        _move = MoskControls.Moskito.Move;
+        _fly = MoskControls.Moskito.Fly;
+        _attack = MoskControls.Moskito.Sting;
     }
 
     private void OnDisable()
@@ -70,6 +67,9 @@ public class MoskitoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
         rbMoskito = GetComponent<Rigidbody>();
         _move.Enable();
         _fly.Enable();
