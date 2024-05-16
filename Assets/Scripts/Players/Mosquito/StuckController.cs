@@ -25,16 +25,14 @@ public class StuckController : MonoBehaviour
 
     private void OnEnable()
     {
-        m_Controls = _MoskitoController.MoskControls;
-        player.actions = m_Controls.asset;
-        _spam = m_Controls.Moskito.Sting;
+       
         
         // player.actions = m_Controls.asset;
     }
     void Start()
     {
       
-        _spam.Enable();
+        
         rigidMoskito = GetComponent<Rigidbody>();
        
     }
@@ -43,28 +41,32 @@ public class StuckController : MonoBehaviour
     void Update()
     {
        
-        Unstuck();
+        
     }
 
-    private void Unstuck()
+    public void Unstuck(InputAction.CallbackContext punchawall)
     {
-        if(spamCurrent < SpamCount)
+        if (punchawall.performed && enabled == true)
         {
-            if(_spam.triggered)
-            spamCurrent += 1;
-        }
-        else
-        {
-          
-            _MoskitoController.enabled = true;
-            rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
-            
-            spamCurrent = 0;
-            gameObject.transform.parent = null;
-            moskitoCamera.checkStung = false;
-            this.enabled = false;
+            if (spamCurrent < SpamCount)
+            {
 
+                spamCurrent += 1;
+            }
+            else
+            {
+
+                _MoskitoController.enabled = true;
+                rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
+
+                spamCurrent = 0;
+                gameObject.transform.parent = null;
+                moskitoCamera.checkStung = false;
+                this.enabled = false;
+
+            }
         }
+     
     }
 
    

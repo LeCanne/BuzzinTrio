@@ -44,25 +44,20 @@ public class MoskitoController : MonoBehaviour
 
     private void Awake()
     {
-      
-        
+
+        rbMoskito = GetComponent<Rigidbody>();
     }
     private void OnEnable()
     {
 
-        MoskControls = new MoskitoControls();
-        Input.actions = MoskControls.asset;
+     
 
-        _move = MoskControls.Moskito.Move;
-        _fly = MoskControls.Moskito.Fly;
-        _attack = MoskControls.Moskito.Sting;
+       
     }
 
     private void OnDisable()
     {
-        _move.Disable();
-        _fly.Disable();
-        _attack.Disable();
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -70,10 +65,8 @@ public class MoskitoController : MonoBehaviour
 
         
 
-        rbMoskito = GetComponent<Rigidbody>();
-        _move.Enable();
-        _fly.Enable();
-        _attack.Enable();
+       
+      
 
     }
 
@@ -82,7 +75,7 @@ public class MoskitoController : MonoBehaviour
     {
         
         transform.rotation = Camera.transform.rotation;
-        Movement();
+       
         if(_inFly == true)
         {
             StingAttack();
@@ -150,25 +143,30 @@ public class MoskitoController : MonoBehaviour
     #endregion
 
     #region Movement&PlayerCapacities 
-    private void Movement()
+    public void Movement(InputAction.CallbackContext move)
     {
-        _moveDirection = _move.ReadValue<Vector2>();
+
+        _moveDirection = move.ReadValue<Vector2>();
       
 
         
         //JumpStartCalculations
-        JumpStart();
+       
     }
 
-    private void StingAttack()
+    public void AttackEvent(InputAction.CallbackContext attack)
     {
-        if (_attack.triggered && attackTimer < 0)
+        if (attack.started && attackTimer < 0)
         {
             attackTimer = 3;
-            rbMoskito.AddForce(transform.forward * AttackBoostSpeed , ForceMode.Impulse);
+            rbMoskito.AddForce(transform.forward * AttackBoostSpeed, ForceMode.Impulse);
             attackCurrent = attackDuration;
             HitBox.SetActive(true);
         }
+    }
+    private void StingAttack()
+    {
+       
 
         if(attackTimer >= 0)
         {
@@ -185,45 +183,49 @@ public class MoskitoController : MonoBehaviour
         }
        
     }
-    private void JumpStart()
+    public void JumpStart(InputAction.CallbackContext Fly)
     {
-        
-        if (_fly.triggered)
+
+
+        if (Fly.performed)
         {
             Debug.Log("ye");
             if (Grounded() == true)
             {
                 rbMoskito.AddForce(new Vector3(0, InitialLift, 0), ForceMode.Impulse);
                 _inFly = true;
-               
+
             }
             else
             {
-                
-                    _inFly = !_inFly;
-               
-               
+
+                _inFly = !_inFly;
+
+
 
             }
 
+            if (_inFly == true)
+            {
+                rbMoskito.drag = flyDrag;
+                rbMoskito.useGravity = false;
+
+            }
+            else
+            {
+                rbMoskito.drag = groundDrag;
+                rbMoskito.useGravity = true;
+            }
         }
+
+
 
 
 
 
 
         //Change gravity according to state.
-        if (_inFly == true)
-        {
-            rbMoskito.drag = flyDrag;
-            rbMoskito.useGravity = false;
-
-        }
-        else
-        {
-            rbMoskito.drag = groundDrag;
-            rbMoskito.useGravity = true;
-        }
+      
           
 
 

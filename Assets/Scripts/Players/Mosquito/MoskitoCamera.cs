@@ -34,11 +34,7 @@ public class MoskitoCamera : MonoBehaviour
     void Start()
     {
         transform.eulerAngles = new Vector3(0, 0, 0);
-        m_Controls = m_Controller.MoskControls;
-
-        rotationCamera = m_Controls.Moskito.Camera;
-
-        rotationCamera.Enable();
+       
     }
 
     
@@ -63,10 +59,14 @@ public class MoskitoCamera : MonoBehaviour
       
     }
 
+    public void ValueGet(InputAction.CallbackContext PunchASkito)
+    {
+        m_Position = PunchASkito.ReadValue<Vector2>();
+    }
    void MouseRotation()
     {
         
-        m_Position = rotationCamera.ReadValue<Vector2>();
+      
        
         Vector3 vec = transform.eulerAngles;
         vec.x = m_Position.x;

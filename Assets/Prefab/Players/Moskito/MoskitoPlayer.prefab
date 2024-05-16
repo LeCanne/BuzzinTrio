@@ -325,8 +325,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18873414, y: 0.18873414, z: 0.18873414}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7026130259706901573}
   - {fileID: 1351073276463341022}
@@ -501,10 +501,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 8137962142103133753}
+  - {fileID: 5860776593546396734}
   - {fileID: 9059722455733093344}
   - {fileID: 4796311464818398864}
   - {fileID: 8387901035973586448}
@@ -647,7 +647,7 @@ Transform:
   m_GameObject: {fileID: 3749303728458047641}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.009, z: 0.036}
+  m_LocalPosition: {x: 0, y: 0.013, z: 0.036}
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -868,7 +868,7 @@ Transform:
   m_GameObject: {fileID: 6312675203429575459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.073, z: 0.151}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 84f0e38e034a73a49bf7e343ccbe671b,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -1073,19 +1073,79 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7822092255979276689}
+        m_TargetAssemblyTypeName: MoskitoController, Assembly-CSharp
+        m_MethodName: JumpStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e0c00214-9f2d-4037-bcd8-7d6192744129
     m_ActionName: Moskito/Fly[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7822092255979276689}
+        m_TargetAssemblyTypeName: MoskitoController, Assembly-CSharp
+        m_MethodName: Movement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 33f79e66-6d9e-4ae2-948f-5f214bdee676
     m_ActionName: Moskito/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2948292215858712525}
+        m_TargetAssemblyTypeName: MoskitoCamera, Assembly-CSharp
+        m_MethodName: ValueGet
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c0a950ee-af91-409a-9929-c4d9c6ebc6d6
     m_ActionName: Moskito/Camera[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7822092255979276689}
+        m_TargetAssemblyTypeName: MoskitoController, Assembly-CSharp
+        m_MethodName: AttackEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4282325467743391097}
+        m_TargetAssemblyTypeName: StuckController, Assembly-CSharp
+        m_MethodName: Unstuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6210c147-0722-4074-a528-9a76cfee8bf6
     m_ActionName: Moskito/Sting[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -1096,7 +1156,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e3107169-abc5-4ab2-ad2f-0ffd2f92d23d
     m_ActionName: Human/Camera[/Mouse/delta]
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Moskito
   m_SplitScreenIndex: -1
@@ -1215,7 +1275,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7026130259706901573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2783596564840839831
+--- !u!1001 &8483138054160747163
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1223,89 +1283,84 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1351073276463341022}
     m_Modifications:
-    - target: {fileID: 5992624234875322056, guid: 6241d0c3a02244d418e3ff37c308eac6,
-        type: 3}
-      propertyPath: m_Name
-      value: MosquitoTextured
-      objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.07
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+    - target: {fileID: 4511827486861574235, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
+      propertyPath: m_Name
+      value: MosquitoV5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6241d0c3a02244d418e3ff37c308eac6, type: 3}
---- !u!4 &8137962142103133753 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: a269b07c377a0864c8ccacf7b4f4f1d8, type: 3}
+--- !u!4 &5860776593546396734 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6219061106325300398, guid: 6241d0c3a02244d418e3ff37c308eac6,
+  m_CorrespondingSourceObject: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
     type: 3}
-  m_PrefabInstance: {fileID: 2783596564840839831}
+  m_PrefabInstance: {fileID: 8483138054160747163}
   m_PrefabAsset: {fileID: 0}
