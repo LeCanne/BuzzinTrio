@@ -8,20 +8,20 @@ using UnityEngine.UIElements;
 
 public class HumanCamera : MonoBehaviour
 {
-    private MoskitoControls m_controls;
+   
     private InputAction camVec;
     public float Speed;
     private Vector2 m_rotation;
+    public GameObject followTransform;
     // Start is called before the first frame update
     private void Awake()
     {
-        m_controls = new MoskitoControls();
-        camVec = m_controls.Human.Camera;
+        
     }
 
     private void OnEnable()
     {
-        camVec.Enable();
+       
     }
     void Start()
     {
@@ -31,14 +31,19 @@ public class HumanCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = followTransform.transform.position;
         MouseRotate();
         Clamp();
     }
 
+    public void CameraMovement(InputAction.CallbackContext valuecam)
+    {
+        m_rotation = valuecam.ReadValue<Vector2>();
+    }
     void MouseRotate()
     {
-        m_rotation = camVec.ReadValue<Vector2>();
-        Debug.Log(camVec.ReadValue<Vector2>());
+      
+        
 
         Vector3 vec = transform.eulerAngles;
         vec.x = m_rotation.x;
@@ -58,6 +63,6 @@ public class HumanCamera : MonoBehaviour
 
     void Clamp()
     {
-        transform.eulerAngles = new Vector3(Mathf.Clamp(transform.eulerAngles.x, -90, 90), transform.eulerAngles.y, 0);
+       
     }
 }

@@ -213,11 +213,11 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Camera"",
+                    ""name"": ""Cam"",
                     ""type"": ""Value"",
-                    ""id"": ""e3107169-abc5-4ab2-ad2f-0ffd2f92d23d"",
+                    ""id"": ""e649f73c-4ace-4698-b6f9-418d25640e7e"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -291,23 +291,23 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""19b90b74-f33a-40de-a911-48b7687368fd"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""id"": ""0788b61f-70f9-42b3-adfd-2a7b83d232d0"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Camera"",
+                    ""action"": ""Cam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ba2298e3-96ee-4570-b773-cf76d3d6357f"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""id"": ""4534de3e-9905-4deb-9ec0-c1117e421a4a"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Camera"",
+                    ""action"": ""Cam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -342,7 +342,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         // Human
         m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
         m_Human_Walk = m_Human.FindAction("Walk", throwIfNotFound: true);
-        m_Human_Camera = m_Human.FindAction("Camera", throwIfNotFound: true);
+        m_Human_Cam = m_Human.FindAction("Cam", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -475,13 +475,13 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Human;
     private List<IHumanActions> m_HumanActionsCallbackInterfaces = new List<IHumanActions>();
     private readonly InputAction m_Human_Walk;
-    private readonly InputAction m_Human_Camera;
+    private readonly InputAction m_Human_Cam;
     public struct HumanActions
     {
         private @MoskitoControls m_Wrapper;
         public HumanActions(@MoskitoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Human_Walk;
-        public InputAction @Camera => m_Wrapper.m_Human_Camera;
+        public InputAction @Cam => m_Wrapper.m_Human_Cam;
         public InputActionMap Get() { return m_Wrapper.m_Human; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -494,9 +494,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
-            @Camera.started += instance.OnCamera;
-            @Camera.performed += instance.OnCamera;
-            @Camera.canceled += instance.OnCamera;
+            @Cam.started += instance.OnCam;
+            @Cam.performed += instance.OnCam;
+            @Cam.canceled += instance.OnCam;
         }
 
         private void UnregisterCallbacks(IHumanActions instance)
@@ -504,9 +504,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
-            @Camera.started -= instance.OnCamera;
-            @Camera.performed -= instance.OnCamera;
-            @Camera.canceled -= instance.OnCamera;
+            @Cam.started -= instance.OnCam;
+            @Cam.performed -= instance.OnCam;
+            @Cam.canceled -= instance.OnCam;
         }
 
         public void RemoveCallbacks(IHumanActions instance)
@@ -543,6 +543,6 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     public interface IHumanActions
     {
         void OnWalk(InputAction.CallbackContext context);
-        void OnCamera(InputAction.CallbackContext context);
+        void OnCam(InputAction.CallbackContext context);
     }
 }

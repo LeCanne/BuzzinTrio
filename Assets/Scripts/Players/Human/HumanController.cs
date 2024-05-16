@@ -10,7 +10,7 @@ public class HumanController : MonoBehaviour
     public float Speed;
     private MoskitoControls m_Controls;
     private Rigidbody rbPlayer;
-    private InputAction move;
+    
     
     private Vector2 moveForce;
 
@@ -19,15 +19,15 @@ public class HumanController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        m_Controls = new MoskitoControls();
+        
         rbPlayer = GetComponent<Rigidbody>();
-        move = m_Controls.Human.Walk;
+        
 
     }
 
     private void OnEnable()
     {
-        move.Enable();
+        
     }
     void Start()
     {
@@ -39,7 +39,7 @@ public class HumanController : MonoBehaviour
 
     void Update()
     {
-        Movement();
+        
     }
 
     void FixedUpdate()
@@ -47,9 +47,9 @@ public class HumanController : MonoBehaviour
         MovePhysics();
     }
 
-    private void Movement()
+    public void Movement(InputAction.CallbackContext joystickmove)
     {
-        moveForce = move.ReadValue<Vector2>();
+        moveForce = joystickmove.ReadValue<Vector2>();
 
 
     }
@@ -58,5 +58,10 @@ public class HumanController : MonoBehaviour
     {
         rbPlayer.AddForce(moveForce.y * transform.forward * Speed, ForceMode.Force);
         rbPlayer.AddForce(moveForce.x * transform.right * Speed, ForceMode.Force);
+    }
+
+    private void RotationCam()
+    {
+
     }
 }

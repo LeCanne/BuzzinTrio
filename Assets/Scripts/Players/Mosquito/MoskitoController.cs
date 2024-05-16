@@ -187,7 +187,7 @@ public class MoskitoController : MonoBehaviour
     {
 
 
-        if (Fly.performed)
+        if (Fly.performed && enabled == true)
         {
             Debug.Log("ye");
             if (Grounded() == true)
