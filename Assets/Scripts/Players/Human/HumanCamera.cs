@@ -13,6 +13,13 @@ public class HumanCamera : MonoBehaviour
     public float Speed;
     private Vector2 m_rotation;
     public GameObject followTransform;
+    private Vector2 variableCam;
+
+    [Header("CameraSettings")]
+    public float max;
+    public float min;
+    
+     
     // Start is called before the first frame update
     private void Awake()
     {
@@ -34,6 +41,7 @@ public class HumanCamera : MonoBehaviour
         transform.position = followTransform.transform.position;
         MouseRotate();
         Clamp();
+
     }
 
     public void CameraMovement(InputAction.CallbackContext valuecam)
@@ -45,17 +53,19 @@ public class HumanCamera : MonoBehaviour
       
         
 
-        Vector3 vec = transform.eulerAngles;
-        vec.x = m_rotation.x;
-        vec.y = m_rotation.y;
+      
+        variableCam.x += m_rotation.x * Speed;
+        variableCam.y -= m_rotation.y * Speed;
+
+        variableCam.y = Mathf.Clamp(variableCam.y, max, min);
 
         if (m_rotation.magnitude > 0)
         {
-            transform.Rotate(-vec.y * Speed * Time.deltaTime, 0, 0, Space.Self);
+           transform.eulerAngles = new Vector3(variableCam.y, variableCam.x, 0);
 
 
            
-             transform.Rotate(0, -vec.x * Speed * Time.deltaTime, 0, Space.World);
+          
             
             
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,10 @@ public class HumanController : MonoBehaviour
     public float Speed;
     private MoskitoControls m_Controls;
     private Rigidbody rbPlayer;
+    public float Deceleration;
+
+    [Header ("Dependencies")]
+    public GameObject Camera;
     
     
     private Vector2 moveForce;
@@ -39,7 +44,7 @@ public class HumanController : MonoBehaviour
 
     void Update()
     {
-        
+        RotationCam();
     }
 
     void FixedUpdate()
@@ -56,12 +61,17 @@ public class HumanController : MonoBehaviour
 
     private void MovePhysics()
     {
-        rbPlayer.AddForce(moveForce.y * transform.forward * Speed, ForceMode.Force);
-        rbPlayer.AddForce(moveForce.x * transform.right * Speed, ForceMode.Force);
+        if(moveForce.magnitude > 0)
+        {
+            rbPlayer.AddForce(moveForce.y * transform.forward * Speed, ForceMode.Force);
+            rbPlayer.AddForce(moveForce.x * transform.right * Speed, ForceMode.Force);
+        }
+     
+       
     }
 
     private void RotationCam()
     {
-
+        transform.eulerAngles = new Vector3(0, Camera.transform.eulerAngles.y, 0); 
     }
 }

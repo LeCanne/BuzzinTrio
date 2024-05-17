@@ -14,6 +14,7 @@ public class MoskitoController : MonoBehaviour
     public float groundDrag;
     public float InitialLift;
     public GameObject Camera;
+    [HideInInspector] public Collider _collider;
 
     [Header("PhysicsChecks")]
     public LayerMask maskToCheck;
@@ -46,6 +47,7 @@ public class MoskitoController : MonoBehaviour
     {
 
         rbMoskito = GetComponent<Rigidbody>();
+        _collider = GetComponent<CapsuleCollider>();
     }
     private void OnEnable()
     {

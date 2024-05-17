@@ -21,12 +21,15 @@ public class StuckController : MonoBehaviour
     {
 
         _MoskitoController = GetComponent<MoskitoController>();
+        rigidMoskito = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
     {
-       
-        
+
+        rigidMoskito.isKinematic = true;
+        _MoskitoController._collider.isTrigger = true;
+        _MoskitoController.HitBox.SetActive(false);
         // player.actions = m_Controls.asset;
     }
     void Start()
@@ -40,8 +43,8 @@ public class StuckController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+
+      
     }
 
     public void Unstuck(InputAction.CallbackContext punchawall)
@@ -55,8 +58,9 @@ public class StuckController : MonoBehaviour
             }
             else
             {
-
+                rigidMoskito.isKinematic = false;
                 _MoskitoController.enabled = true;
+                _MoskitoController._collider.isTrigger = false;
                 rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
 
                 spamCurrent = 0;
