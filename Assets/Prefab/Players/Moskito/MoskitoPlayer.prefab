@@ -1440,6 +1440,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1351073276463341022}
     m_Modifications:
+    - target: {fileID: 949937673308647224, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3b54c0d5a125a9459e69775b875697c, type: 2}
     - target: {fileID: 2661487053742034597, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1505,11 +1510,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3662042736530358713, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c26d3104ea57022459b06599a64d44a5, type: 2}
     - target: {fileID: 4511827486861574235, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
         type: 3}
       propertyPath: m_Name
       value: MosquitoV5
       objectReference: {fileID: 0}
+    - target: {fileID: 9213969385371820927, guid: a269b07c377a0864c8ccacf7b4f4f1d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c8012922d50e36449f6504891b91304, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
