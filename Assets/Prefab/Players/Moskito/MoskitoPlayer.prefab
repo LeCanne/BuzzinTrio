@@ -305,12 +305,13 @@ GameObject:
   - component: {fileID: 240248735309602163}
   - component: {fileID: 8731905190223986147}
   - component: {fileID: 7822092255979276689}
+  - component: {fileID: 3107732586708721525}
   - component: {fileID: 4282325467743391097}
   - component: {fileID: 8954198078501161902}
   - component: {fileID: 5852168495373341863}
   m_Layer: 3
   m_Name: Moskito
-  m_TagString: Untagged
+  m_TagString: Moskito
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
   groundDrag: 3
   InitialLift: 7
   Camera: {fileID: 3749303728458047641}
+  _collider: {fileID: 0}
   maskToCheck:
     serializedVersion: 2
     m_Bits: 1
@@ -407,9 +409,27 @@ MonoBehaviour:
   smoothVelocitor: 0.99
   FlightSpeed: 0
   AttackBoostSpeed: 10
+  _inFly: 0
   attackDuration: 0.5
+  dead: 0
   HitBox: {fileID: 5661667946646621665}
   Input: {fileID: 8761169879126102518}
+--- !u!114 &3107732586708721525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609257305031371593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f938d83ef9b26824a82a23594ea3dc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moskControl: {fileID: 7822092255979276689}
+  _stuckController: {fileID: 4282325467743391097}
+  _camera: {fileID: 2948292215858712525}
+  RespawnTime: 3
 --- !u!114 &4282325467743391097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
+  maxDistance: 15
   positionHold: {fileID: 6312675203429575459}
   moskitoSkin: {fileID: 2609257305031371593}
   m_Controller: {fileID: 7822092255979276689}
@@ -1189,6 +1210,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e649f73c-4ace-4698-b6f9-418d25640e7e
     m_ActionName: Human/Cam[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5a492d87-8aed-4f85-bff6-69e850e7de2c
+    m_ActionName: Human/Slap[/Mouse/leftButton,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Moskito

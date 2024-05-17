@@ -58,20 +58,24 @@ public class StuckController : MonoBehaviour
             }
             else
             {
-                rigidMoskito.isKinematic = false;
-                _MoskitoController.enabled = true;
-                _MoskitoController._collider.isTrigger = false;
-                rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
-
-                spamCurrent = 0;
-                gameObject.transform.parent = null;
-                moskitoCamera.checkStung = false;
-                this.enabled = false;
+                Unstucked();
 
             }
         }
      
     }
 
-   
+    public void Unstucked()
+    {
+        rigidMoskito.isKinematic = false;
+        _MoskitoController.enabled = true;
+        _MoskitoController._collider.isTrigger = false;
+        rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
+
+        spamCurrent = 0;
+        gameObject.transform.parent = null;
+        moskitoCamera.checkStung = false;
+        this.enabled = false;
+    }
+
 }

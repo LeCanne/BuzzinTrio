@@ -108,6 +108,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e649f73c-4ace-4698-b6f9-418d25640e7e
     m_ActionName: Human/Cam[/XInputControllerWindows/rightStick,/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2677828707941903218}
+        m_TargetAssemblyTypeName: AttackHuman, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5a492d87-8aed-4f85-bff6-69e850e7de2c
+    m_ActionName: Human/Slap[/Mouse/leftButton,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Human
@@ -126,6 +142,7 @@ GameObject:
   - component: {fileID: 1743238167449240849}
   - component: {fileID: 5138160405298865145}
   - component: {fileID: 5566220142050358401}
+  - component: {fileID: 2677828707941903218}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -267,6 +284,20 @@ MonoBehaviour:
   followTransform: {fileID: 7891354282254367746}
   max: -90
   min: 90
+--- !u!114 &2677828707941903218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452667954810481422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611507556efc5d844af012a1c350768e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 8
+  width: 1
 --- !u!1 &7891354282254367746
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +441,7 @@ GameObject:
   - component: {fileID: 2408146133950028297}
   - component: {fileID: 2900569290171094572}
   - component: {fileID: 3584444393417803523}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Human
   m_Icon: {fileID: 0}

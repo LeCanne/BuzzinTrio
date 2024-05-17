@@ -4,6 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Processors;
 
 public class MoskitoController : MonoBehaviour
 {
@@ -33,10 +34,11 @@ public class MoskitoController : MonoBehaviour
     
 
     [Header("Checker")]
-    private bool _inFly;
+    [HideInInspector] public bool _inFly;
     private float attackTimer;
     private float attackCurrent;
     public float attackDuration;
+    public bool dead;
     
     [Header("AttachedObjects")]
     public GameObject HitBox;
@@ -75,13 +77,17 @@ public class MoskitoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(dead == false)
+        {
+            if (_inFly == true)
+            {
+                StingAttack();
+            }
+        }
         
         transform.rotation = Camera.transform.rotation;
        
-        if(_inFly == true)
-        {
-            StingAttack();
-        }
+      
       
     }
 
@@ -112,7 +118,7 @@ public class MoskitoController : MonoBehaviour
   
     private void MovementPhysics()
     {
-        if (_inFly == true)
+        if (_inFly == true && dead == false)
         {
             rbMoskito.AddForce(transform.forward * _moveDirection.y * 10);
             rbMoskito.AddForce(transform.right * _moveDirection.x * 10);
@@ -169,27 +175,30 @@ public class MoskitoController : MonoBehaviour
     private void StingAttack()
     {
        
+        if(dead == false)
+        {
+            if (attackTimer >= 0)
+            {
+                attackTimer -= Time.deltaTime;
+            }
 
-        if(attackTimer >= 0)
-        {
-            attackTimer -= Time.deltaTime;
+            if (attackCurrent <= 0)
+            {
+                HitBox.SetActive(false);
+            }
+            else
+            {
+                attackCurrent -= Time.deltaTime;
+            }
         }
-
-        if(attackCurrent <= 0)
-        {
-            HitBox.SetActive(false);
-        }
-        else
-        {
-            attackCurrent -= Time.deltaTime;
-        }
+      
        
     }
     public void JumpStart(InputAction.CallbackContext Fly)
     {
 
 
-        if (Fly.performed && enabled == true)
+        if (Fly.performed && enabled == true && dead == false)
         {
             Debug.Log("ye");
             if (Grounded() == true)
@@ -233,6 +242,8 @@ public class MoskitoController : MonoBehaviour
 
     }
 
+
+    
     
     #endregion
 }

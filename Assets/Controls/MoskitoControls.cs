@@ -220,6 +220,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Slap"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a492d87-8aed-4f85-bff6-69e850e7de2c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -310,6 +319,28 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Cam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b3d8b98-0ca4-4233-9ad2-e2f757bde98b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14ac48b8-f468-4197-830a-5ac186a826af"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -343,6 +374,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
         m_Human_Walk = m_Human.FindAction("Walk", throwIfNotFound: true);
         m_Human_Cam = m_Human.FindAction("Cam", throwIfNotFound: true);
+        m_Human_Slap = m_Human.FindAction("Slap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -476,12 +508,14 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private List<IHumanActions> m_HumanActionsCallbackInterfaces = new List<IHumanActions>();
     private readonly InputAction m_Human_Walk;
     private readonly InputAction m_Human_Cam;
+    private readonly InputAction m_Human_Slap;
     public struct HumanActions
     {
         private @MoskitoControls m_Wrapper;
         public HumanActions(@MoskitoControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Human_Walk;
         public InputAction @Cam => m_Wrapper.m_Human_Cam;
+        public InputAction @Slap => m_Wrapper.m_Human_Slap;
         public InputActionMap Get() { return m_Wrapper.m_Human; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -497,6 +531,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Cam.started += instance.OnCam;
             @Cam.performed += instance.OnCam;
             @Cam.canceled += instance.OnCam;
+            @Slap.started += instance.OnSlap;
+            @Slap.performed += instance.OnSlap;
+            @Slap.canceled += instance.OnSlap;
         }
 
         private void UnregisterCallbacks(IHumanActions instance)
@@ -507,6 +544,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Cam.started -= instance.OnCam;
             @Cam.performed -= instance.OnCam;
             @Cam.canceled -= instance.OnCam;
+            @Slap.started -= instance.OnSlap;
+            @Slap.performed -= instance.OnSlap;
+            @Slap.canceled -= instance.OnSlap;
         }
 
         public void RemoveCallbacks(IHumanActions instance)
@@ -544,5 +584,6 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnCam(InputAction.CallbackContext context);
+        void OnSlap(InputAction.CallbackContext context);
     }
 }

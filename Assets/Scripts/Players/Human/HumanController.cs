@@ -15,6 +15,7 @@ public class HumanController : MonoBehaviour
 
     [Header ("Dependencies")]
     public GameObject Camera;
+
     
     
     private Vector2 moveForce;

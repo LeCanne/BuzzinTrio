@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class MoskitoCamera : MonoBehaviour
 {
     public float speed;
+    public float maxDistance;
     public GameObject positionHold;
     private Vector2 m_Position;
     private Vector3 origin;
@@ -49,10 +50,9 @@ public class MoskitoCamera : MonoBehaviour
             MouseRotation();
             RotationResetter();
         }
-
         else
         {
-            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, new Vector3(origin.z, origin.y, origin.z - 2), 3 * Time.deltaTime);
+            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, new Vector3(origin.z, origin.y, origin.z - maxDistance), 3 * Time.deltaTime);
             transform.LookAt(moskitoSkin.transform);
         }
        
