@@ -16,7 +16,7 @@ public class PlayerIndexCheck : MonoBehaviour
         _inputManager = GetComponent<PlayerInputManager>();
     }
 
-    public void Update()
+    public void LateUpdate()
     {
         if(_inputManager.playerCount < 1)
         {
