@@ -54,6 +54,6 @@ public class MoskitoGeneral : MonoBehaviour
         _camera.enabled = true;
 
         timeSpent = 0;
-        transform.position = origin;
+        SpawnManager.Instance.SpawnMe(gameObject);
     }
 }
