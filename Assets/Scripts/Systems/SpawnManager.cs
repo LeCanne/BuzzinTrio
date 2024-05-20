@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    
    public static SpawnManager Instance;
     public List<GameObject> spawns = new List<GameObject>();
     // Start is called before the first frame update
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         Instance = this;
        
     }

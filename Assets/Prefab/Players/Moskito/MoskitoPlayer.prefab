@@ -702,10 +702,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+    x: 0.5
+    y: 0.7
+    width: 0.5
+    height: 0.33
   near clip plane: 0.01
   far clip plane: 1000
   field of view: 89
@@ -795,6 +795,7 @@ MonoBehaviour:
   positionHold: {fileID: 6312675203429575459}
   moskitoSkin: {fileID: 2609257305031371593}
   m_Controller: {fileID: 7822092255979276689}
+  _playerInput: {fileID: 8761169879126102518}
   checkStung: 0
 --- !u!1 &4414549494378788311
 GameObject:

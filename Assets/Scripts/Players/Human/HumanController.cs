@@ -27,6 +27,7 @@ public class HumanController : MonoBehaviour
     {
         
         rbPlayer = GetComponent<Rigidbody>();
+        transform.position = GameObject.FindWithTag("PlayerSpawn").transform.position;
         
 
     }

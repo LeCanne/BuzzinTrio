@@ -24,6 +24,7 @@ public class PlayerIndexCheck : MonoBehaviour
         }
         else
         {
+         
             _inputManager.playerPrefab = Moskito;
         }
     }

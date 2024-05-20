@@ -15,6 +15,8 @@ public class MoskitoCamera : MonoBehaviour
     private MoskitoControls m_Controls;
     public MoskitoController m_Controller;
     private InputAction rotationCamera;
+    public PlayerInput _playerInput;
+    private Camera _camera;
     
 
     public bool checkStung;
@@ -23,9 +25,10 @@ public class MoskitoCamera : MonoBehaviour
 
     private void Awake()
     {
-
-       
+        _camera = GetComponent<Camera>();
+        GetPlayer();
         origin = positionHold.transform.localPosition;
+        
         
     }
     private void OnEnable()
@@ -117,5 +120,23 @@ public class MoskitoCamera : MonoBehaviour
             positionHold.transform.localPosition = origin;
         }
       
+    }
+
+    void GetPlayer()
+    {
+        if(_playerInput.playerIndex == 1)
+        {
+            _camera.rect = new Rect(0.5f, 0.67f, 0.5f, 0.33f);
+        }
+
+        if (_playerInput.playerIndex == 2)
+        {
+            _camera.rect = new Rect(0.5f, 0.335f, 0.5f, 0.33f);
+        }
+
+        if (_playerInput.playerIndex == 3)
+        {
+            _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.33f);
+        }
     }
 }
