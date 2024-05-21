@@ -36,8 +36,11 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnMe(GameObject obj)
     {
-        obj.transform.position = spawns[Random.Range(0, spawns.Count - 1)].transform.position;
+        GameObject ovj = spawns[Random.Range(0, spawns.Count - 1)];
+        obj.transform.position = ovj.transform.position;
+        obj.transform.rotation = ovj.transform.rotation;
     }
+   
     // Update is called once per frame
     void Update()
     {

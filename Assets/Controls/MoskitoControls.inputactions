@@ -289,11 +289,11 @@
                 },
                 {
                     "name": "",
-                    "id": "4534de3e-9905-4deb-9ec0-c1117e421a4a",
+                    "id": "2da01989-6a04-4f51-92d0-90ff12ab5175",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "UniversalControlScheme",
                     "action": "Cam",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -304,7 +304,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "UniversalControlScheme",
                     "action": "Slap",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -312,7 +312,7 @@
                 {
                     "name": "",
                     "id": "14ac48b8-f468-4197-830a-5ac186a826af",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

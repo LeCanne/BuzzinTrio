@@ -120,8 +120,8 @@ public class MoskitoController : MonoBehaviour
     {
         if (_inFly == true && dead == false)
         {
-            rbMoskito.AddForce(transform.forward * _moveDirection.y * 10);
-            rbMoskito.AddForce(transform.right * _moveDirection.x * 10);
+            rbMoskito.AddForce(transform.forward * _moveDirection.y * FlightSpeed);
+            rbMoskito.AddForce(transform.right * _moveDirection.x * FlightSpeed);
         }
       
     }
