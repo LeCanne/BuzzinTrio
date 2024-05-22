@@ -54,8 +54,8 @@ public class HumanCamera : MonoBehaviour
         
 
       
-        variableCam.x += m_rotation.x * Speed;
-        variableCam.y -= m_rotation.y * Speed;
+        variableCam.x += m_rotation.x * Speed * Time.deltaTime;
+        variableCam.y -= m_rotation.y * Speed * Time.deltaTime;
 
         variableCam.y = Mathf.Clamp(variableCam.y, max, min);
 

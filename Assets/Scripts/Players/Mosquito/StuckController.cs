@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class StuckController : MonoBehaviour
 {
@@ -12,25 +13,51 @@ public class StuckController : MonoBehaviour
     public MoskitoCamera moskitoCamera;
     private Rigidbody rigidMoskito;
     private InputAction _spam;
-    private int spamCurrent;
+    public Collider _collider;
     public PlayerInput player;
-    [Header ("Parameters")]
+    [Header("Parameters")]
+    public float suckspeed;
     public int SpamCount;
+    private bool pumping;
+    private bool max;
+    private int spamCurrent;
+    [Header("Damager Bool")]
+    [HideInInspector] public bool HumanHit;
+    [Header("UI Management")]
+    public GameObject healthbar;
+    public Slider BloodSlider;
+    public Slider StockSlider;
+    [Header("Damager")]
+    public float OverallDamage;
+    public float damage;
+    
+
+
+
+
     // Start is called before the first frame update
     private void Awake()
     {
-
+        OverallDamage = StockSlider.maxValue;
+        BloodSlider.maxValue = StockSlider.maxValue;
         _MoskitoController = GetComponent<MoskitoController>();
         rigidMoskito = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
     {
-
+        
+        _collider.enabled = false;
         rigidMoskito.isKinematic = true;
         _MoskitoController._collider.isTrigger = true;
         _MoskitoController.HitBox.SetActive(false);
         // player.actions = m_Controls.asset;
+    }
+
+    private void OnDisable()
+    {
+        _collider.enabled = true;
+       
     }
     void Start()
     {
@@ -43,7 +70,17 @@ public class StuckController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (HumanHit == true)
+        {
+            healthbar.SetActive(true);
+            
 
+        }
+        if (pumping == true)
+        {
+            Increase();
+        }
+      
       
     }
 
@@ -51,21 +88,100 @@ public class StuckController : MonoBehaviour
     {
         if (punchawall.performed && enabled == true)
         {
-            if (spamCurrent < SpamCount)
-            {
 
-                spamCurrent += 1;
+
+
+            if(HumanHit == false)
+            {
+                if (spamCurrent < SpamCount)
+                {
+                    spamCurrent++;
+                }
+                else
+                {
+                    Unstucked();
+                }
+            }
+           
+                
+            
+        }
+
+        
+
+    }
+
+    public void Suck(InputAction.CallbackContext suck)
+    {
+        if(HumanHit == true)
+        {
+            
+            if (suck.performed && enabled == true)
+            {
+                pumping = true;
+               
+            }
+            if (suck.canceled && enabled == true)
+            {
+                if (HumanHit == true)
+                {
+                    Debug.Log("yesss");
+                    Succ();
+                    pumping = false;
+                }
+            }
+        }
+      
+    }
+
+
+    private void Succ()
+    {
+        max = false;
+       
+        StockSlider.value += BloodSlider.value;
+        DamagePlayer();
+
+      
+
+        Unstucked();
+
+    }
+
+
+    public void Increase()
+    {
+        if(max == false)
+        {
+            if (BloodSlider.value < BloodSlider.maxValue)
+            {
+                BloodSlider.value += suckspeed * Time.deltaTime;
+
             }
             else
             {
-                Unstucked();
-
+                max = true;
             }
         }
-     
+        else
+        {
+            if (BloodSlider.value > 0)
+            {
+                BloodSlider.value -= suckspeed * Time.deltaTime;
+
+            }
+            else
+            {
+                max = false;
+            }
+        }
+       
+      
     }
 
-    public void Unstucked()
+   
+
+    public void Unstucked() 
     {
         rigidMoskito.isKinematic = false;
         _MoskitoController.enabled = true;
@@ -77,5 +193,19 @@ public class StuckController : MonoBehaviour
         moskitoCamera.checkStung = false;
         this.enabled = false;
     }
+
+    public void DamagePlayer()
+    {
+        MatchManager.instance.HP -= damage;
+        damage -= BloodSlider.value;
+        BloodSlider.value = 0;
+    }
+
+    public void ResetDamage()
+    {
+        damage = OverallDamage;
+    }
+
+    
 
 }
