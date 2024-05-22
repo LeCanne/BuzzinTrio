@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Suck",
+                    "type": "Button",
+                    "id": "6225d9e0-a665-4344-9858-583d74fed0a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -167,11 +176,33 @@
                 {
                     "name": "",
                     "id": "16aa52f5-953e-4ba1-9080-ef204178d078",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Sting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9bfebd7-1702-4390-81b7-db186b912efc",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Suck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "419f9f1d-4cc0-4f98-8071-d34c7b8eb2c8",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Suck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -281,7 +312,7 @@
                     "id": "0788b61f-70f9-42b3-adfd-2a7b83d232d0",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=10,y=10)",
                     "groups": "",
                     "action": "Cam",
                     "isComposite": false,
@@ -290,10 +321,10 @@
                 {
                     "name": "",
                     "id": "2da01989-6a04-4f51-92d0-90ff12ab5175",
-                    "path": "<Mouse>/delta",
+                    "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "UniversalControlScheme",
+                    "groups": "",
                     "action": "Cam",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -335,6 +366,11 @@
                 },
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": true,
                     "isOR": false
                 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -13,23 +14,25 @@ public class SpawnManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         Instance = this;
+        SceneManager.sceneLoaded += StartGame;
        
     }
-  
+
    
-        
-    
+
+
     void Start()
     {
 
-        StartGame();
+       
     }
    
     
         
     
-    void StartGame()
+    void StartGame(Scene scene, LoadSceneMode load)
     {
+        Debug.Log("yes");
         spawns.Clear();
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawns"));
     }

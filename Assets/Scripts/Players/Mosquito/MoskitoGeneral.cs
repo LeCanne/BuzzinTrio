@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoskitoGeneral : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MoskitoGeneral : MonoBehaviour
     private Vector3 origin;
     public float RespawnTime;
     private float timeSpent;
+    public Slider stock;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +39,8 @@ public class MoskitoGeneral : MonoBehaviour
     {
         _stuckController.Unstucked();
 
-      
-       
+        stock.value = 0;
+        _stuckController.HumanHit = false;
         _camera.checkStung = true;
         RbMoskito.useGravity = true;
         _moskControl._inFly = false;

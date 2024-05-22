@@ -13,6 +13,10 @@ public class MatchManager : MonoBehaviour
     public float timerLeft;
     public bool TimerOn;
 
+    [Header("PlayerSetup")]
+    public float HP;
+    public float MaxHP;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

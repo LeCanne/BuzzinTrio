@@ -62,6 +62,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Suck"",
+                    ""type"": ""Button"",
+                    ""id"": ""6225d9e0-a665-4344-9858-583d74fed0a1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -189,11 +198,33 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""16aa52f5-953e-4ba1-9080-ef204178d078"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Sting"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9bfebd7-1702-4390-81b7-db186b912efc"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Suck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""419f9f1d-4cc0-4f98-8071-d34c7b8eb2c8"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Suck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -303,7 +334,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""id"": ""0788b61f-70f9-42b3-adfd-2a7b83d232d0"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=10,y=10)"",
                     ""groups"": """",
                     ""action"": ""Cam"",
                     ""isComposite"": false,
@@ -312,10 +343,10 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2da01989-6a04-4f51-92d0-90ff12ab5175"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""UniversalControlScheme"",
+                    ""groups"": """",
                     ""action"": ""Cam"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -359,6 +390,11 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": true,
                     ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
                 }
             ]
         }
@@ -370,6 +406,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Moskito_Move = m_Moskito.FindAction("Move", throwIfNotFound: true);
         m_Moskito_Camera = m_Moskito.FindAction("Camera", throwIfNotFound: true);
         m_Moskito_Sting = m_Moskito.FindAction("Sting", throwIfNotFound: true);
+        m_Moskito_Suck = m_Moskito.FindAction("Suck", throwIfNotFound: true);
         // Human
         m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
         m_Human_Walk = m_Human.FindAction("Walk", throwIfNotFound: true);
@@ -440,6 +477,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Moskito_Move;
     private readonly InputAction m_Moskito_Camera;
     private readonly InputAction m_Moskito_Sting;
+    private readonly InputAction m_Moskito_Suck;
     public struct MoskitoActions
     {
         private @MoskitoControls m_Wrapper;
@@ -448,6 +486,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Moskito_Move;
         public InputAction @Camera => m_Wrapper.m_Moskito_Camera;
         public InputAction @Sting => m_Wrapper.m_Moskito_Sting;
+        public InputAction @Suck => m_Wrapper.m_Moskito_Suck;
         public InputActionMap Get() { return m_Wrapper.m_Moskito; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -469,6 +508,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Sting.started += instance.OnSting;
             @Sting.performed += instance.OnSting;
             @Sting.canceled += instance.OnSting;
+            @Suck.started += instance.OnSuck;
+            @Suck.performed += instance.OnSuck;
+            @Suck.canceled += instance.OnSuck;
         }
 
         private void UnregisterCallbacks(IMoskitoActions instance)
@@ -485,6 +527,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Sting.started -= instance.OnSting;
             @Sting.performed -= instance.OnSting;
             @Sting.canceled -= instance.OnSting;
+            @Suck.started -= instance.OnSuck;
+            @Suck.performed -= instance.OnSuck;
+            @Suck.canceled -= instance.OnSuck;
         }
 
         public void RemoveCallbacks(IMoskitoActions instance)
@@ -579,6 +624,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnSting(InputAction.CallbackContext context);
+        void OnSuck(InputAction.CallbackContext context);
     }
     public interface IHumanActions
     {
