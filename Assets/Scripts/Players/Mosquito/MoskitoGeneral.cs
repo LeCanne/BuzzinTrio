@@ -46,6 +46,7 @@ public class MoskitoGeneral : MonoBehaviour
         _moskControl._inFly = false;
         _moskControl.dead = true;
         _camera.enabled = false;
+        _stuckController.ResetDamage();
         
     }
 

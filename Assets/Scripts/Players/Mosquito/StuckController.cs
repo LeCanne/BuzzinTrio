@@ -39,6 +39,7 @@ public class StuckController : MonoBehaviour
     private void Awake()
     {
         OverallDamage = StockSlider.maxValue;
+        damage = OverallDamage;
         BloodSlider.maxValue = StockSlider.maxValue;
         _MoskitoController = GetComponent<MoskitoController>();
         rigidMoskito = GetComponent<Rigidbody>();
@@ -137,10 +138,11 @@ public class StuckController : MonoBehaviour
 
     private void Succ()
     {
+        DamagePlayer();
         max = false;
        
-        StockSlider.value += BloodSlider.value;
-        DamagePlayer();
+      
+        
 
       
 
@@ -196,8 +198,18 @@ public class StuckController : MonoBehaviour
 
     public void DamagePlayer()
     {
-        MatchManager.instance.HP -= damage;
-        damage -= BloodSlider.value;
+        StockSlider.value += BloodSlider.value;
+        if (damage < BloodSlider.value)
+        {
+            MatchManager.instance.HP -= damage;
+        }
+        else
+        {
+            MatchManager.instance.HP -= BloodSlider.value;
+            damage -= BloodSlider.value;
+        }
+     
+        
         BloodSlider.value = 0;
     }
 

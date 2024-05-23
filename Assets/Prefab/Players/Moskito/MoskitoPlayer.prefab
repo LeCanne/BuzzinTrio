@@ -791,6 +791,7 @@ MonoBehaviour:
   BloodSlider: {fileID: 1573451526855211013}
   StockSlider: {fileID: 4728385708946538365}
   OverallDamage: 0
+  damage: 0
 --- !u!136 &8954198078501161902
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1804,7 +1805,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 6
+  m_MaxValue: 4
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
