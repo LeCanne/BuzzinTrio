@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MoskitoGeneral : MonoBehaviour
@@ -40,6 +42,7 @@ public class MoskitoGeneral : MonoBehaviour
         _stuckController.Unstucked();
 
         stock.value = 0;
+        _moskControl.attackTimer = 0;
         _stuckController.HumanHit = false;
         _camera.checkStung = true;
         RbMoskito.useGravity = true;
@@ -59,4 +62,6 @@ public class MoskitoGeneral : MonoBehaviour
         timeSpent = 0;
         SpawnManager.Instance.SpawnMe(gameObject);
     }
+
+    
 }

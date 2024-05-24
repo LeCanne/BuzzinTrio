@@ -189,7 +189,7 @@ public class StuckController : MonoBehaviour
         _MoskitoController.enabled = true;
         _MoskitoController._collider.isTrigger = false;
         rigidMoskito.AddForce(-transform.forward * 10, ForceMode.Impulse);
-
+        HumanHit = false;
         spamCurrent = 0;
         gameObject.transform.parent = null;
         moskitoCamera.checkStung = false;

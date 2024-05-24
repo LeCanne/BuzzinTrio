@@ -35,7 +35,7 @@ public class MoskitoController : MonoBehaviour
 
     [Header("Checker")]
     [HideInInspector] public bool _inFly;
-    private float attackTimer;
+    [HideInInspector] public float attackTimer;
     private float attackCurrent;
     public float attackDuration;
     public bool dead;

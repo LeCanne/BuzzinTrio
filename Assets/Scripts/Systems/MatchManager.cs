@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MatchManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class MatchManager : MonoBehaviour
     public float Timer;
     public float timerLeft;
     public bool TimerOn;
+    private bool onlyOnce;
 
     [Header("PlayerSetup")]
     public float HP;
@@ -49,6 +52,12 @@ public class MatchManager : MonoBehaviour
             {
                 timerLeft = 0;
                 TimerOn = false;
+                if(onlyOnce == false)
+                {
+                    WinCondition();
+                    onlyOnce = true;
+                }
+              
             }
         }
     }
@@ -62,5 +71,25 @@ public class MatchManager : MonoBehaviour
 
         timerTxt = string.Format("{0:00} : {1:00}", minutes, seconds);
         
+    }
+
+     
+    void WinCondition()
+    {
+        updateTimer(0);
+        StopGame();
+        if (timerLeft <= 0)
+        {
+           
+
+        }
+    }
+
+    public void StopGame()
+    {
+      
+
+        InputSystem.DisableAllEnabledActions();
+       
     }
 }
