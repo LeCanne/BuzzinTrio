@@ -748,6 +748,7 @@ MonoBehaviour:
   FlightSpeed: 20
   AttackBoostSpeed: 10
   _inFly: 0
+  attackTimer: 0
   attackDuration: 0.5
   dead: 0
   HitBox: {fileID: 5661667946646621665}
@@ -767,8 +768,15 @@ MonoBehaviour:
   _moskControl: {fileID: 7822092255979276689}
   _stuckController: {fileID: 4282325467743391097}
   _camera: {fileID: 2948292215858712525}
+  camera_Asset: {fileID: 3058478720671532302}
   RespawnTime: 3
   stock: {fileID: 4728385708946538365}
+  layermaskall:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  layermaskempty:
+    serializedVersion: 2
+    m_Bits: 1023
 --- !u!114 &4282325467743391097
 MonoBehaviour:
   m_ObjectHideFlags: 0

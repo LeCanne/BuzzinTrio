@@ -8,6 +8,7 @@ TagManager:
   - Moskito
   - Spawns
   - PlayerSpawn
+  - ExtractZone
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Bodyparts
   - PlayerSee
   - MoskitoSee
-  - 
+  - Extraction
   - 
   - 
   - 

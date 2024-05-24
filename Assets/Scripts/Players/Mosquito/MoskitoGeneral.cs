@@ -11,10 +11,13 @@ public class MoskitoGeneral : MonoBehaviour
     public StuckController _stuckController;
     private Rigidbody RbMoskito;
     public MoskitoCamera _camera;
+    public Camera camera_Asset;
     private Vector3 origin;
     public float RespawnTime;
     private float timeSpent;
     public Slider stock;
+    public LayerMask layermaskall;
+    public LayerMask layermaskempty;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,8 @@ public class MoskitoGeneral : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_moskControl.dead == true)
+      
+        if (_moskControl.dead == true)
         {
             timeSpent += Time.deltaTime;
 
@@ -34,6 +38,15 @@ public class MoskitoGeneral : MonoBehaviour
             {
                 Respawn();
             }
+        }
+
+        if(stock.value == stock.maxValue)
+        {
+            camera_Asset.cullingMask = layermaskall;
+        }
+        else
+        {
+            camera_Asset.cullingMask = layermaskempty;
         }
     }
 
@@ -63,5 +76,19 @@ public class MoskitoGeneral : MonoBehaviour
         SpawnManager.Instance.SpawnMe(gameObject);
     }
 
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "ExtractZone")
+        {
+            if(stock.value >= stock.value)
+            {
+                MatchManager.instance.timerLeft += 10;
+            }
+           
+            Die();
+                   
+        }
+    }
+
 }
