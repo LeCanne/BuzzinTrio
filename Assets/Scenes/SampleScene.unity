@@ -13026,8 +13026,10 @@ MonoBehaviour:
   Timer: 180
   timerLeft: 180
   TimerOn: 1
-  HP: 0
+  HP: 1
   MaxHP: 100
+  noHpLeft: 0
+  noTimeLeft: 0
 --- !u!43 &2056904759
 Mesh:
   m_ObjectHideFlags: 0
