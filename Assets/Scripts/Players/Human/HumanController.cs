@@ -15,6 +15,7 @@ public class HumanController : MonoBehaviour
 
     [Header ("Dependencies")]
     public GameObject Camera;
+    public Animator _Animator;
 
     
     
@@ -47,6 +48,7 @@ public class HumanController : MonoBehaviour
     void Update()
     {
         RotationCam();
+        AnimationProcess();
     }
 
     void FixedUpdate()
@@ -59,6 +61,18 @@ public class HumanController : MonoBehaviour
         moveForce = joystickmove.ReadValue<Vector2>();
 
 
+    }
+
+    private void AnimationProcess()
+    {
+        if(moveForce.magnitude > 0)
+        {
+            _Animator.SetBool("Walkin", true);
+        }
+        else
+        {
+            _Animator.SetBool("Walkin", false);
+        }
     }
 
     private void MovePhysics()

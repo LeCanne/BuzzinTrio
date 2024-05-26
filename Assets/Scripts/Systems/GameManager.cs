@@ -8,7 +8,19 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        if(instance != null && instance != this)
+        {
+            
+            Destroy(gameObject);
+        }
+               
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -29,15 +41,20 @@ public class GameManager : MonoBehaviour
         SpawnManager.Instance.spawns.Clear();
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     public void StartGame()
     {
-        MatchManager.instance.TimerOn = false;
+        MatchManager.instance.TimerOn = true;
         MatchManager.instance.timerLeft = MatchManager.instance.Timer;
     }
 
     public void OnLoadScene(int scene)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(scene);
     }
 
 }

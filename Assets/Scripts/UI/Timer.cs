@@ -16,6 +16,9 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerToUpdate.text = MatchManager.instance.timerTxt;
+       
+            timerToUpdate.text = MatchManager.instance.timerTxt;
+        
+       
     }
 }

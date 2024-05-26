@@ -26,8 +26,17 @@ public class MatchManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
-        instance = this;
+       timerLeft = Timer;
+       if(instance == null)
+        {
+            instance = this;
+        }
+       
     }
     // Start is called before the first frame update
     void Start()
@@ -100,7 +109,7 @@ public class MatchManager : MonoBehaviour
             Debug.Log("Human Win");
 
         }
-        else
+        if(HP <= 0)
         {
             noHpLeft = true;
             Debug.Log("Moskito Win");
@@ -119,7 +128,9 @@ public class MatchManager : MonoBehaviour
 
     public void RestartMatch()
     {
+        HP = MaxHP;
         noHpLeft = false;
         noTimeLeft = false;
+        onlyOnce = false;
     }
 }

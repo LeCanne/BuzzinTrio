@@ -13,8 +13,18 @@ public class SpawnManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        Instance = this;
-        SceneManager.sceneLoaded += StartGame;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+      
+        if(Instance == null)
+        {
+            Instance = this;
+            SceneManager.sceneLoaded += StartGame;
+        }
+      
+     
        
     }
 
