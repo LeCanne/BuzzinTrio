@@ -37,7 +37,7 @@ public class AttackHuman : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(delayedTimer);
+        
         Debug.DrawRay(transform.position, transform.forward * interactionDistance, Color.green);
         CdAttack();
     }
@@ -87,8 +87,8 @@ public class AttackHuman : MonoBehaviour
           
             if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, layermask))
             {
-                
-             
+
+                Debug.Log(hit.collider.tag);
                 if (hit.collider.tag == "Moskito" || hit.collider == null)
                 {
                   

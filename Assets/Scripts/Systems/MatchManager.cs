@@ -19,6 +19,7 @@ public class MatchManager : MonoBehaviour
     [Header("PlayerSetup")]
     public float HP;
     public float MaxHP;
+    
 
     [Header("WinBools")]
     public bool noHpLeft;

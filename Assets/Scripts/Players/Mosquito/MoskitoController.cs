@@ -13,6 +13,7 @@ public class MoskitoController : MonoBehaviour
     [Header("PhysicsParameters")]
     public float flyDrag;
     public float groundDrag;
+    
     public float InitialLift;
     public GameObject Camera;
     [HideInInspector] public Collider _collider;
@@ -44,6 +45,8 @@ public class MoskitoController : MonoBehaviour
     [Header("AttachedObjects")]
     public GameObject HitBox;
     public PlayerInput Input;
+    private Camera cam;
+    private float fov;
     
 
     private void Awake()
@@ -53,6 +56,8 @@ public class MoskitoController : MonoBehaviour
         _collider = GetComponent<CapsuleCollider>();
         rbMoskito.drag = flyDrag;
         rbMoskito.useGravity = false;
+        cam = Camera.GetComponent<Camera>();
+        fov = cam.fieldOfView;
     }
     private void OnEnable()
     {
@@ -183,15 +188,18 @@ public class MoskitoController : MonoBehaviour
         {
             if (attackTimer >= 0)
             {
+                
                 attackTimer -= Time.deltaTime;
             }
 
             if (attackCurrent <= 0)
             {
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, 5 * Time.deltaTime);
                 HitBox.SetActive(false);
             }
             else
             {
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov + 20, 5 * Time.deltaTime);
                 attackCurrent -= Time.deltaTime;
             }
         }
