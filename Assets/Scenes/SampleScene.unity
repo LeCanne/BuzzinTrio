@@ -460,7 +460,7 @@ MonoBehaviour:
   timerLeft: 0
   TimerOn: 1
   HP: 1
-  MaxHP: 100
+  MaxHP: 50
   noHpLeft: 0
   noTimeLeft: 0
 --- !u!4 &101700883

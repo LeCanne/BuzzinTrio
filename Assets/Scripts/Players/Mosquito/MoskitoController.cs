@@ -39,6 +39,7 @@ public class MoskitoController : MonoBehaviour
     private float attackCurrent;
     public float attackDuration;
     public bool dead;
+    public float attackTotalTime;
     
     [Header("AttachedObjects")]
     public GameObject HitBox;
@@ -166,7 +167,7 @@ public class MoskitoController : MonoBehaviour
     {
         if (attack.started && attackTimer < 0)
         {
-            attackTimer = 3;
+            attackTimer = attackTotalTime;
             rbMoskito.AddForce(transform.forward * AttackBoostSpeed, ForceMode.Impulse);
             attackCurrent = attackDuration;
             HitBox.SetActive(true);
