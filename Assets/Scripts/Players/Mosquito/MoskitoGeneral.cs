@@ -68,6 +68,8 @@ public class MoskitoGeneral : MonoBehaviour
 
     public void Respawn()
     {
+        _moskControl._inFly = true;
+        RbMoskito.useGravity = false;
         _camera.checkStung = false;
         _moskControl.dead = false;
         _camera.enabled = true;

@@ -1500,6 +1500,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 8
   animaionhit: {fileID: 5989481705931593138}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 7543
+  timer: 0.7
 --- !u!1 &6535655178298414936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,7 +1893,7 @@ GameObject:
   - component: {fileID: 1053600114066079130}
   - component: {fileID: 5254996417867779459}
   - component: {fileID: 2954615370098662225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Human
   m_Icon: {fileID: 0}
@@ -1976,7 +1980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a50a24c763c5b4480f939df1a35021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 59.5
+  Speed: 400
   Deceleration: 0
   Camera: {fileID: 6452667954810481422}
   _Animator: {fileID: 4168145869945687387}
