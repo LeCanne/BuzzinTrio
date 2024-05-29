@@ -239,7 +239,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""7ca55fbd-8383-463b-8c7d-3f5284af3dd0"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
+                    ""processors"": ""NormalizeVector2,StickDeadzone"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },

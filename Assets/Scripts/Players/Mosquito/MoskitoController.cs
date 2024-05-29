@@ -13,6 +13,7 @@ public class MoskitoController : MonoBehaviour
     [Header("PhysicsParameters")]
     public float flyDrag;
     public float groundDrag;
+    
     public float InitialLift;
     public GameObject Camera;
     [HideInInspector] public Collider _collider;
@@ -31,7 +32,7 @@ public class MoskitoController : MonoBehaviour
     private Vector2 _moveDirection = Vector2.zero;
     public float FlightSpeed;
     public float AttackBoostSpeed;
-    
+
 
     [Header("Checker")]
     [HideInInspector] public bool _inFly;
@@ -44,13 +45,19 @@ public class MoskitoController : MonoBehaviour
     [Header("AttachedObjects")]
     public GameObject HitBox;
     public PlayerInput Input;
+    private Camera cam;
+    private float fov;
     
 
     private void Awake()
     {
-
+        _inFly = true;
         rbMoskito = GetComponent<Rigidbody>();
         _collider = GetComponent<CapsuleCollider>();
+        rbMoskito.drag = flyDrag;
+        rbMoskito.useGravity = false;
+        cam = Camera.GetComponent<Camera>();
+        fov = cam.fieldOfView;
     }
     private void OnEnable()
     {
@@ -124,6 +131,7 @@ public class MoskitoController : MonoBehaviour
             rbMoskito.AddForce(transform.forward * _moveDirection.y * FlightSpeed);
             rbMoskito.AddForce(transform.right * _moveDirection.x * FlightSpeed);
         }
+       
       
     }
     private void PhysicsUpdater()
@@ -180,15 +188,18 @@ public class MoskitoController : MonoBehaviour
         {
             if (attackTimer >= 0)
             {
+                
                 attackTimer -= Time.deltaTime;
             }
 
             if (attackCurrent <= 0)
             {
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, 5 * Time.deltaTime);
                 HitBox.SetActive(false);
             }
             else
             {
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov + 20, 5 * Time.deltaTime);
                 attackCurrent -= Time.deltaTime;
             }
         }
@@ -199,36 +210,35 @@ public class MoskitoController : MonoBehaviour
     {
 
 
-        if (Fly.performed && enabled == true && dead == false)
-        {
-            Debug.Log("ye");
-            if (Grounded() == true)
-            {
-                rbMoskito.AddForce(new Vector3(0, InitialLift, 0), ForceMode.Impulse);
-                _inFly = true;
+        //if (Fly.performed && enabled == true && dead == false)
+        //{
+        //    Debug.Log("ye");
+        //    if (Grounded() == true)
+        //    {
+        //        rbMoskito.AddForce(new Vector3(0, InitialLift, 0), ForceMode.Impulse);
+        //        _inFly = true;
 
-            }
-            else
-            {
+        //    }
+        //    else
+        //    {
 
-                _inFly = !_inFly;
+        //        _inFly = !_inFly;
 
 
 
-            }
+        //    }
 
-            if (_inFly == true)
-            {
-                rbMoskito.drag = flyDrag;
-                rbMoskito.useGravity = false;
+        //    if (_inFly == true)
+        //    {
+        //       
 
-            }
-            else
-            {
-                rbMoskito.drag = groundDrag;
-                rbMoskito.useGravity = true;
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        rbMoskito.drag = groundDrag;
+        //        rbMoskito.useGravity = true;
+        //    }
+        //}
 
 
 

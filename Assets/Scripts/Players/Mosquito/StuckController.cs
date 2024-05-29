@@ -20,6 +20,7 @@ public class StuckController : MonoBehaviour
     public int SpamCount;
     private bool pumping;
     private bool max;
+    private int token;
     private int spamCurrent;
     [Header("Damager Bool")]
     [HideInInspector] public bool HumanHit;
@@ -40,7 +41,7 @@ public class StuckController : MonoBehaviour
     {
         OverallDamage = StockSlider.maxValue;
         damage = OverallDamage;
-        BloodSlider.maxValue = StockSlider.maxValue;
+        BloodSlider.maxValue = MatchManager.instance.MaxHP;
         _MoskitoController = GetComponent<MoskitoController>();
         rigidMoskito = GetComponent<Rigidbody>();
     }
@@ -48,17 +49,18 @@ public class StuckController : MonoBehaviour
     private void OnEnable()
     {
         
-        _collider.enabled = false;
+       
         rigidMoskito.isKinematic = true;
         _MoskitoController._collider.isTrigger = true;
         _MoskitoController.HitBox.SetActive(false);
-        // player.actions = m_Controls.asset;
+        
     }
 
     private void OnDisable()
     {
         _collider.enabled = true;
-       
+      
+
     }
     void Start()
     {
@@ -71,18 +73,16 @@ public class StuckController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HumanHit == true)
-        {
-            healthbar.SetActive(true);
-            
+        
+        
+           
+        
+        //if (pumping == true)
+        //{
+        //    Increase();
+        //}
 
-        }
-        if (pumping == true)
-        {
-            Increase();
-        }
-      
-      
+
     }
 
     public void Unstuck(InputAction.CallbackContext punchawall)
@@ -92,8 +92,8 @@ public class StuckController : MonoBehaviour
 
 
 
-            if(HumanHit == false)
-            {
+            
+            
                 if (spamCurrent < SpamCount)
                 {
                     spamCurrent++;
@@ -102,7 +102,7 @@ public class StuckController : MonoBehaviour
                 {
                     Unstucked();
                 }
-            }
+            
            
                 
             
@@ -119,18 +119,10 @@ public class StuckController : MonoBehaviour
             
             if (suck.performed && enabled == true)
             {
-                pumping = true;
-               
+                Succ();
+
             }
-            if (suck.canceled && enabled == true)
-            {
-                if (HumanHit == true)
-                {
-                    Debug.Log("yesss");
-                    Succ();
-                    pumping = false;
-                }
-            }
+            
         }
       
     }
@@ -138,53 +130,56 @@ public class StuckController : MonoBehaviour
 
     private void Succ()
     {
+        
         DamagePlayer();
-        max = false;
+        
        
       
         
 
       
 
-        Unstucked();
+       
 
     }
 
 
-    public void Increase()
-    {
-        if(max == false)
-        {
-            if (BloodSlider.value < BloodSlider.maxValue)
-            {
-                BloodSlider.value += suckspeed * Time.deltaTime;
+    //public void Increase()
+    //{
+    //    if(max == false)
+    //    {
+    //        if (BloodSlider.value < BloodSlider.maxValue)
+    //        {
+    //            BloodSlider.value += suckspeed * Time.deltaTime;
 
-            }
-            else
-            {
-                max = true;
-            }
-        }
-        else
-        {
-            if (BloodSlider.value > 0)
-            {
-                BloodSlider.value -= suckspeed * Time.deltaTime;
+    //        }
+    //        else
+    //        {
+    //            max = true;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (BloodSlider.value > 0)
+    //        {
+    //            BloodSlider.value -= suckspeed * Time.deltaTime;
 
-            }
-            else
-            {
-                max = false;
-            }
-        }
+    //        }
+    //        else
+    //        {
+    //            max = false;
+    //        }
+    //    }
        
       
-    }
+    //}
 
    
 
     public void Unstucked() 
     {
+        _collider.enabled = false;
+        token = 0;
         rigidMoskito.isKinematic = false;
         _MoskitoController.enabled = true;
         _MoskitoController._collider.isTrigger = false;
@@ -198,25 +193,22 @@ public class StuckController : MonoBehaviour
 
     public void DamagePlayer()
     {
-        StockSlider.value += BloodSlider.value;
-        if (damage < BloodSlider.value)
-        {
-            MatchManager.instance.HP -= damage;
-        }
-        else
-        {
-            MatchManager.instance.HP -= BloodSlider.value;
-            damage -= BloodSlider.value;
-        }
-     
+      
         
-        BloodSlider.value = 0;
+       
+        
+            MatchManager.instance.HP -= damage * 0.25f;
+
+
+
+        StockSlider.value += 1;
+        BloodSlider.value += damage * 0.25f;
     }
 
-    public void ResetDamage()
-    {
-        damage = OverallDamage;
-    }
+    //public void ResetDamage()
+    //{
+    //    damage = OverallDamage;
+    //}
 
     
 

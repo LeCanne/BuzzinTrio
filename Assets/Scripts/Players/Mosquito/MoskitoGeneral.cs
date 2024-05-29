@@ -48,12 +48,19 @@ public class MoskitoGeneral : MonoBehaviour
         {
             camera_Asset.cullingMask = layermaskempty;
         }
+
+        if(_stuckController.HumanHit == false)
+        {
+           _stuckController.StockSlider.value = Mathf.Lerp(_stuckController.StockSlider.value, 0, 5 * Time.deltaTime);
+        }
     }
 
     public void Die()
     {
         _stuckController.Unstucked();
 
+        
+        _stuckController._collider.enabled = false;
         stock.value = 0;
         _moskControl.attackTimer = 0;
         _stuckController.HumanHit = false;
@@ -62,12 +69,15 @@ public class MoskitoGeneral : MonoBehaviour
         _moskControl._inFly = false;
         _moskControl.dead = true;
         _camera.enabled = false;
-        _stuckController.ResetDamage();
+       // _stuckController.ResetDamage();
         
     }
 
     public void Respawn()
     {
+        _stuckController._collider.enabled = true;
+        _moskControl._inFly = true;
+        RbMoskito.useGravity = false;
         _camera.checkStung = false;
         _moskControl.dead = false;
         _camera.enabled = true;

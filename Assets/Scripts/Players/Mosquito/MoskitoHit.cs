@@ -28,6 +28,7 @@ public class MoskitoHit : MonoBehaviour
             Skito.transform.parent = other.gameObject.transform;
             moskitoController.enabled = false;
             stuckController.enabled = true;
+            stuckController._collider.enabled = false;
             moskitoCam.checkStung = true;
             stuckController.HumanHit = true;
             
