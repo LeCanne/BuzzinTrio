@@ -9,6 +9,7 @@ TagManager:
   - Spawns
   - PlayerSpawn
   - ExtractZone
+  - RecievePlayers
   layers:
   - Default
   - TransparentFX
