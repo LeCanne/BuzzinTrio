@@ -19,6 +19,8 @@ public class MatchManager : MonoBehaviour
     [Header("PlayerSetup")]
     public float HP;
     public float MaxHP;
+    public int HumanIndex;
+    public int Players;
     
 
     [Header("WinBools")]
@@ -34,9 +36,9 @@ public class MatchManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
        timerLeft = Timer;
        if(instance == null)
-        {
+       {
             instance = this;
-        }
+       }
        
     }
     // Start is called before the first frame update

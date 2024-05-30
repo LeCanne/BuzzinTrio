@@ -15,7 +15,8 @@ public class MoskitoCamera : MonoBehaviour
     private MoskitoControls m_Controls;
     public MoskitoController m_Controller;
     private InputAction rotationCamera;
-    public PlayerInput _playerInput;
+    private PlayerIndexCheck _playerInput;
+    private int Check;
     private Camera _camera;
     
 
@@ -26,9 +27,11 @@ public class MoskitoCamera : MonoBehaviour
     private void Awake()
     {
         _camera = GetComponent<Camera>();
+        _playerInput = GameObject.FindWithTag("PlayerManager").GetComponent<PlayerIndexCheck>();
+        Check = _playerInput.MoskitoCameraCheck;
         GetPlayer();
         origin = positionHold.transform.localPosition;
-        
+       
         
     }
     private void OnEnable()
@@ -124,17 +127,17 @@ public class MoskitoCamera : MonoBehaviour
 
     void GetPlayer()
     {
-        if(_playerInput.playerIndex == 1)
+        if (Check == 0)
         {
             _camera.rect = new Rect(0.5f, 0.67f, 0.5f, 0.33f);
         }
 
-        if (_playerInput.playerIndex == 2)
+        if (Check == 1)
         {
             _camera.rect = new Rect(0.5f, 0.335f, 0.5f, 0.33f);
         }
 
-        if (_playerInput.playerIndex == 3)
+        if (Check == 2)
         {
             _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.33f);
         }

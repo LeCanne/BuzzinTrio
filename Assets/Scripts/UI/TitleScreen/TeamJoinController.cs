@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class TeamJoinController : MonoBehaviour
 {
     public float TeamIndex;
-    public float playerIndx;
+    public int playerIndx;
     public Image img;
     public GameObject readyImage;
     public PlayerInput playerInput;
     public Vector3 currentpos;
     
     public PlayerInputManager playerInputManager;
+    public LobbyManager lobbyManager;
     
 
     [Header("KeepPositions")]
@@ -28,15 +29,17 @@ public class TeamJoinController : MonoBehaviour
     public bool ready;
     private void Awake()
     {
+        playerIndx = playerInput.playerIndex;
         ready = false;
         gameObject.transform.SetParent(GameObject.FindWithTag("RecievePlayers").transform);
+        lobbyManager = GameObject.FindWithTag("LobbyManager").GetComponent<LobbyManager>();
        
        
     }
     void Start()
     {
-        
 
+        lobbyManager.teamJoins.Add(this);
         outline = MainOutline.transform;
         center = Center.transform;
         left = LeftMost.transform;

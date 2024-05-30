@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
     
     void StartGame(Scene scene, LoadSceneMode load)
     {
-        Debug.Log("yes");
+        
         spawns.Clear();
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawns"));
     }

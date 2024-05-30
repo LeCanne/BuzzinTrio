@@ -1255,7 +1255,6 @@ MonoBehaviour:
   positionHold: {fileID: 6312675203429575459}
   moskitoSkin: {fileID: 2609257305031371593}
   m_Controller: {fileID: 7822092255979276689}
-  _playerInput: {fileID: 8761169879126102518}
   checkStung: 0
 --- !u!1 &4414549494378788311
 GameObject:
@@ -1394,7 +1393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6478944083224028897
 Transform:
   m_ObjectHideFlags: 0

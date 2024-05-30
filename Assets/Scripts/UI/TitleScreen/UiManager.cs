@@ -32,6 +32,7 @@ public class UiManager : MonoBehaviour
     {
         animator.SetTrigger("Lobby");
         PlayerJoin.SetActive(true);
+        pInputManager.enabled = true;
         foreach(Button button in MainMenuButtons)
         {
             button.enabled = false;
@@ -40,6 +41,7 @@ public class UiManager : MonoBehaviour
 
     public void ToMainMenu()
     {
+        pInputManager.enabled = false;
         animator.SetTrigger("MainMenu");
         PlayerJoin.SetActive(false);
         

@@ -10,24 +10,38 @@ public class PlayerIndexCheck : MonoBehaviour
     [Header("Players")]
     public GameObject Moskito;
     public GameObject Player;
+    public int MoskitoCameraCheck;
 
     private void Awake()
     {
+        
+   
         _inputManager = GetComponent<PlayerInputManager>();
+        for (int i = 0; i < MatchManager.instance.Players; i++)
+        {
+           
+            Debug.Log(MatchManager.instance.HumanIndex);
+            if (_inputManager.playerCount == MatchManager.instance.HumanIndex)
+            {
+                
+                _inputManager.playerPrefab = Player;
+                _inputManager.JoinPlayer(i);
+            }
+            else
+            {
+                _inputManager.playerPrefab = Moskito;
+                _inputManager.JoinPlayer(i);
+                MoskitoCameraCheck += 1;
+                
+                
+
+            }
+           
+
+        }
     }
 
-    public void LateUpdate()
-    {
-        if(_inputManager.playerCount < 1)
-        {
-            _inputManager.playerPrefab = Player;
-        }
-        else
-        {
-         
-            _inputManager.playerPrefab = Moskito;
-        }
-    }
+    
 
 
 

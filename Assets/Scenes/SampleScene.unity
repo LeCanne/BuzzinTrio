@@ -1286,6 +1286,8 @@ MonoBehaviour:
   TimerOn: 1
   HP: 1
   MaxHP: 50
+  HumanIndex: 0
+  Players: 0
   noHpLeft: 0
   noTimeLeft: 0
 --- !u!4 &101700883
@@ -6167,7 +6169,7 @@ GameObject:
   - component: {fileID: 670793766}
   m_Layer: 0
   m_Name: PlayerInputManager
-  m_TagString: Untagged
+  m_TagString: PlayerManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6187,7 +6189,7 @@ MonoBehaviour:
   m_NotificationBehavior: 3
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -6246,6 +6248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Moskito: {fileID: 9026495948320028858, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
   Player: {fileID: 101268399113301028, guid: 77b03a72608a45942a2b4d0a9dfcc422, type: 3}
+  MoskitoCameraCheck: 0
 --- !u!43 &678927748
 Mesh:
   m_ObjectHideFlags: 0
