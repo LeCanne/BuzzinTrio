@@ -21,6 +21,7 @@ public class PlayerIndexCheck : MonoBehaviour
 
     private void Awake()
     {
+        _inputManager = GetComponent<PlayerInputManager>();
         MoskitoCameraCheck = 0;
         if (instance == null)
         {
@@ -40,7 +41,7 @@ public class PlayerIndexCheck : MonoBehaviour
     {
         if(debug == false)
         {
-            _inputManager = GetComponent<PlayerInputManager>();
+            
             _inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
             for (int i = 0; i < MatchManager.instance.Players; i++)
             {
