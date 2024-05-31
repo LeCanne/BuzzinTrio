@@ -6426,9 +6426,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82f534da2ce83345a4b833055421647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputManager: {fileID: 0}
   Moskito: {fileID: 9026495948320028858, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
   Player: {fileID: 101268399113301028, guid: 77b03a72608a45942a2b4d0a9dfcc422, type: 3}
+  UI: {fileID: 0}
   MoskitoCameraCheck: 0
+  debug: 1
 --- !u!43 &678927748
 Mesh:
   m_ObjectHideFlags: 0

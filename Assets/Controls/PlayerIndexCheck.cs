@@ -16,6 +16,9 @@ public class PlayerIndexCheck : MonoBehaviour
     public GameObject UI;
     public int MoskitoCameraCheck;
 
+    [Header("Debug")]
+    public bool debug;
+
     private void Awake()
     {
         MoskitoCameraCheck = 0;
@@ -35,30 +38,47 @@ public class PlayerIndexCheck : MonoBehaviour
 
     public void ExecuteSpawns()
     {
-        _inputManager = GetComponent<PlayerInputManager>();
-        _inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
-        for (int i = 0; i < MatchManager.instance.Players; i++)
+        if(debug == false)
         {
-
-            Debug.Log(MatchManager.instance.HumanIndex);
-            if (_inputManager.playerCount == MatchManager.instance.HumanIndex)
+            _inputManager = GetComponent<PlayerInputManager>();
+            _inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersManually;
+            for (int i = 0; i < MatchManager.instance.Players; i++)
             {
 
-                _inputManager.playerPrefab = Player;
-                _inputManager.JoinPlayer(i, 0,   null,GameManager.instance.indexControllers[i]);
+                Debug.Log(MatchManager.instance.HumanIndex);
+                if (_inputManager.playerCount == MatchManager.instance.HumanIndex)
+                {
+
+                    _inputManager.playerPrefab = Player;
+                    _inputManager.JoinPlayer(i, 0, null, GameManager.instance.indexControllers[i]);
+                }
+                else
+                {
+                    _inputManager.playerPrefab = Moskito;
+                    _inputManager.JoinPlayer(i, 0, null, GameManager.instance.indexControllers[i]);
+                    MoskitoCameraCheck += 1;
+
+
+
+                }
+
+
+            }
+        }
+        else
+        {
+
+
+            if(_inputManager.playerCount > 1)
+            {
+                _inputManager.playerPrefab = Moskito;
             }
             else
             {
-                _inputManager.playerPrefab = Moskito;
-                _inputManager.JoinPlayer(i, 0, null, GameManager.instance.indexControllers[i]);
-                MoskitoCameraCheck += 1;
-
-
-
+                _inputManager.playerPrefab = Player;
             }
-
-
         }
+       
     }
 
     public void RestartObject()
