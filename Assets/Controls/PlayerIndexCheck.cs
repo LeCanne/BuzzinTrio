@@ -65,7 +65,7 @@ public class PlayerIndexCheck : MonoBehaviour
     {
         _inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
         _inputManager.playerPrefab = UI;
-        _inputManager.enabled = false;
+        _inputManager.DisableJoining();
         GameManager.instance.indexControllers.Clear();
        
     }

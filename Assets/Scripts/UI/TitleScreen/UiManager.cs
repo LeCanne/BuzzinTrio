@@ -33,7 +33,7 @@ public class UiManager : MonoBehaviour
     {
         animator.SetTrigger("Lobby");
         PlayerJoin.SetActive(true);
-        PlayerIndexCheck.instance._inputManager.enabled = true;
+        PlayerIndexCheck.instance._inputManager.EnableJoining();
         foreach(Button button in MainMenuButtons)
         {
             button.enabled = false;
