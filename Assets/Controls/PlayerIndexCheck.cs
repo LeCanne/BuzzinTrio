@@ -18,8 +18,8 @@ public class PlayerIndexCheck : MonoBehaviour
 
     private void Awake()
     {
-      
-        if(instance == null)
+        MoskitoCameraCheck = 0;
+        if (instance == null)
         {
             instance = this;
         }
@@ -66,6 +66,7 @@ public class PlayerIndexCheck : MonoBehaviour
         _inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
         _inputManager.playerPrefab = UI;
         _inputManager.DisableJoining();
+        MoskitoCameraCheck = 0;
         GameManager.instance.indexControllers.Clear();
        
     }
