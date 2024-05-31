@@ -70,7 +70,7 @@ public class PlayerIndexCheck : MonoBehaviour
         {
 
 
-            if(_inputManager.playerCount > 1)
+            if(_inputManager.playerCount >= 1)
             {
                 _inputManager.playerPrefab = Moskito;
             }
