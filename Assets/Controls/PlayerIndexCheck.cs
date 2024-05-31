@@ -37,6 +37,21 @@ public class PlayerIndexCheck : MonoBehaviour
        
     }
 
+    public void Update()
+    {
+        if(debug == true)
+        {
+            if (_inputManager.playerCount >= 1)
+            {
+                _inputManager.playerPrefab = Moskito;
+            }
+            else
+            {
+                _inputManager.playerPrefab = Player;
+            }
+        }
+       
+    }
     public void ExecuteSpawns()
     {
         if(debug == false)
@@ -66,19 +81,7 @@ public class PlayerIndexCheck : MonoBehaviour
 
             }
         }
-        else
-        {
-
-
-            if(_inputManager.playerCount >= 1)
-            {
-                _inputManager.playerPrefab = Moskito;
-            }
-            else
-            {
-                _inputManager.playerPrefab = Player;
-            }
-        }
+       
        
     }
 
