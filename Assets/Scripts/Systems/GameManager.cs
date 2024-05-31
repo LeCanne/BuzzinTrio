@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public bool paused;
     public List<InputDevice> indexControllers = new List<InputDevice>();
     private void Awake()
     {
@@ -59,5 +60,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+   public void Pause()
+    {
+        if(MatchManager.instance.TimerOn == true)
+        {
+            paused = !paused;
+        }
+       
+    }
+
 
 }

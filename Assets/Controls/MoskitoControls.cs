@@ -71,6 +71,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7288e688-1fd7-421c-99d7-b0a65051d5cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,28 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Suck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""426f6ac1-caad-4b1a-b966-6f71a9c638cc"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d79f502-39ee-4fb1-9666-e6e77a34014b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -256,6 +287,15 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""name"": ""Slap"",
                     ""type"": ""Button"",
                     ""id"": ""5a492d87-8aed-4f85-bff6-69e850e7de2c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""49c18768-2015-4067-8457-864aebe078da"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -372,6 +412,28 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                     ""action"": ""Slap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca8709f1-cf93-4b9e-ad2b-adf1ffb9ac68"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ff3f445-ff11-4829-bf66-d4d035246e88"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -407,11 +469,13 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         m_Moskito_Camera = m_Moskito.FindAction("Camera", throwIfNotFound: true);
         m_Moskito_Sting = m_Moskito.FindAction("Sting", throwIfNotFound: true);
         m_Moskito_Suck = m_Moskito.FindAction("Suck", throwIfNotFound: true);
+        m_Moskito_Pause = m_Moskito.FindAction("Pause", throwIfNotFound: true);
         // Human
         m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
         m_Human_Walk = m_Human.FindAction("Walk", throwIfNotFound: true);
         m_Human_Cam = m_Human.FindAction("Cam", throwIfNotFound: true);
         m_Human_Slap = m_Human.FindAction("Slap", throwIfNotFound: true);
+        m_Human_Pause = m_Human.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -478,6 +542,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Moskito_Camera;
     private readonly InputAction m_Moskito_Sting;
     private readonly InputAction m_Moskito_Suck;
+    private readonly InputAction m_Moskito_Pause;
     public struct MoskitoActions
     {
         private @MoskitoControls m_Wrapper;
@@ -487,6 +552,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         public InputAction @Camera => m_Wrapper.m_Moskito_Camera;
         public InputAction @Sting => m_Wrapper.m_Moskito_Sting;
         public InputAction @Suck => m_Wrapper.m_Moskito_Suck;
+        public InputAction @Pause => m_Wrapper.m_Moskito_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Moskito; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -511,6 +577,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Suck.started += instance.OnSuck;
             @Suck.performed += instance.OnSuck;
             @Suck.canceled += instance.OnSuck;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IMoskitoActions instance)
@@ -530,6 +599,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Suck.started -= instance.OnSuck;
             @Suck.performed -= instance.OnSuck;
             @Suck.canceled -= instance.OnSuck;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IMoskitoActions instance)
@@ -554,6 +626,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Human_Walk;
     private readonly InputAction m_Human_Cam;
     private readonly InputAction m_Human_Slap;
+    private readonly InputAction m_Human_Pause;
     public struct HumanActions
     {
         private @MoskitoControls m_Wrapper;
@@ -561,6 +634,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         public InputAction @Walk => m_Wrapper.m_Human_Walk;
         public InputAction @Cam => m_Wrapper.m_Human_Cam;
         public InputAction @Slap => m_Wrapper.m_Human_Slap;
+        public InputAction @Pause => m_Wrapper.m_Human_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Human; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -579,6 +653,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Slap.started += instance.OnSlap;
             @Slap.performed += instance.OnSlap;
             @Slap.canceled += instance.OnSlap;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IHumanActions instance)
@@ -592,6 +669,9 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
             @Slap.started -= instance.OnSlap;
             @Slap.performed -= instance.OnSlap;
             @Slap.canceled -= instance.OnSlap;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IHumanActions instance)
@@ -625,11 +705,13 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
         void OnCamera(InputAction.CallbackContext context);
         void OnSting(InputAction.CallbackContext context);
         void OnSuck(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IHumanActions
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnCam(InputAction.CallbackContext context);
         void OnSlap(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

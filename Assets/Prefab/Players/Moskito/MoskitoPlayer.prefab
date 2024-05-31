@@ -2076,6 +2076,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6225d9e0-a665-4344-9858-583d74fed0a1
     m_ActionName: Moskito/Suck[/Mouse/rightButton,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3107732586708721525}
+        m_TargetAssemblyTypeName: MoskitoGeneral, Assembly-CSharp
+        m_MethodName: Pausethis
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7288e688-1fd7-421c-99d7-b0a65051d5cf
+    m_ActionName: Moskito/Pause[/SwitchProControllerHID/start,/XInputControllerWindows/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49c18768-2015-4067-8457-864aebe078da
+    m_ActionName: Human/Pause[/SwitchProControllerHID/start,/XInputControllerWindows/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Moskito
