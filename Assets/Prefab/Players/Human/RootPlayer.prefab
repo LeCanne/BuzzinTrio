@@ -185,6 +185,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6225d9e0-a665-4344-9858-583d74fed0a1
     m_ActionName: Moskito/Suck[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7288e688-1fd7-421c-99d7-b0a65051d5cf
+    m_ActionName: Moskito/Pause[/SwitchProControllerHID/start,/XInputControllerWindows/start,/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2954615370098662225}
+        m_TargetAssemblyTypeName: HumanController, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 49c18768-2015-4067-8457-864aebe078da
+    m_ActionName: Human/Pause[/SwitchProControllerHID/start,/XInputControllerWindows/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: UniversalControlScheme
   m_DefaultActionMap: Human
@@ -836,12 +856,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4273601383688055840}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.020498268, y: -0.113428466, z: -0.26204613, w: 0.958147}
-  m_LocalPosition: {x: 0.35, y: 2.93, z: -0.29}
+  m_LocalRotation: {x: 0.02596857, y: -0.11055713, z: -0.013876797, w: 0.9934336}
+  m_LocalPosition: {x: 0.23899625, y: 0.29531848, z: -0.28192762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4102506330650715122}
+  m_Father: {fileID: 1037498445947817523}
   m_LocalEulerAnglesHint: {x: -5.666, y: -11.984, z: -29.997}
 --- !u!136 &7027817888978640712
 CapsuleCollider:
@@ -4488,7 +4508,7 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 3596507321279473012}
-    - targetCorrespondingSourceObject: {fileID: 8008008597629164892, guid: a9e95b6ee1b844749bfd501fe18ae2b3,
+    - targetCorrespondingSourceObject: {fileID: 6460626933430530205, guid: a9e95b6ee1b844749bfd501fe18ae2b3,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4956483139956786672}
@@ -4521,6 +4541,12 @@ PrefabInstance:
 --- !u!4 &832055120679130647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6647633114876094649, guid: a9e95b6ee1b844749bfd501fe18ae2b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6326764323315121838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1037498445947817523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6460626933430530205, guid: a9e95b6ee1b844749bfd501fe18ae2b3,
     type: 3}
   m_PrefabInstance: {fileID: 6326764323315121838}
   m_PrefabAsset: {fileID: 0}

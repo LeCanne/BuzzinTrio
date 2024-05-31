@@ -63,6 +63,14 @@ public class HumanController : MonoBehaviour
 
     }
 
+    public void Pause(InputAction.CallbackContext Paused)
+    {
+        if (Paused.performed)
+        {
+            GameManager.instance.Pause();
+        }
+    }
+
     private void AnimationProcess()
     {
         if(moveForce.magnitude > 0)

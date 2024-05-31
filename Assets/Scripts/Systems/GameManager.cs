@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public bool paused;
+    public List<InputDevice> indexControllers = new List<InputDevice>();
     private void Awake()
     {
         if(instance == null)
@@ -39,6 +42,7 @@ public class GameManager : MonoBehaviour
         MatchManager.instance.TimerOn = false;
         MatchManager.instance.timerLeft = MatchManager.instance.Timer;
         SpawnManager.Instance.spawns.Clear();
+        PlayerIndexCheck.instance.RestartObject();
     }
 
     public void QuitGame()
@@ -56,5 +60,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
+
+   public void Pause()
+    {
+        if(MatchManager.instance.TimerOn == true)
+        {
+            paused = !paused;
+        }
+       
+    }
+
 
 }

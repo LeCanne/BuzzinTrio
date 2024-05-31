@@ -19,7 +19,8 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        
+        PlayerIndexCheck.instance.RestartObject();
+        PlayerIndexCheck.instance._inputManager.joinBehavior = PlayerJoinBehavior.JoinPlayersWhenButtonIsPressed;
     }
 
 
@@ -32,7 +33,7 @@ public class UiManager : MonoBehaviour
     {
         animator.SetTrigger("Lobby");
         PlayerJoin.SetActive(true);
-        pInputManager.enabled = true;
+        PlayerIndexCheck.instance._inputManager.EnableJoining();
         foreach(Button button in MainMenuButtons)
         {
             button.enabled = false;

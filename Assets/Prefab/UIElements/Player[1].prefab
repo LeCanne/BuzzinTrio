@@ -419,10 +419,11 @@ MonoBehaviour:
   playerInput: {fileID: 2684286477639841076}
   currentpos: {x: 0, y: 0, z: 0}
   playerInputManager: {fileID: 0}
+  lobbyManager: {fileID: 0}
   MainOutline: {fileID: 1246192657100857795}
   LeftMost: {fileID: 5700910548205233255}
   RightMost: {fileID: 2589876539263021368}
-  Center: {fileID: 5235619310256091953}
+  Center: {fileID: 288010647205581954}
   TextRef: {fileID: 288010647205581954}
   ready: 0
 --- !u!114 &2684286477639841076

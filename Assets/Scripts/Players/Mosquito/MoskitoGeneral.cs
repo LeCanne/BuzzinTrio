@@ -86,6 +86,14 @@ public class MoskitoGeneral : MonoBehaviour
         SpawnManager.Instance.SpawnMe(gameObject);
     }
 
+    public void Pausethis(InputAction.CallbackContext pause)
+    {
+        if (pause.performed)
+        {
+            GameManager.instance.Pause();
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

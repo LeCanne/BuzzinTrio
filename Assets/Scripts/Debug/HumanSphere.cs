@@ -8,6 +8,7 @@ public class HumanSphere : MonoBehaviour
     void Start()
     {
         
+        PlayerIndexCheck.instance.ExecuteSpawns();
     }
 
     // Update is called once per frame

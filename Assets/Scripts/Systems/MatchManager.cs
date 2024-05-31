@@ -16,6 +16,7 @@ public class MatchManager : MonoBehaviour
     public bool TimerOn;
     private bool onlyOnce;
 
+
     [Header("PlayerSetup")]
     public float HP;
     public float MaxHP;
@@ -50,7 +51,7 @@ public class MatchManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         Timermanage();
         HealthManager();
         
@@ -123,7 +124,7 @@ public class MatchManager : MonoBehaviour
 
     public void StopGame()
     {
-      
+        
 
         InputSystem.DisableAllEnabledActions();
        
@@ -136,4 +137,6 @@ public class MatchManager : MonoBehaviour
         noTimeLeft = false;
         onlyOnce = false;
     }
+
+    
 }
