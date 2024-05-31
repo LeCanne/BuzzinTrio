@@ -17,9 +17,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 461
+    x: 457
     y: -311
-    width: 904
+    width: 908
     height: 2150
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -2057,7 +2057,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661614650}
     - outputSlot: {fileID: 8926484042661614637}
       inputSlot: {fileID: 8926484042661614651}
-    position: {x: 477, y: 773}
+    position: {x: 457, y: 679}
     expandedSlots:
     - {fileID: 8926484042661614635}
     expanded: 1
@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 689, y: 530}
+  m_UIPosition: {x: 682, y: 500}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 694, y: 705}
+  m_UIPosition: {x: 681, y: 652}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3241,7 +3241,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 6
+      m_SerializableObject: 10
     m_Space: 2147483647
   m_Property:
     name: max
@@ -3909,7 +3909,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614708}
       inputSlot: {fileID: 8926484042661614705}
-    position: {x: 773, y: 1705}
+    position: {x: 748, y: 1667}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614708
