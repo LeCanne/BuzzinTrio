@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,6 +30,7 @@ public class TeamJoinController : MonoBehaviour
     public bool ready;
     private void Awake()
     {
+      
         playerIndx = playerInput.playerIndex;
         ready = false;
         gameObject.transform.SetParent(GameObject.FindWithTag("RecievePlayers").transform);
@@ -38,7 +40,8 @@ public class TeamJoinController : MonoBehaviour
     }
     void Start()
     {
-
+        Debug.Log(playerInput.GetDevice<InputDevice>());
+        GameManager.instance.indexControllers.Add(playerInput.GetDevice<InputDevice>());
         lobbyManager.teamJoins.Add(this);
         outline = MainOutline.transform;
         center = Center.transform;
