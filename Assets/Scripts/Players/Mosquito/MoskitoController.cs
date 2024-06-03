@@ -29,7 +29,7 @@ public class MoskitoController : MonoBehaviour
     private InputAction _move;
     private InputAction _fly;
     private InputAction _attack;
-    private Vector2 _moveDirection = Vector2.zero;
+    [HideInInspector]public Vector2 _moveDirection = Vector2.zero;
     public float FlightSpeed;
     public float AttackBoostSpeed;
 

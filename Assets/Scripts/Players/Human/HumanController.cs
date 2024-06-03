@@ -75,11 +75,11 @@ public class HumanController : MonoBehaviour
     {
         if(moveForce.magnitude > 0)
         {
-            _Animator.SetBool("Walkin", true);
+           // _Animator.SetBool("Walkin", true);
         }
         else
         {
-            _Animator.SetBool("Walkin", false);
+            //_Animator.SetBool("Walkin", false);
         }
     }
 

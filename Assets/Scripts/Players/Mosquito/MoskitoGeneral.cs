@@ -9,6 +9,7 @@ public class MoskitoGeneral : MonoBehaviour
 {
     public MoskitoController _moskControl;
     public StuckController _stuckController;
+    public Animator moskitoAnimator;
     private Rigidbody RbMoskito;
     public MoskitoCamera _camera;
     public Camera camera_Asset;
@@ -18,18 +19,20 @@ public class MoskitoGeneral : MonoBehaviour
     public Slider stock;
     public LayerMask layermaskall;
     public LayerMask layermaskempty;
+    private AudioSource audioc;
 
     // Start is called before the first frame update
     void Start()
     {
         RbMoskito = GetComponent<Rigidbody>();
         origin = transform.position;
+        audioc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        Sound();
         if (_moskControl.dead == true)
         {
             timeSpent += Time.deltaTime;
@@ -53,8 +56,31 @@ public class MoskitoGeneral : MonoBehaviour
         {
            _stuckController.StockSlider.value = Mathf.Lerp(_stuckController.StockSlider.value, 0, 5 * Time.deltaTime);
         }
-    }
 
+        moskitoAnimator.SetBool("Fly", _stuckController.enabled);
+
+        
+    }
+    public void Sound()
+    {
+        if(_moskControl.enabled == true)
+        {
+            if(_moskControl._moveDirection.magnitude > 0)
+            {
+                audioc.enabled = true;
+                
+            }
+            else
+            {
+                audioc.enabled = false;
+            }
+        }
+        else
+        {
+            audioc.enabled = false;
+        }
+
+    }
     public void Die()
     {
         _stuckController.Unstucked();
