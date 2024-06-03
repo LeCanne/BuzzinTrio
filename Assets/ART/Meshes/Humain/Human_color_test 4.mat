@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Human_color_test 1
-  m_Shader: {fileID: -6465566751694194690, guid: 89cc484a5abe77942ba6b46a382e5565,
+  m_Name: Human_color_test 4
+  m_Shader: {fileID: -6465566751694194690, guid: 697a7f9c164b2b640bfb3aef0e01e471,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: 8f6744796422c68429566b7e3b88ffe4, type: 2}
+  m_Parent: {fileID: 2100000, guid: 8673070c83065c84eb13d7d5ac930f9e, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -23,11 +23,13 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Character_texture:
+        m_Texture: {fileID: 2800000, guid: 989605cc38fd3a54b8c88efc0f6d4905, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _FaceX: 1
-    - _FaceY: 1
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &4386730601302698376
