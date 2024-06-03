@@ -21,6 +21,10 @@ public class PlayerIndexCheck : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
         _inputManager = GetComponent<PlayerInputManager>();
         MoskitoCameraCheck = 0;
         if (instance == null)
@@ -28,10 +32,7 @@ public class PlayerIndexCheck : MonoBehaviour
             instance = this;
         }
         
-        if(instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
+       
 
         DontDestroyOnLoad(gameObject);
        
@@ -54,6 +55,7 @@ public class PlayerIndexCheck : MonoBehaviour
     }
     public void ExecuteSpawns()
     {
+        MoskitoCameraCheck = 0;
         if(debug == false)
         {
             

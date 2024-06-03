@@ -11,17 +11,19 @@ public class GameManager : MonoBehaviour
     public List<InputDevice> indexControllers = new List<InputDevice>();
     private void Awake()
     {
-        if(instance == null)
+        if (instance != null && instance != this)
+        {
+
+            Destroy(gameObject);
+        }
+
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
-        if(instance != null && instance != this)
-        {
-            
-            Destroy(gameObject);
-        }
+       
                
        
     }
