@@ -80,26 +80,26 @@ public class AttackHuman : MonoBehaviour
         {
             
             animaionhit.SetTrigger("Hit");
-            RaycastHit hit;
+            
 
 
 
           
-            if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, layermask))
-            {
+            //if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, layermask))
+            //{
 
-                Debug.Log(hit.collider.tag);
-                if (hit.collider.tag == "Moskito" || hit.collider == null)
-                {
+            //    Debug.Log(hit.collider.tag);
+            //    if (hit.collider.tag == "Moskito" || hit.collider == null)
+            //    {
                   
-                    hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
-                }
-                if(hit.collider.tag == "Untagged")
-                {
+            //        hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
+            //    }
+            //    if(hit.collider.tag == "Untagged")
+            //    {
                     
-                }
+            //    }
                 
-            }
+            //}
 
 
             //Check Time Between each attacks and apply cooldown
@@ -112,7 +112,7 @@ public class AttackHuman : MonoBehaviour
             }
             if (timeBetweenAttacks >= 1)
             {
-                Debug.Log("Yes");
+                
                 timerCurrent = 0f;
                 delayedTimer = 0f;
             }
@@ -121,5 +121,10 @@ public class AttackHuman : MonoBehaviour
             attack = true;
         }
       
+    }
+
+    public void Death(Collider hit)
+    {
+        hit.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
     }
 }
