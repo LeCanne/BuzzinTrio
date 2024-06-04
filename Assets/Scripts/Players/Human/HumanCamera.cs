@@ -14,6 +14,7 @@ public class HumanCamera : MonoBehaviour
     private Vector2 m_rotation;
     public GameObject followTransform;
     private Vector2 variableCam;
+    public Animator animatorPlayer;
 
     [Header("CameraSettings")]
     public float max;
@@ -58,6 +59,7 @@ public class HumanCamera : MonoBehaviour
         variableCam.y -= m_rotation.y * Speed * Time.deltaTime;
 
         variableCam.y = Mathf.Clamp(variableCam.y, max, min);
+        animatorPlayer.SetFloat("Blend", variableCam.y);
 
         if (m_rotation.magnitude > 0)
         {
