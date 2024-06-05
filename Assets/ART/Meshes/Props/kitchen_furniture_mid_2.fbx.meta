@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a795522e0aa6fd943b829958402ff298
+guid: 4f17db4df78e177448028108cb6cf3f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Lamp
-    second: {fileID: 2100000, guid: 78da28364405b6d42819a436a7c5c085, type: 2}
+      name: kitchen_furniture_mid
+    second: {fileID: 2100000, guid: 0c2594d6a57d7f04085ed8355bd0a2ec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

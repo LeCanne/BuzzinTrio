@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a795522e0aa6fd943b829958402ff298
+guid: 95e048df150040f44b468e1e66b0c6c9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Lamp
-    second: {fileID: 2100000, guid: 78da28364405b6d42819a436a7c5c085, type: 2}
+      name: workplan
+    second: {fileID: 2100000, guid: 8476ebad100484147ab5e39b3dedb82d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
