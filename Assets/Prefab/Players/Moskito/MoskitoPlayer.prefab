@@ -442,6 +442,61 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1032006237861517631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588113390191524989}
+  - component: {fileID: 1476019718719765581}
+  m_Layer: 0
+  m_Name: Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &588113390191524989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032006237861517631}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.08800006, z: -0.10500002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1145479373702519040}
+  m_Father: {fileID: 6890123395929324242}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1476019718719765581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032006237861517631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a52be84f8a494489412271b0788a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 300
+  maxDistance: 15
+  positionHold: {fileID: 6312675203429575459}
+  posCam: {fileID: 1145479373702519040}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 10143
+  moskitoSkin: {fileID: 2609257305031371593}
+  m_Controller: {fileID: 7822092255979276689}
+  checkStung: 0
 --- !u!1 &1154107479044680843
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,9 +759,9 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8518947435483089379}
   - {fileID: 7026130259706901573}
   - {fileID: 1351073276463341022}
-  - {fileID: 8518947435483089379}
   - {fileID: 2497967869158238446}
   m_Father: {fileID: 6890123395929324242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -775,7 +830,7 @@ MonoBehaviour:
   flyDrag: 5
   groundDrag: 3
   InitialLift: 7
-  Camera: {fileID: 3749303728458047641}
+  Camera: {fileID: 1032006237861517631}
   _collider: {fileID: 0}
   maskToCheck:
     serializedVersion: 2
@@ -808,7 +863,7 @@ MonoBehaviour:
   _moskControl: {fileID: 7822092255979276689}
   _stuckController: {fileID: 4282325467743391097}
   moskitoAnimator: {fileID: 2919282795151062912}
-  _camera: {fileID: 2948292215858712525}
+  _camera: {fileID: 1476019718719765581}
   camera_Asset: {fileID: 3058478720671532302}
   RespawnTime: 3
   stock: {fileID: 4728385708946538365}
@@ -830,7 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0be163d24e8b824999fdb56e372b3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moskitoCamera: {fileID: 2948292215858712525}
+  moskitoCamera: {fileID: 1476019718719765581}
   _collider: {fileID: 486902332956025714}
   player: {fileID: 8761169879126102518}
   suckspeed: 10
@@ -1218,7 +1273,6 @@ GameObject:
   - component: {fileID: 1145479373702519040}
   - component: {fileID: 3058478720671532302}
   - component: {fileID: 7057470821730749140}
-  - component: {fileID: 2948292215858712525}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1235,11 +1289,11 @@ Transform:
   m_GameObject: {fileID: 3749303728458047641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.13249993, z: -0.13549995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6890123395929324242}
+  m_Father: {fileID: 588113390191524989}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3058478720671532302
 Camera:
@@ -1337,24 +1391,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!114 &2948292215858712525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749303728458047641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a54a52be84f8a494489412271b0788a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 300
-  maxDistance: 15
-  positionHold: {fileID: 6312675203429575459}
-  moskitoSkin: {fileID: 2609257305031371593}
-  m_Controller: {fileID: 7822092255979276689}
-  checkStung: 0
 --- !u!1 &4414549494378788311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6478944083224028897
 Transform:
   m_ObjectHideFlags: 0
@@ -1502,7 +1538,7 @@ Transform:
   m_GameObject: {fileID: 5661667946646621665}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
+  m_LocalPosition: {x: 0, y: 0, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1527,8 +1563,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6974411, y: 0.41491872, z: 3.8441386}
-  m_Center: {x: -0.011081696, y: -0.15745935, z: 1.7470686}
+  m_Size: {x: 0.41801453, y: 0.41491872, z: 3.2445445}
+  m_Center: {x: -0.0146865845, y: -0.15745935, z: 1.4472716}
 --- !u!114 &5555832090507192437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,7 +1579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moskitoController: {fileID: 7822092255979276689}
   stuckController: {fileID: 4282325467743391097}
-  moskitoCam: {fileID: 2948292215858712525}
+  moskitoCam: {fileID: 1476019718719765581}
   Skito: {fileID: 2609257305031371593}
 --- !u!1 &6312675203429575459
 GameObject:
@@ -1570,7 +1606,7 @@ Transform:
   m_GameObject: {fileID: 6312675203429575459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.51, z: -2.69}
+  m_LocalPosition: {x: 0, y: 1.57, z: -1.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2039,7 +2075,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1145479373702519040}
+  - {fileID: 588113390191524989}
   - {fileID: 7281771880851514962}
   - {fileID: 3669546461439612967}
   - {fileID: 3327105684505065553}
@@ -2105,7 +2141,7 @@ MonoBehaviour:
     m_ActionName: Moskito/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2948292215858712525}
+      - m_Target: {fileID: 1476019718719765581}
         m_TargetAssemblyTypeName: MoskitoCamera, Assembly-CSharp
         m_MethodName: ValueGet
         m_Mode: 0

@@ -10,7 +10,9 @@ public class MoskitoCamera : MonoBehaviour
     public GameObject positionHold;
     private Vector2 m_Position;
     private Vector3 origin;
-    private Transform posCam;
+    private Vector3 cameraOffset;
+    public Transform posCam;
+    public LayerMask layerMask;
     public GameObject moskitoSkin;
     private MoskitoControls m_Controls;
     public MoskitoController m_Controller;
@@ -26,11 +28,12 @@ public class MoskitoCamera : MonoBehaviour
 
     private void Awake()
     {
-        _camera = GetComponent<Camera>();
-        
+        _camera = GetComponentInChildren<Camera>();
+        cameraOffset = posCam.localPosition;
+        origin = transform.localPosition;
         Check = PlayerIndexCheck.instance.MoskitoCameraCheck;
         GetPlayer();
-        origin = positionHold.transform.localPosition;
+       
        
         
     }
@@ -47,19 +50,25 @@ public class MoskitoCamera : MonoBehaviour
     
     void Update()
     {
-        //We only move the camera holder.
         transform.position = positionHold.transform.position;
 
+        MouseRotation();
+       
+       
         if (checkStung == false)
         {
-            ResetCam();
-            MouseRotation();
+            cameraOffset = new Vector3(0, 0, 0);
             RotationResetter();
+            ResetCam();
+
+
         }
         else
         {
-            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, new Vector3(origin.z, origin.y, origin.z - maxDistance), 3 * Time.deltaTime);
-            transform.LookAt(moskitoSkin.transform);
+            cameraOffset = new Vector3(0, 0, -0.5f);
+            CollisionDetection();
+           
+            //transform.LookAt(moskitoSkin.transform);
         }
        
       
@@ -73,30 +82,48 @@ public class MoskitoCamera : MonoBehaviour
     {
         
       
+      
+        
+            Vector3 vec = transform.eulerAngles;
+
+            vec.x = m_Position.x;
+            vec.y = m_Position.y;
+
+            if (m_Position.magnitude > 0)
+            {
+                transform.Rotate(-vec.y * speed * Time.deltaTime, 0, 0, Space.Self);
+
+
+                if (Vector3.Dot(transform.up, Vector3.down) > 0)
+                {
+                    transform.Rotate(0, -vec.x * speed * Time.deltaTime, 0, Space.World);
+                }
+                else
+                {
+                    transform.Rotate(0, vec.x * speed * Time.deltaTime, 0, Space.World);
+                }
+
+
+
+            }
+        
        
-        Vector3 vec = transform.eulerAngles;
-        vec.x = m_Position.x;
-        vec.y = m_Position.y;
+      
+        
+        
+    }
 
-        if(m_Position.magnitude > 0)
+    void CollisionDetection()
+    {
+        RaycastHit hit;
+        if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, out hit, layerMask))
         {
-            transform.Rotate(-vec.y * speed * Time.deltaTime, 0, 0, Space.Self);
-          
-
-            if (Vector3.Dot(transform.up, Vector3.down) > 0)
-            {
-                transform.Rotate(0, -vec.x * speed * Time.deltaTime, 0, Space.World);
-            }
-            else
-            {
-                transform.Rotate(0, vec.x * speed * Time.deltaTime, 0, Space.World);
-            }
-               
-
-
+            posCam.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, hit.point + posCam.transform.forward));
         }
-        
-        
+        else
+        {
+           posCam.localPosition = Vector3.Lerp(posCam.localPosition, cameraOffset, Time.deltaTime);
+        }
     }
 
     void RotationResetter()
@@ -114,13 +141,13 @@ public class MoskitoCamera : MonoBehaviour
 
     void ResetCam()
     {
-        if(Vector3.Distance(positionHold.transform.localPosition, origin) > 0.2f)
+        if(Vector3.Distance(posCam.localPosition, origin) > 0.2f)
         {
-            positionHold.transform.localPosition = Vector3.Lerp(positionHold.transform.localPosition, origin, 3 * Time.deltaTime);
+            posCam.localPosition = Vector3.Lerp(posCam.localPosition, origin, 3 * Time.deltaTime);
         }
         else
         {
-            positionHold.transform.localPosition = origin;
+           posCam.localPosition = origin;
         }
       
     }
