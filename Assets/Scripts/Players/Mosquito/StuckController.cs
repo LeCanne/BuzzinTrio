@@ -48,8 +48,8 @@ public class StuckController : MonoBehaviour
 
     private void OnEnable()
     {
-        
-       
+
+        rigidMoskito.velocity = Vector3.zero;
         rigidMoskito.isKinematic = true;
         _MoskitoController._collider.isTrigger = true;
         _MoskitoController.HitBox.SetActive(false);
