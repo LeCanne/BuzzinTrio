@@ -56,8 +56,8 @@ public class MoskitoController : MonoBehaviour
         _collider = GetComponent<CapsuleCollider>();
         rbMoskito.drag = flyDrag;
         rbMoskito.useGravity = false;
-        cam = Camera.GetComponent<Camera>();
-        fov = cam.fieldOfView;
+        cam = Camera.GetComponentInChildren<Camera>();
+        fov = Camera.GetComponentInChildren<Camera>().fieldOfView;
     }
     private void OnEnable()
     {
@@ -93,7 +93,7 @@ public class MoskitoController : MonoBehaviour
             }
         }
         
-        transform.rotation = Camera.transform.rotation;
+        transform.rotation = Camera.transform.GetChild(0).rotation;
        
       
       

@@ -80,26 +80,26 @@ public class AttackHuman : MonoBehaviour
         {
             
             animaionhit.SetTrigger("Hit");
-            
 
 
 
-          
-            //if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, layermask))
-            //{
+            RaycastHit hit;
 
-            //    Debug.Log(hit.collider.tag);
-            //    if (hit.collider.tag == "Moskito" || hit.collider == null)
-            //    {
-                  
-            //        hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
-            //    }
-            //    if(hit.collider.tag == "Untagged")
-            //    {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance, layermask))
+            {
+
+                Debug.Log(hit.collider.tag);
+                if (hit.collider.tag == "Moskito" || hit.collider == null)
+                {
+
+                    hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
+                }
+                if (hit.collider.tag == "Untagged")
+                {
                     
-            //    }
-                
-            //}
+                }
+
+            }
 
 
             //Check Time Between each attacks and apply cooldown
@@ -125,6 +125,6 @@ public class AttackHuman : MonoBehaviour
 
     public void Death(Collider hit)
     {
-        hit.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
+     
     }
 }
