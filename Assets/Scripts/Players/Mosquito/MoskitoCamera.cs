@@ -17,6 +17,7 @@ public class MoskitoCamera : MonoBehaviour
     private MoskitoControls m_Controls;
     public MoskitoController m_Controller;
     private InputAction rotationCamera;
+    private RaycastHit hit;
    
     private int Check;
     private Camera _camera;
@@ -81,6 +82,7 @@ public class MoskitoCamera : MonoBehaviour
    void MouseRotation()
     {
         
+
       
       
         
@@ -115,14 +117,21 @@ public class MoskitoCamera : MonoBehaviour
 
     void CollisionDetection()
     {
-        RaycastHit hit;
-        if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, out hit, layerMask))
+      
+        Debug.DrawLine(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, Color.red);
+        if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, out hit))
         {
-            posCam.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, hit.point + posCam.transform.forward));
+            Debug.Log(hit.collider.name);
+                posCam.localPosition = new Vector3(0, 0, Vector3.Distance(transform.position, hit.point + posCam.transform.forward));
+            
+           
+
+
+
         }
         else
         {
-           posCam.localPosition = Vector3.Lerp(posCam.localPosition, cameraOffset, Time.deltaTime);
+            posCam.localPosition = Vector3.Lerp(posCam.localPosition, cameraOffset, Time.deltaTime);
         }
     }
 
@@ -154,19 +163,46 @@ public class MoskitoCamera : MonoBehaviour
 
     void GetPlayer()
     {
-        if (Check == 0)
+        if (PlayerIndexCheck.instance._inputManager.playerCount == 2)
         {
-            _camera.rect = new Rect(0.5f, 0.67f, 0.5f, 0.33f);
-        }
+            if (Check == 0)
+            {
+                _camera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+            }
 
-        if (Check == 1)
-        {
-            _camera.rect = new Rect(0.5f, 0.335f, 0.5f, 0.33f);
-        }
 
-        if (Check == 2)
-        {
-            _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.33f);
         }
+        if (PlayerIndexCheck.instance._inputManager.playerCount == 3)
+        {
+            if (Check == 0)
+            {
+                _camera.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+            }
+
+            if (Check == 1)
+            {
+                
+                _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
+            }
+
+        }
+        if (PlayerIndexCheck.instance._inputManager.playerCount == 4)
+        {
+            if (Check == 0)
+            {
+                _camera.rect = new Rect(0.5f, 0.67f, 0.5f, 0.33f);
+            }
+
+            if (Check == 1)
+            {
+                _camera.rect = new Rect(0.5f, 0.335f, 0.5f, 0.33f);
+            }
+
+            if (Check == 2)
+            {
+                _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.33f);
+            }
+        }
+        
     }
 }
