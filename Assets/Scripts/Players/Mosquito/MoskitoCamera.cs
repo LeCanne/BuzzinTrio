@@ -190,17 +190,17 @@ public class MoskitoCamera : MonoBehaviour
         {
             if (Check == 0)
             {
-                _camera.rect = new Rect(0.5f, 0.67f, 0.5f, 0.33f);
+                _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.325f);
             }
 
             if (Check == 1)
             {
-                _camera.rect = new Rect(0.5f, 0.335f, 0.5f, 0.33f);
+                _camera.rect = new Rect(0.5f, 0.337f, 0.5f, 0.325f);
             }
 
             if (Check == 2)
             {
-                _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.33f);
+                _camera.rect = new Rect(0.5f, 0.675f, 0.5f, 0.325f);
             }
         }
         
