@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a13ed545ea62ad4c9b25a5b82cd488a
+guid: b2852f42eeb2732448af169c900cbb4f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: d4e1fad22d1c67f4ab383788a51332b3, type: 2}
+      name: air_duct_angle
+    second: {fileID: 2100000, guid: 0747b01672f1207449bd68516a704ba9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
