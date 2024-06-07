@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lookdown
+  m_Name: Lookdown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -1051,7 +1051,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0.6207518, y: -0.5740442, z: 0.4822669, w: 0.22925763}
+        value: {x: 0.6566177, y: -0.6802128, z: 0.32070646, w: 0.057541654}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
@@ -1067,7 +1067,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -0.7020174, y: -0.525183, z: 0.3873151, w: -0.2852042}
+        value: {x: -0.75371885, y: -0.6063153, z: 0.23434743, w: -0.09680308}
         inSlope: {x: 0, y: 0, z: 0, w: 0}
         outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
@@ -21405,7 +21405,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6207518
+        value: 0.6566177
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21426,7 +21426,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.5740442
+        value: -0.6802128
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21447,7 +21447,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.4822669
+        value: 0.32070646
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21468,7 +21468,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.22925763
+        value: 0.057541654
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21489,7 +21489,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.7020174
+        value: -0.75371885
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21510,7 +21510,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.525183
+        value: -0.6063153
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21531,7 +21531,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.3873151
+        value: 0.23434743
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -21552,7 +21552,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.2852042
+        value: -0.09680308
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -22078,7 +22078,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 56.962
+        value: 30.788
         inSlope: 1.6418839
         outSlope: 1.6418839
         tangentMode: 0
@@ -22099,7 +22099,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 142.017
+        value: 156.476
         inSlope: 9.079857
         outSlope: 9.079857
         tangentMode: 0
@@ -22120,7 +22120,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 244.37
+        value: 265.46
         inSlope: 1.613617
         outSlope: 1.613617
         tangentMode: 0
@@ -23590,7 +23590,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 53.829
+        value: 25.474
         inSlope: -4.87603
         outSlope: -4.87603
         tangentMode: 0
@@ -23611,7 +23611,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -155.555
+        value: -164.854
         inSlope: -12.393036
         outSlope: -12.393036
         tangentMode: 0
@@ -23632,7 +23632,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 118.95
+        value: 105.814
         inSlope: -3.979889
         outSlope: -3.979889
         tangentMode: 0
