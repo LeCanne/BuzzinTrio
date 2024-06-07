@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f7aca86c80f57646961854719925431
+guid: dc1680a8f86d9c741835b68214237a9b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: e21120e6076f2b44183c916c805ad1c1, type: 2}
+      name: cup_noodles_o
+    second: {fileID: 2100000, guid: 4fc1e9fdd6977874bb2c57029e65366a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
