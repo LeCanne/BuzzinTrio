@@ -15,6 +15,7 @@ public class StuckController : MonoBehaviour
     private InputAction _spam;
     public Collider _collider;
     public PlayerInput player;
+    public GameObject mash;
     [Header("Parameters")]
     public float suckspeed;
     public int SpamCount;
@@ -48,7 +49,7 @@ public class StuckController : MonoBehaviour
 
     private void OnEnable()
     {
-
+        mash.SetActive(true);
         rigidMoskito.velocity = Vector3.zero;
         rigidMoskito.isKinematic = true;
         _MoskitoController._collider.isTrigger = true;
@@ -59,7 +60,8 @@ public class StuckController : MonoBehaviour
     private void OnDisable()
     {
         _collider.enabled = true;
-      
+        mash.SetActive(false);
+
 
     }
     void Start()

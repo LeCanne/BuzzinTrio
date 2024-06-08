@@ -13413,6 +13413,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1737382126}
+    - target: {fileID: 3246539072928070423, guid: 8fe6158db9f4aa14da518fcdfdea9bce,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3248547676797573138, guid: 8fe6158db9f4aa14da518fcdfdea9bce,
         type: 3}
       propertyPath: m_Mesh
