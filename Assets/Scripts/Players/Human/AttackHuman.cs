@@ -13,12 +13,10 @@ public class AttackHuman : MonoBehaviour
 
     [Header("Attack Priority")]
     private float timerCurrent;
-  
     public float timer;
-    
     public float reduction;
- 
     private bool attack;
+    public bool attacking;  
 
     [Header("DataAttack")]
     private float timeBetweenAttacks;
@@ -89,11 +87,11 @@ public class AttackHuman : MonoBehaviour
             {
 
                 Debug.Log(hit.collider.tag);
-                if (hit.collider.tag == "Moskito" || hit.collider == null)
-                {
+                //if (hit.collider.tag == "Moskito" || hit.collider == null)
+                //{
 
-                    hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
-                }
+                //    hit.transform.gameObject.transform.GetComponentInParent<MoskitoGeneral>().Die();
+                //}
                 if (hit.collider.tag == "Untagged")
                 {
                     
@@ -125,6 +123,7 @@ public class AttackHuman : MonoBehaviour
 
     public void Death(Collider hit)
     {
-     
+        if (attacking == true)
+        hit.gameObject.GetComponentInParent<MoskitoGeneral>().Die();
     }
 }

@@ -19,6 +19,7 @@ public class RaquetteCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("collide");
         Debug.Log("ye");
         Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.tag == "Moskito")
