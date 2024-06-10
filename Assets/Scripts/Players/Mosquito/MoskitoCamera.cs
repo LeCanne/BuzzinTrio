@@ -33,7 +33,7 @@ public class MoskitoCamera : MonoBehaviour
         cameraOffset = posCam.localPosition;
         origin = transform.localPosition;
         Check = PlayerIndexCheck.instance.MoskitoCameraCheck;
-        GetPlayer();
+      
        
        
         
@@ -44,6 +44,7 @@ public class MoskitoCamera : MonoBehaviour
     }
     void Start()
     {
+        GetPlayer();
         transform.eulerAngles = new Vector3(0, 0, 0);
        
     }

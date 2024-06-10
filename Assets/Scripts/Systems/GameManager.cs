@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         MatchManager.instance.TimerOn = true;
+        Time.timeScale = 1;
+        paused = false;
         MatchManager.instance.timerLeft = MatchManager.instance.Timer;
     }
 

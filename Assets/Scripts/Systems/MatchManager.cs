@@ -8,6 +8,7 @@ public class MatchManager : MonoBehaviour
 {
 
     public static MatchManager instance;
+    public InputAction actionUI;
 
     [Header ("MatchTimer")]
     public string timerTxt;
@@ -111,6 +112,7 @@ public class MatchManager : MonoBehaviour
             timerTxt = string.Format("{0:00} : {1:00}", 0, 0);
             noTimeLeft = true;
             Debug.Log("Human Win");
+            
 
         }
         if(HP <= 0)
@@ -126,8 +128,8 @@ public class MatchManager : MonoBehaviour
     {
         
 
-        InputSystem.DisableAllEnabledActions();
-       
+       InputSystem.DisableAllEnabledActions();
+               
     }
 
     public void RestartMatch()
