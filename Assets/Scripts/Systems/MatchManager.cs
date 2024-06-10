@@ -8,7 +8,7 @@ public class MatchManager : MonoBehaviour
 {
 
     public static MatchManager instance;
-    public InputAction actionUI;
+    public InputActionAsset actionUI;
 
     [Header ("MatchTimer")]
     public string timerTxt;
@@ -128,8 +128,8 @@ public class MatchManager : MonoBehaviour
     {
         
 
-       InputSystem.DisableAllEnabledActions();
-               
+        InputSystem.DisableAllEnabledActions();
+        actionUI.Enable();       
     }
 
     public void RestartMatch()
