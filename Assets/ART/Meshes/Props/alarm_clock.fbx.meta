@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9114257c2e000564d8a6ad5c676f6c8d
+guid: ba3aca59205723244a0171ad0afbe721
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: fb4628ea56d0a2c4eb07e209a7b65a57, type: 2}
+      name: alarm_clock
+    second: {fileID: 2100000, guid: fda2569dd6ac21d4b90ea98b7f0ad5a4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
