@@ -54,10 +54,10 @@ Material:
     - _Progress_radius: 0.4
     - _Progress_segmentcheck: 1
     - _Progress_segments: 5
-    - _Progress_spacing: 0.1
+    - _Progress_spacing: 0.04
     - _progress_rotation: 0
     - _progress_segmentremoval: 0
     - _progress_width: 0.05
     m_Colors:
-    - _progress_color: {r: 1, g: 0, b: 0, a: 0}
+    - _progress_color: {r: 0.8584906, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
