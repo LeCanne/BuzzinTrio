@@ -29,6 +29,7 @@ public class StuckController : MonoBehaviour
     public GameObject healthbar;
     public Slider BloodSlider;
     public Slider StockSlider;
+    public Image mat;
     [Header("Damager")]
     public float OverallDamage;
     public float damage;
@@ -75,10 +76,10 @@ public class StuckController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-           
-        
+
+        mat.materialForRendering.SetFloat("_progress_segmentremoval", 5 - spamCurrent);
+
+
         //if (pumping == true)
         //{
         //    Increase();
@@ -99,6 +100,7 @@ public class StuckController : MonoBehaviour
                 if (spamCurrent < SpamCount)
                 {
                     spamCurrent++;
+                  
                 }
                 else
                 {

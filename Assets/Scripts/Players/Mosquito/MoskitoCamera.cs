@@ -25,6 +25,9 @@ public class MoskitoCamera : MonoBehaviour
 
     public bool checkStung;
 
+    [Header("UI")]
+    public GameObject ButtonScale;
+
 
 
     private void Awake()
@@ -169,6 +172,7 @@ public class MoskitoCamera : MonoBehaviour
             if (Check == 0)
             {
                 _camera.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+                ButtonScale.GetComponent<RectTransform>().sizeDelta = new Vector2(747.8f, 224.45f);
             }
 
 
@@ -185,6 +189,7 @@ public class MoskitoCamera : MonoBehaviour
                 
                 _camera.rect = new Rect(0.5f, 0f, 0.5f, 0.5f);
             }
+            ButtonScale.GetComponent<RectTransform>().sizeDelta = new Vector2(747.8f, 433.8f);
 
         }
         if (PlayerIndexCheck.instance._inputManager.playerCount == 4)
@@ -203,6 +208,8 @@ public class MoskitoCamera : MonoBehaviour
             {
                 _camera.rect = new Rect(0.5f, 0.675f, 0.5f, 0.325f);
             }
+
+            ButtonScale.GetComponent<RectTransform>().sizeDelta = new Vector2(747.8f, 568.1f);
         }
         
     }
