@@ -13,10 +13,12 @@ public class TeamJoinController : MonoBehaviour
     public Image img;
     public GameObject readyImage;
     public PlayerInput playerInput;
+    
     public Vector3 currentpos;
     
     public PlayerInputManager playerInputManager;
     public LobbyManager lobbyManager;
+    public List<Sprite> spriteList;
     
 
     [Header("KeepPositions")]
@@ -87,19 +89,19 @@ public class TeamJoinController : MonoBehaviour
         switch (playerInput.playerIndex)
         {
             case 0:
-                img.color = Color.red;
+                img.sprite = spriteList[0];
                 break;
 
             case 1:
-                img.color = Color.blue;
+                img.sprite = spriteList[1];
                 break;
 
             case 2:
-               img.color = Color.green;
+                img.sprite = spriteList[2];
                 break;
 
             case 3:
-                img.color = Color.yellow;
+                img.sprite = spriteList[3];
                 break;
 
         }
