@@ -40,6 +40,7 @@ public class TeamJoinController : MonoBehaviour
     }
     void Start()
     {
+        gameObject.transform.localScale = Vector3.one;
         Debug.Log(playerInput.GetDevice<InputDevice>());
         GameManager.instance.indexControllers.Add(playerInput.GetDevice<InputDevice>());
         lobbyManager.teamJoins.Add(this);
