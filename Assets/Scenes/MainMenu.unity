@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8478e4d9fd32e547a5be4e1de829455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionUI: {fileID: -944628639613478452, guid: 09c83dd9ae179bf42b314a83553941af,
+  actionUI: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   timerTxt: 
-  Timer: 180
+  Timer: 10
   timerLeft: 180
   TimerOn: 0
   HP: 1
