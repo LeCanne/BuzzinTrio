@@ -109,7 +109,10 @@ public class MoskitoGeneral : MonoBehaviour
         _camera.enabled = true;
 
         timeSpent = 0;
+       
         SpawnManager.Instance.SpawnMe(gameObject);
+
+        
     }
 
     public void Pausethis(InputAction.CallbackContext pause)

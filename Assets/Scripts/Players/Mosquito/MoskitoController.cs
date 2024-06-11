@@ -26,6 +26,7 @@ public class MoskitoController : MonoBehaviour
 
     [Header("CharacterMovement")]
     public MoskitoControls MoskControls;
+    public MoskitoCamera moskitoCamera;
     private InputAction _move;
     private InputAction _fly;
     private InputAction _attack;
@@ -75,10 +76,12 @@ public class MoskitoController : MonoBehaviour
     void Start()
     {
         SpawnManager.Instance.SpawnMe(gameObject);
-        
-
-       
       
+       
+
+
+
+
 
     }
 

@@ -51,7 +51,8 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject ovj = spawns[Random.Range(0, spawns.Count - 1)];
         obj.transform.position = ovj.transform.position;
-        obj.transform.rotation = ovj.transform.rotation;
+        obj.transform.forward = ovj.transform.forward;
+        obj.GetComponent<MoskitoController>().Camera.transform.eulerAngles = ovj.transform.eulerAngles;
     }
    
     // Update is called once per frame

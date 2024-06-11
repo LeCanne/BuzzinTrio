@@ -1732,6 +1732,7 @@ MonoBehaviour:
   RaycastGroundCheckLenght: 0.35
   maxVelocity: 10
   smoothVelocitor: 0.99
+  moskitoCamera: {fileID: 1476019718719765581}
   _moveDirection: {x: 0, y: 0}
   FlightSpeed: 20
   AttackBoostSpeed: 20
