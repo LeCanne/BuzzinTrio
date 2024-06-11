@@ -1842,7 +1842,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!82 &7426676354564742699
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2800,6 +2800,7 @@ GameObject:
   - component: {fileID: 6478944083224028897}
   - component: {fileID: 4947616154707182236}
   - component: {fileID: 5555832090507192437}
+  - component: {fileID: 3035412067652178290}
   m_Layer: 12
   m_Name: ColliderSting
   m_TagString: Untagged
@@ -2838,11 +2839,11 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.41801453, y: 0.41491872, z: 3.2445445}
-  m_Center: {x: -0.0146865845, y: -0.15745935, z: 1.4472716}
+  m_Size: {x: 0.41801453, y: 0.41491872, z: 3.044777}
+  m_Center: {x: -0.0146865845, y: -0.1, z: 2.2267437}
 --- !u!114 &5555832090507192437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2857,8 +2858,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moskitoController: {fileID: 7822092255979276689}
   stuckController: {fileID: 4282325467743391097}
+  rb: {fileID: 5852168495373341863}
   moskitoCam: {fileID: 1476019718719765581}
   Skito: {fileID: 2609257305031371593}
+--- !u!54 &3035412067652178290
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661667946646621665}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &5891575239047985283
 GameObject:
   m_ObjectHideFlags: 0
