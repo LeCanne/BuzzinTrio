@@ -6,11 +6,11 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
 
-    public TMP_Text timerToUpdate;
+    private TMP_Text timerToUpdate;
     // Start is called before the first frame update
     void Start()
     {
-        
+        timerToUpdate = GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
