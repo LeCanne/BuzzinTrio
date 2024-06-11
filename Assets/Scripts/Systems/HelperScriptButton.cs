@@ -22,4 +22,9 @@ public class HelperScriptButton : MonoBehaviour
     {
         GameManager.instance.QuitGame();
     }
+
+    public void StopGame()
+    {
+        GameManager.instance.StopGame();
+    }
 }

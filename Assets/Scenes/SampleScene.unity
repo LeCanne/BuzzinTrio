@@ -12194,6 +12194,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1299447105}
         m_TargetAssemblyTypeName: HelperScriptButton, Assembly-CSharp
+        m_MethodName: StopGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1299447105}
+        m_TargetAssemblyTypeName: HelperScriptButton, Assembly-CSharp
         m_MethodName: SceneChange
         m_Mode: 3
         m_Arguments:
@@ -14690,6 +14702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 9044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786453222629492446, guid: 8fe6158db9f4aa14da518fcdfdea9bce,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6801298272067364011, guid: 8fe6158db9f4aa14da518fcdfdea9bce,
         type: 3}

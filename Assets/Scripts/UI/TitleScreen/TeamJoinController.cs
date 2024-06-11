@@ -142,7 +142,7 @@ public class TeamJoinController : MonoBehaviour
                 ready = !ready;
             }
           
-            if(TeamIndex == 1)
+            if(TeamIndex == -1)
             {
                 if (ready == false)
                     lobbyManager.token -= 1;

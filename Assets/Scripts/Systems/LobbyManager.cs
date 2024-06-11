@@ -94,7 +94,7 @@ public class LobbyManager : MonoBehaviour
         {
             for (int i = 0; i < teamJoins.Count; i++)
             {
-                if (teamJoins[i].TeamIndex == 1)
+                if (teamJoins[i].TeamIndex == -1)
                 {
                     MatchManager.instance.HumanIndex = teamJoins[i].playerIndx;
                 }
