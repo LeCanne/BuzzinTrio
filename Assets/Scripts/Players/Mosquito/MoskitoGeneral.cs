@@ -21,6 +21,7 @@ public class MoskitoGeneral : MonoBehaviour
     public LayerMask layermaskempty;
     private AudioSource audioc;
 
+
     // Start is called before the first frame update
     void Start()
     {

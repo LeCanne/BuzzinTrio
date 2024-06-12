@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Processors;
+using UnityEngine.VFX;
 
 public class MoskitoController : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class MoskitoController : MonoBehaviour
     public PlayerInput Input;
     private Camera cam;
     private float fov;
+    public VisualEffect Vfx_Speedlines;
     
 
     private void Awake()
@@ -178,6 +180,7 @@ public class MoskitoController : MonoBehaviour
     {
         if (attack.started && attackTimer < 0)
         {
+          
             attackTimer = attackTotalTime;
             rbMoskito.AddForce(transform.forward * AttackBoostSpeed, ForceMode.Impulse);
             attackCurrent = attackDuration;
@@ -191,9 +194,16 @@ public class MoskitoController : MonoBehaviour
         {
             if (attackTimer >= 0)
             {
-                
+                Vfx_Speedlines.Play();
                 attackTimer -= Time.deltaTime;
             }
+            else
+            {
+                Vfx_Speedlines.Stop();
+            }
+
+
+
 
             if (attackCurrent <= 0)
             {
@@ -205,6 +215,10 @@ public class MoskitoController : MonoBehaviour
                 cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov + 20, 5 * Time.deltaTime);
                 attackCurrent -= Time.deltaTime;
             }
+        }
+        else
+        {
+            HitBox.SetActive(false);
         }
       
        
