@@ -1743,6 +1743,7 @@ MonoBehaviour:
   attackTotalTime: 1
   HitBox: {fileID: 5661667946646621665}
   Input: {fileID: 8761169879126102518}
+  Vfx_Speedlines: {fileID: 2846973298764851826}
 --- !u!114 &3107732586708721525
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,7 +84,10 @@ public class StuckController : MonoBehaviour
         //{
         //    Increase();
         //}
-
+        if(_MoskitoController.dead == true)
+        {
+            Unstucked();
+        }
 
     }
 
