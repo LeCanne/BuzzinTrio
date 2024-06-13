@@ -155,7 +155,7 @@ MonoBehaviour:
   actionUI: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   timerTxt: 
-  Timer: 10
+  Timer: 180
   timerLeft: 180
   TimerOn: 0
   HP: 1
