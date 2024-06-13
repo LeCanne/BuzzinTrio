@@ -22,6 +22,8 @@ public class AttackHuman : MonoBehaviour
     private float timeBetweenAttacks;
     private bool checkDelay;
     private float delayedTimer;
+
+  
    
    
     void Start()

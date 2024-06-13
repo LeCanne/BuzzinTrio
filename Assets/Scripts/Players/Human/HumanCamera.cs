@@ -47,7 +47,7 @@ public class HumanCamera : MonoBehaviour
 
     public void CameraMovement(InputAction.CallbackContext valuecam)
     {
-        m_rotation = valuecam.ReadValue<Vector2>();
+       m_rotation = valuecam.ReadValue<Vector2>();
     }
     void MouseRotate()
     {

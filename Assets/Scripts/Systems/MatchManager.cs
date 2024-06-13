@@ -111,14 +111,14 @@ public class MatchManager : MonoBehaviour
         {
             timerTxt = string.Format("{0:00} : {1:00}", 0, 0);
             noTimeLeft = true;
-            Debug.Log("Human Win");
+           
             
 
         }
         if(HP <= 0)
         {
             noHpLeft = true;
-            Debug.Log("Moskito Win");
+         
         }
 
         
