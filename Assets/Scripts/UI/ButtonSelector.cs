@@ -19,7 +19,7 @@ public class ButtonSelector: MonoBehaviour
         eventSystem = GetComponent<EventSystem>();
         if (instance != null && instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }   
 
         if(instance == null)
