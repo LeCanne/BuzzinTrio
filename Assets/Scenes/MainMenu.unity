@@ -159,9 +159,11 @@ MonoBehaviour:
   timerLeft: 180
   TimerOn: 0
   HP: 1
-  MaxHP: 100
+  MaxHP: 90
   HumanIndex: 0
   Players: 0
+  lives: 1
+  maxLives: 11
   noHpLeft: 0
   noTimeLeft: 0
 --- !u!4 &13982712

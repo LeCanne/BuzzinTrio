@@ -23,7 +23,10 @@ public class MatchManager : MonoBehaviour
     public float MaxHP;
     public int HumanIndex;
     public int Players;
-    
+
+    [Header("MoskitoSetup")]
+    public int lives;
+    public int maxLives;
 
     [Header("WinBools")]
     public bool noHpLeft;
@@ -55,6 +58,7 @@ public class MatchManager : MonoBehaviour
        
         Timermanage();
         HealthManager();
+        LivesManager();
         
     }
 
@@ -90,6 +94,15 @@ public class MatchManager : MonoBehaviour
          
         }
     }
+
+    public void LivesManager()
+    {
+        if(lives <= 0)
+        {
+            TimerOn = false;
+            WinCondition();
+        }
+    }
     void updateTimer(float currentTime)
     {
         currentTime += 1;
@@ -100,6 +113,7 @@ public class MatchManager : MonoBehaviour
         timerTxt = string.Format("{0:00} : {1:00}", minutes, seconds);
         
     }
+   
 
      
     void WinCondition()
@@ -107,6 +121,11 @@ public class MatchManager : MonoBehaviour
        
         
         StopGame();
+        if(lives <= 0)
+        {
+            lives = 0;
+            noTimeLeft = true;
+        }
         if (timerLeft <= 0)
         {
             timerTxt = string.Format("{0:00} : {1:00}", 0, 0);
@@ -120,6 +139,7 @@ public class MatchManager : MonoBehaviour
             noHpLeft = true;
          
         }
+        
 
         
     }
@@ -134,7 +154,8 @@ public class MatchManager : MonoBehaviour
 
     public void RestartMatch()
     {
-        HP = MaxHP;
+        
+      
         noHpLeft = false;
         noTimeLeft = false;
         onlyOnce = false;

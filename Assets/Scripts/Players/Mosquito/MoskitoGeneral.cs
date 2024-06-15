@@ -21,6 +21,8 @@ public class MoskitoGeneral : MonoBehaviour
     public LayerMask layermaskempty;
     private AudioSource audioc;
 
+    public bool deadforgood;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,18 @@ public class MoskitoGeneral : MonoBehaviour
         if (_moskControl.dead == true)
         {
             timeSpent += Time.deltaTime;
-
-            if(timeSpent >= RespawnTime)
+            if(MatchManager.instance.lives > 0)
             {
-                Respawn();
+                if (timeSpent >= RespawnTime)
+                {
+                    Respawn();
+                }
             }
+            else
+            {
+                deadforgood = true;
+            }
+         
         }
 
         if(stock.value == stock.maxValue)
@@ -84,6 +93,7 @@ public class MoskitoGeneral : MonoBehaviour
     }
     public void Die()
     {
+        
         _stuckController.Unstucked();
 
         

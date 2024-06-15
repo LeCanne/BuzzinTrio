@@ -49,10 +49,17 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnMe(GameObject obj)
     {
-        GameObject ovj = spawns[Random.Range(0, spawns.Count - 1)];
-        obj.transform.position = ovj.transform.position;
-        obj.transform.forward = ovj.transform.forward;
-        obj.GetComponent<MoskitoController>().Camera.transform.eulerAngles = ovj.transform.eulerAngles;
+        if (MatchManager.instance.lives > 0)
+        {
+
+
+            GameObject ovj = spawns[Random.Range(0, spawns.Count - 1)];
+            obj.transform.position = ovj.transform.position;
+            obj.transform.forward = ovj.transform.forward;
+            obj.GetComponent<MoskitoController>().Camera.transform.eulerAngles = ovj.transform.eulerAngles;
+            MatchManager.instance.lives--;
+        }
+        
     }
    
     // Update is called once per frame
