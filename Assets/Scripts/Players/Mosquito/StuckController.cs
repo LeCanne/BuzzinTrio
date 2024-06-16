@@ -33,6 +33,8 @@ public class StuckController : MonoBehaviour
     [Header("Damager")]
     public float OverallDamage;
     public float damage;
+    [Header("VisualEffects")]
+    public ParticleSystem Blood;
     
 
 
@@ -127,7 +129,7 @@ public class StuckController : MonoBehaviour
             if (suck.performed && enabled == true)
             {
                 Succ();
-
+                Blood.Play();
             }
             
         }

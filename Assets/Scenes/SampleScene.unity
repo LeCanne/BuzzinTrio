@@ -14797,7 +14797,9 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 9884
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8088462964997681454, guid: 8fe6158db9f4aa14da518fcdfdea9bce, type: 3}
+    - {fileID: 4140000172051449624, guid: 8fe6158db9f4aa14da518fcdfdea9bce, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16526,9 +16528,9 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

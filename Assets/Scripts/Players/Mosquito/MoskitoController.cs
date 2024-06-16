@@ -50,6 +50,10 @@ public class MoskitoController : MonoBehaviour
     private Camera cam;
     private float fov;
     public VisualEffect Vfx_Speedlines;
+
+    [Header("Visuals")]
+    public VisualEffect burst1;
+    public VisualEffect burst2;
     
 
     private void Awake()
