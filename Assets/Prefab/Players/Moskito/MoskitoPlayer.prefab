@@ -1769,6 +1769,7 @@ MonoBehaviour:
   layermaskempty:
     serializedVersion: 2
     m_Bits: 9215
+  deadforgood: 0
 --- !u!114 &4282325467743391097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2604,7 +2605,7 @@ Camera:
     y: 0.7
     width: 0.5
     height: 0.33
-  near clip plane: 0.01
+  near clip plane: 0.64
   far clip plane: 1000
   field of view: 90
   orthographic: 0
