@@ -55,8 +55,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FaceX: 0
-    - _FaceY: 0
+    - _FaceX: 1.55
+    - _FaceY: 2.11
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

@@ -3,7 +3,22 @@ guid: 4abce7e16045d5b40ae8958c7285f13b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandana
+    second: {fileID: 2100000, guid: 1705b165abc1a0341be271bf05d4f84f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Faces
+    second: {fileID: 2100000, guid: 0960ab81695fff34db69a1f7b553c337, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main_texture
+    second: {fileID: 2100000, guid: 575bb7f5ca4fbc146a4d17047b7409ce, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -90,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 1
     rootMotionBoneName: mixamorig:Hips
     hasTranslationDoF: 0
     hasExtraRoot: 0

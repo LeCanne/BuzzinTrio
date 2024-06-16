@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4574343339618047548
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3107732586708721525, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107732586708721525, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: camera_Asset
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282325467743391097, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282325467743391097, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282325467743391097, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: moskitoCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5452399876221548099, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890123395929324242, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547980651999084661, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822092255979276689, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822092255979276689, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: HitBox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822092255979276689, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: moskitoCamera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822092255979276689, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: Vfx_Speedlines
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590677126017077145, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9026495948320028858, guid: 8b6d96652b0b31e42b60f74db0b2d0ba,
+        type: 3}
+      propertyPath: m_Name
+      value: MoskitoPlayer Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7822092255979276689, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 3107732586708721525, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 4282325467743391097, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 8954198078501161902, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 5852168495373341863, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 7426676354564742699, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 8761169879126102518, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 6393115182960696120, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 8987048109700414698, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 6312675203429575459, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 7911162756013666288, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 2389662772872869172, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 551123568924504500, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 1032006237861517631, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 8596767495744036653, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 2230410042946929682, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    - {fileID: 9102376521365275201, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b6d96652b0b31e42b60f74db0b2d0ba, type: 3}
