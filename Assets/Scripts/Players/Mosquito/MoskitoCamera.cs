@@ -126,7 +126,7 @@ public class MoskitoCamera : MonoBehaviour
         if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset), out hit))
         {
             Debug.Log(hit.collider.name);
-                posCam.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, hit.point));
+                posCam.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, hit.point + new Vector3(0,0,0.1f)));
             
 
         }
