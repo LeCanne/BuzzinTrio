@@ -10,7 +10,7 @@ public class MoskitoCamera : MonoBehaviour
     public GameObject positionHold;
     private Vector2 m_Position;
     private Vector3 origin;
-    private Vector3 cameraOffset;
+    public Vector3 cameraOffset;
     public Transform posCam;
     public LayerMask layerMask;
     public GameObject moskitoSkin;
@@ -70,7 +70,7 @@ public class MoskitoCamera : MonoBehaviour
         }
         else
         {
-            cameraOffset = new Vector3(0, 0, -0.5f);
+            cameraOffset = new Vector3(0, 0, -1.5f);
             CollisionDetection();
            
             //transform.LookAt(moskitoSkin.transform);
@@ -122,15 +122,12 @@ public class MoskitoCamera : MonoBehaviour
     void CollisionDetection()
     {
       
-        Debug.DrawLine(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, Color.red);
-        if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset) - posCam.transform.forward, out hit))
+        Debug.DrawLine(transform.position, (transform.position + transform.localRotation * cameraOffset), Color.red);
+        if (Physics.Linecast(transform.position, (transform.position + transform.localRotation * cameraOffset), out hit))
         {
             Debug.Log(hit.collider.name);
-                posCam.localPosition = new Vector3(0, 0, Vector3.Distance(transform.position, hit.point + posCam.transform.forward));
+                posCam.localPosition = new Vector3(0, 0, -Vector3.Distance(transform.position, hit.point));
             
-           
-
-
 
         }
         else

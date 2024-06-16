@@ -60,7 +60,7 @@ public class HumanCamera : MonoBehaviour
 
         variableCam.y = Mathf.Clamp(variableCam.y, max, min);
         animatorPlayer.SetFloat("Blend", variableCam.y);
-        Debug.Log(variableCam.y);
+        
 
 
         if (m_rotation.magnitude > 0)

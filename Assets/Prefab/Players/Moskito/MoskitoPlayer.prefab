@@ -914,7 +914,7 @@ Transform:
   m_GameObject: {fileID: 1032006237861517631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08800006, z: -0.10500002}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -937,6 +937,7 @@ MonoBehaviour:
   speed: 300
   maxDistance: 15
   positionHold: {fileID: 6312675203429575459}
+  cameraOffset: {x: 0, y: 0, z: 0}
   posCam: {fileID: 1145479373702519040}
   layerMask:
     serializedVersion: 2
@@ -1814,10 +1815,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9350594
-  m_Height: 5.2213097
+  m_Radius: 2.9617715
+  m_Height: 7.312323
   m_Direction: 2
-  m_Center: {x: 0, y: 0.8607298, z: -1.8410969}
+  m_Center: {x: -0.6496936, y: 1.2377471, z: -0.7955873}
 --- !u!54 &5852168495373341863
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2568,7 +2569,7 @@ Transform:
   m_GameObject: {fileID: 3749303728458047641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.001, z: 0.029}
+  m_LocalPosition: {x: 0, y: -0.028, z: 0.04}
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2605,7 +2606,7 @@ Camera:
     y: 0.7
     width: 0.5
     height: 0.33
-  near clip plane: 0.64
+  near clip plane: 0.106
   far clip plane: 1000
   field of view: 90
   orthographic: 0
@@ -2990,7 +2991,7 @@ Transform:
   m_GameObject: {fileID: 6312675203429575459}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: -1.63}
+  m_LocalPosition: {x: 0, y: 0.8, z: -1.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
