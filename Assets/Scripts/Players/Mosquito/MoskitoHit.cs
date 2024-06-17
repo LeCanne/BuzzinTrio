@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class MoskitoHit : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class MoskitoHit : MonoBehaviour
     public Rigidbody rb;
     public MoskitoCamera moskitoCam;
     public GameObject Skito;
+
+    [Header("Visuals")]
+    public ParticleSystem impact1;
+    public ParticleSystem impact2;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,8 @@ public class MoskitoHit : MonoBehaviour
 
         if(other.gameObject.tag == "Untagged")
         {
+            impact1.Play();
+            impact2.Play();
             rb.velocity = Vector3.zero;
             Debug.Log("HitWall");
             Skito.transform.parent = other.gameObject.transform;

@@ -1746,6 +1746,8 @@ MonoBehaviour:
   HitBox: {fileID: 5661667946646621665}
   Input: {fileID: 8761169879126102518}
   Vfx_Speedlines: {fileID: 2846973298764851826}
+  burst1: {fileID: 0}
+  burst2: {fileID: 0}
 --- !u!114 &3107732586708721525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2901,8 @@ MonoBehaviour:
   rb: {fileID: 5852168495373341863}
   moskitoCam: {fileID: 1476019718719765581}
   Skito: {fileID: 2609257305031371593}
+  impact1: {fileID: 5353014896611246600}
+  impact2: {fileID: 5993764785900378175}
 --- !u!54 &3035412067652178290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4606,6 +4610,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 601cb96a116bdcc458c15076c05f0eee, type: 3}
+--- !u!198 &5353014896611246600 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1611965112244422628, guid: 601cb96a116bdcc458c15076c05f0eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 6635881519884109292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5993764785900378175 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1096980846190255571, guid: 601cb96a116bdcc458c15076c05f0eee,
+    type: 3}
+  m_PrefabInstance: {fileID: 6635881519884109292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7645800754905786885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3894545306705407977, guid: 601cb96a116bdcc458c15076c05f0eee,
