@@ -18,6 +18,9 @@ public class LobbyManager : MonoBehaviour
     public float timer;
     private float timeBegin;
     public float token;
+    public bool load;
+
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,11 +103,26 @@ public class LobbyManager : MonoBehaviour
                 }
             }
             MatchManager.instance.Players = Player_IM.playerCount;
-            HelpButton.RestartGame();
+            InputSystem.DisableAllEnabledActions();
+            MatchManager.instance.actionUI.Enable();
+            if(load == false)
+            {
+                StartCoroutine(Transition());
+                load = true;
+            }
+           
+           
             
         }
 
 
 
+    }
+
+    public IEnumerator Transition()
+    {
+        anim.SetTrigger("GameBegin");
+        yield return new WaitForSeconds(3);
+        HelpButton.RestartGame();
     }
 }

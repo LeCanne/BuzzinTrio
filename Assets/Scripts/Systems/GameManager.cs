@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void OnLoadScene(int scene)
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadSceneAsync(scene);
     }
 
    public void Pause()
