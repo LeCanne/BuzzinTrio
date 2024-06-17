@@ -39699,7 +39699,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.8170004
+      value: 4.763
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
@@ -39752,7 +39752,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2235313758984899143}
+      addedObject: {fileID: 4822994191836791771}
   m_SourcePrefab: {fileID: 100100000, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
 --- !u!4 &359271880112885694 stripped
 Transform:
@@ -39793,8 +39793,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2235313758984899143
-MeshCollider:
+--- !u!65 &4822994191836791771
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -39811,10 +39811,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3208841863450220766, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.007810761, y: 0.007810761, z: 0.0027093166}
+  m_Center: {x: 0.0000000018626451, y: 0.0000000037252903, z: 0}
 --- !u!1001 &383937616522657227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43390,7 +43389,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.362
+      value: -1.249
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
@@ -43453,7 +43452,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4671249615418894504}
+      addedObject: {fileID: 4361839257042540098}
   m_SourcePrefab: {fileID: 100100000, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
 --- !u!1 &178610779308209724 stripped
 GameObject:
@@ -43488,8 +43487,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &4671249615418894504
-MeshCollider:
+--- !u!65 &4361839257042540098
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43506,10 +43505,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3208841863450220766, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.0078107594, y: 0.0078107594, z: 0.002709316}
+  m_Center: {x: 0.0000000018626451, y: 0, z: 0}
 --- !u!4 &662413021599558790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
@@ -51591,7 +51589,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e7b7c0834590b04ebaba73cff15333a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6578784866861260380}
+      addedObject: {fileID: 1728773939822072398}
   m_SourcePrefab: {fileID: 100100000, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
 --- !u!1 &3773675558089627632 stripped
 GameObject:
@@ -51626,8 +51624,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6578784866861260380
-MeshCollider:
+--- !u!65 &1728773939822072398
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51644,10 +51642,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3208841863450220766, guid: 2e7b7c0834590b04ebaba73cff15333a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.0078107584, y: 0.0078107584, z: 0.0027093159}
+  m_Center: {x: 9.313226e-10, y: 0, z: 0}
 --- !u!4 &4545567169004555594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e7b7c0834590b04ebaba73cff15333a,
