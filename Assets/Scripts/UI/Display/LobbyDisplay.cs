@@ -9,7 +9,7 @@ public class LobbyDisplay : MonoBehaviour
     public List<GameObject> Mosquitoes;
 
     private bool oneHuman;
-    private int tokendisplay;
+    private int tokendisplay = -1;
    
     // Start is called before the first frame update
     void Start()
@@ -47,20 +47,38 @@ public class LobbyDisplay : MonoBehaviour
 
             if (Lob_Man.teamJoins[i].TeamIndex == 1)
             {
-                
-                Mosquitoes[i].SetActive(true);
-               
-                
+
+
+
+                tokendisplay++;
                     
                 
             }
-            else
+
+        }
+       
+        if(tokendisplay <= 3)
+        {
+            for (int i = 0; i < Mosquitoes.Count; i++)
             {
-                
-                Mosquitoes[i].SetActive(false);
+                if (i < tokendisplay)
+                {
+                    Mosquitoes[i].SetActive(true);
+                }
+
+
+                if (i == tokendisplay)
+                {
+                    Mosquitoes[i].SetActive(false);
+                }
             }
-            
-        } 
+        }
+           
+        
+       
+
+      
+        tokendisplay = 0;
       
         
 
