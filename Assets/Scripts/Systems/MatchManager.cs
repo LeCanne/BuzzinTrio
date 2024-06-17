@@ -10,6 +10,7 @@ public class MatchManager : MonoBehaviour
     public static MatchManager instance;
     public InputActionAsset actionUI;
 
+
     [Header ("MatchTimer")]
     public string timerTxt;
     public float Timer;
@@ -97,6 +98,7 @@ public class MatchManager : MonoBehaviour
 
     public void LivesManager()
     {
+        
         if(lives <= 0)
         {
             TimerOn = false;

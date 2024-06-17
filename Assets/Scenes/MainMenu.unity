@@ -155,7 +155,7 @@ MonoBehaviour:
   actionUI: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   timerTxt: 
-  Timer: 180
+  Timer: 10
   timerLeft: 180
   TimerOn: 0
   HP: 1
@@ -4024,6 +4024,7 @@ MonoBehaviour:
   canBegin: 0
   timer: 5
   token: 0
+  load: 0
   anim: {fileID: 714309019}
 --- !u!114 &1341955832
 MonoBehaviour:
@@ -4119,7 +4120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da458107561a6b4ba5662d333ac5246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedButton: {fileID: 0}
+  selectedButton: {fileID: 1750376371}
 --- !u!1 &1615760258
 GameObject:
   m_ObjectHideFlags: 0
