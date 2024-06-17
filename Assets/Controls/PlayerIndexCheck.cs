@@ -82,7 +82,15 @@ public class PlayerIndexCheck : MonoBehaviour
 
 
             }
-            MatchManager.instance.HP = MatchManager.instance.MaxHP * MoskitoCameraCheck;
+            if(MoskitoCameraCheck > 1)
+            {
+                MatchManager.instance.HP = MatchManager.instance.MaxHP * MoskitoCameraCheck;
+            }
+            else
+            {
+                MatchManager.instance.HP = MatchManager.instance.MaxHP;
+            }
+            
             MatchManager.instance.lives = MatchManager.instance.maxLives * MoskitoCameraCheck;
         }
         else
