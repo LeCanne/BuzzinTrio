@@ -81,7 +81,7 @@ public class MoskitoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnManager.Instance.SpawnMe(gameObject);
+       
       
        
 

@@ -33,9 +33,11 @@ public class MoskitoGeneral : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         RbMoskito = GetComponent<Rigidbody>();
         origin = transform.position;
         audioc = GetComponent<AudioSource>();
+        Respawn();
     }
 
     // Update is called once per frame
