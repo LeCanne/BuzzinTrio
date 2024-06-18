@@ -45738,10 +45738,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 501425617666845888, guid: ce36253005adfeb408ee51b2fe20642e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.143
+      objectReference: {fileID: 0}
+    - target: {fileID: 501425617666845888, guid: ce36253005adfeb408ee51b2fe20642e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.568
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce36253005adfeb408ee51b2fe20642e,
         type: 3}
       propertyPath: m_Name
       value: Lavabo+mirroir
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296446148913242850, guid: ce36253005adfeb408ee51b2fe20642e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.143
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296446148913242850, guid: ce36253005adfeb408ee51b2fe20642e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.987
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65056,18 +65076,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1150526842899470856}
-    - targetCorrespondingSourceObject: {fileID: 211532433144117589, guid: ca57b305ef3188d4a8883a83df6b4cdb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3045078385337915300}
     - targetCorrespondingSourceObject: {fileID: 8237979420915455475, guid: ca57b305ef3188d4a8883a83df6b4cdb,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6591769753876871575}
-    - targetCorrespondingSourceObject: {fileID: 8237979420915455475, guid: ca57b305ef3188d4a8883a83df6b4cdb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2653103598434525411}
     - targetCorrespondingSourceObject: {fileID: 304285839139146691, guid: ca57b305ef3188d4a8883a83df6b4cdb,
         type: 3}
       insertIndex: -1
@@ -65104,33 +65116,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0018456106, y: 0.0018456113, z: 0.0023022504}
   m_Center: {x: -1.29554215e-20, y: -0.0000000096915755, z: -0.00004400708}
---- !u!54 &2653103598434525411
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196018407433493831}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 2
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8215912285217059297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 211532433144117589, guid: ca57b305ef3188d4a8883a83df6b4cdb,
@@ -65158,33 +65143,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0008768835, y: 0.0013863754, z: 0.0032347743}
   m_Center: {x: 0.0000824112, y: -0.00015664368, z: -0.00047627193}
---- !u!54 &3045078385337915300
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215912285217059297}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 2
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8417862442984670071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 304285839139146691, guid: ca57b305ef3188d4a8883a83df6b4cdb,
