@@ -40,9 +40,9 @@ public class LobbyManager : MonoBehaviour
         }
 
        
-        if(timeBegin > 0)
+        if(timeBegin > 0.1f)
         {
-            Timer.text = timeBegin.ToString("#;#");
+            Timer.text = timeBegin.ToString("F0");
         }
         else
         {
