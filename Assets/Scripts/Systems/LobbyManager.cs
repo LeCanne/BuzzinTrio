@@ -11,6 +11,8 @@ public class LobbyManager : MonoBehaviour
     public PlayerInputManager Player_IM;
     public HelperScriptButton HelpButton;
     public GameObject TimerHolder;
+    public GameObject tutorial;
+    public AudioSource menuMusic;
     public TMP_Text Timer;
     public bool canBegin;
     private bool allready;
@@ -45,6 +47,10 @@ public class LobbyManager : MonoBehaviour
         else
         {
             Timer.text = "0";
+        }
+        if(load == true)
+        {
+            menuMusic.volume = Mathf.Lerp(menuMusic.volume, 0, 3 * Time.deltaTime);
         }
 
     }
@@ -122,6 +128,8 @@ public class LobbyManager : MonoBehaviour
     public IEnumerator Transition()
     {
         anim.SetTrigger("GameBegin");
+        yield return new WaitForSeconds(3);
+        tutorial.SetActive(true);
         yield return new WaitForSeconds(3);
         HelpButton.RestartGame();
     }

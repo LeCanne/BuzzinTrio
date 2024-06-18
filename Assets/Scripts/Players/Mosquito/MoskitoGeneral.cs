@@ -20,6 +20,7 @@ public class MoskitoGeneral : MonoBehaviour
     public LayerMask layermaskall;
     public LayerMask layermaskempty;
     private AudioSource audioc;
+    public AudioSource audiotrumpet;
 
     public bool deadforgood;
     public ParticleSystem muzzleDed;
@@ -95,6 +96,8 @@ public class MoskitoGeneral : MonoBehaviour
     public void Die()
     {
         muzzleDed.Play();
+        audiotrumpet.pitch = Random.Range(1f, 1.6f);
+        audiotrumpet.Play();
         _stuckController.Unstucked();
 
         

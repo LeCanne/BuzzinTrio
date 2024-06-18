@@ -405,7 +405,7 @@ public partial class @MoskitoControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""14ac48b8-f468-4197-830a-5ac186a826af"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
