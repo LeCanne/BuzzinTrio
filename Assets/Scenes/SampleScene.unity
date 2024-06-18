@@ -2125,7 +2125,7 @@ MonoBehaviour:
   actionUI: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   timerTxt: 
-  Timer: 10
+  Timer: 180
   timerLeft: 0
   TimerOn: 1
   HP: 1
@@ -3575,8 +3575,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 30
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46740c8a96f6b5f4499cd4aafae2c288, type: 2}
+  m_sharedMaterial: {fileID: -5398263324698860811, guid: 46740c8a96f6b5f4499cd4aafae2c288,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13372,8 +13373,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: x
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46740c8a96f6b5f4499cd4aafae2c288, type: 2}
+  m_sharedMaterial: {fileID: -5398263324698860811, guid: 46740c8a96f6b5f4499cd4aafae2c288,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
