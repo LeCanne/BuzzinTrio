@@ -139,10 +139,10 @@ public class MoskitoGeneral : MonoBehaviour
     {
         if(other.gameObject.tag == "ExtractZone")
         {
-            if(stock.value >= stock.value)
-            {
-                MatchManager.instance.timerLeft += 10;
-            }
+            //if(stock.value >= stock.value)
+            //{
+            //    MatchManager.instance.timerLeft += 10;
+            //}
            
             Die();
                    
