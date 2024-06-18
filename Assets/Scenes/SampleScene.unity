@@ -17716,6 +17716,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2885287924580288104, guid: 2b671ded38609f44fa2c5c4cd2f3a7c4,
+        type: 3}
+      propertyPath: m_text
+      value: QUIT
+      objectReference: {fileID: 0}
     - target: {fileID: 7629054731766933935, guid: 2b671ded38609f44fa2c5c4cd2f3a7c4,
         type: 3}
       propertyPath: m_Name
@@ -18918,6 +18923,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885287924580288104, guid: 2b671ded38609f44fa2c5c4cd2f3a7c4,
+        type: 3}
+      propertyPath: m_text
+      value: 'QUIT
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7629054731766933935, guid: 2b671ded38609f44fa2c5c4cd2f3a7c4,
         type: 3}
