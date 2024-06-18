@@ -7,6 +7,7 @@ public class WinUI : MonoBehaviour
     public GameObject WinScreenHuman;
     public GameObject WinScreenMoskito;
     public GameObject CameraWin;
+    public AudioSource winJingle;
     public Animator animMoskito;
     public Animator animPlayer;
     public Animator transition;
@@ -60,6 +61,7 @@ public class WinUI : MonoBehaviour
             obj.SetActive(false);
         }
         transition.SetTrigger("GameEnd");
+        winJingle.Play();
         yield return new WaitForSeconds(1.5f);
         objecttoSpawn.SetActive(true);
        
