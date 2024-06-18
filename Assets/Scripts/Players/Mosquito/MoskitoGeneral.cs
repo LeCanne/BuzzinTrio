@@ -22,6 +22,7 @@ public class MoskitoGeneral : MonoBehaviour
     private AudioSource audioc;
 
     public bool deadforgood;
+    public ParticleSystem muzzleDed;
 
 
     // Start is called before the first frame update
@@ -93,7 +94,7 @@ public class MoskitoGeneral : MonoBehaviour
     }
     public void Die()
     {
-        
+        muzzleDed.Play();
         _stuckController.Unstucked();
 
         
