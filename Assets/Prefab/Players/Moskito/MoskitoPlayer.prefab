@@ -1905,6 +1905,8 @@ MonoBehaviour:
   audiotrumpet: {fileID: 8398021308896151089}
   deadforgood: 0
   muzzleDed: {fileID: 5219050877587481952}
+  HurtBox: {fileID: 8987048109700414698}
+  invincibilitytime: 0
 --- !u!114 &4282325467743391097
 MonoBehaviour:
   m_ObjectHideFlags: 0

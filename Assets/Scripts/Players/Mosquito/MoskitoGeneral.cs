@@ -25,6 +25,10 @@ public class MoskitoGeneral : MonoBehaviour
     public bool deadforgood;
     public ParticleSystem muzzleDed;
 
+    [Header ("Invincibility")]
+    public GameObject HurtBox;
+    public float invincibilitytime;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class MoskitoGeneral : MonoBehaviour
     void Update()
     {
         Sound();
+        InvincibiltyTime();
         if (_moskControl.dead == true)
         {
             timeSpent += Time.deltaTime;
@@ -135,6 +140,19 @@ public class MoskitoGeneral : MonoBehaviour
         if (pause.performed)
         {
             GameManager.instance.Pause();
+        }
+    }
+
+    public void InvincibiltyTime()
+    {
+        if (invincibilitytime < 0)
+        {
+            HurtBox.SetActive(false);
+            invincibilitytime += Time.deltaTime;
+        }
+        if(invincibilitytime >= 0)
+        {
+            HurtBox.SetActive(true);
         }
     }
 
