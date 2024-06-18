@@ -10,18 +10,19 @@ public class HumanUI : MonoBehaviour
 
     private void Awake()
     {
-        MatchManager.instance.HP = MatchManager.instance.MaxHP;
+       
     }
     // Start is called before the first frame update
     void Start()
     {
-        sliderhealth.maxValue = MatchManager.instance.MaxHP;
-      
+
+        sliderhealth.maxValue = MatchManager.instance.HP;
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         sliderhealth.value = Mathf.Lerp(sliderhealth.value, MatchManager.instance.HP, 6 * Time.deltaTime);
     }
 }

@@ -55,6 +55,7 @@ public class PlayerIndexCheck : MonoBehaviour
     }
     public void ExecuteSpawns()
     {
+        int scale = 0;
         MoskitoCameraCheck = 0;
         if(debug == false)
         {
@@ -82,7 +83,16 @@ public class PlayerIndexCheck : MonoBehaviour
 
 
             }
-            MatchManager.instance.HP = MatchManager.instance.MaxHP * MoskitoCameraCheck;
+            
+            
+                scale = 50 * MoskitoCameraCheck - 1;
+           
+                MatchManager.instance.HP = MatchManager.instance.MaxHP + scale;
+            
+                
+            
+           
+            
             MatchManager.instance.lives = MatchManager.instance.maxLives * MoskitoCameraCheck;
         }
         else

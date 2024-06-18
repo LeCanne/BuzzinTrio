@@ -6,6 +6,15 @@ public class WinUI : MonoBehaviour
 {
     public GameObject WinScreenHuman;
     public GameObject WinScreenMoskito;
+    public GameObject CameraWin;
+    public AudioSource winJingle;
+    public Animator animMoskito;
+    public Animator animPlayer;
+    public Animator transition;
+
+    public List<GameObject> PracticalUI;
+
+    public bool once;
     private void Awake()
     {
         
@@ -20,11 +29,45 @@ public class WinUI : MonoBehaviour
     {
         if(MatchManager.instance.noTimeLeft == true)
         {
-            WinScreenHuman.SetActive(true);
+            if(once == false)
+            {
+                animMoskito.SetTrigger("TriggerLose");
+                animPlayer.SetTrigger("TriggerWin");
+                StartCoroutine(Win(WinScreenHuman));
+                once = true;
+            }
+            
         }
         if (MatchManager.instance.noHpLeft == true)
         {
-            WinScreenMoskito.SetActive(true);
+            if (once == false)
+            {
+                animMoskito.SetTrigger("TriggerWin");
+                animPlayer.SetTrigger("TriggerLose");
+                StartCoroutine(Win(WinScreenMoskito));
+                once = true;
+            }
+            
         }
+    }
+
+    public IEnumerator Win(GameObject objecttoSpawn)
+    {
+        transition.SetTrigger("GameBegin");
+        yield return new WaitForSeconds(1.5f);
+        CameraWin.SetActive(true);
+        foreach (GameObject obj in PracticalUI)
+        {
+            obj.SetActive(false);
+        }
+        transition.SetTrigger("GameEnd");
+        winJingle.Play();
+        yield return new WaitForSeconds(1.5f);
+        objecttoSpawn.SetActive(true);
+       
+
+
+
+
     }
 }
