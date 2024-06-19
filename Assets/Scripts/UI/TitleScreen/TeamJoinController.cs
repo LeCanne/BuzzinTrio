@@ -19,6 +19,7 @@ public class TeamJoinController : MonoBehaviour
     public PlayerInputManager playerInputManager;
     public LobbyManager lobbyManager;
     public List<Sprite> spriteList;
+    public List<Sprite> spriteList2;
     
 
     [Header("KeepPositions")]
@@ -90,18 +91,22 @@ public class TeamJoinController : MonoBehaviour
         {
             case 0:
                 img.sprite = spriteList[0];
+                readyImage.GetComponent<Image>().sprite = spriteList2[0];
                 break;
 
             case 1:
                 img.sprite = spriteList[1];
+                readyImage.GetComponent<Image>().sprite = spriteList2[1];
                 break;
 
             case 2:
                 img.sprite = spriteList[2];
+                readyImage.GetComponent<Image>().sprite = spriteList2[2];
                 break;
 
             case 3:
                 img.sprite = spriteList[3];
+                readyImage.GetComponent<Image>().sprite = spriteList2[3];
                 break;
 
         }
