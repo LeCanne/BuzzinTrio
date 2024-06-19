@@ -1069,7 +1069,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 631
+    m_Bits: 33399
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1170,7 +1170,7 @@ MonoBehaviour:
     m_Bits: 7543
   timer: 0.7
   reduction: 0
-  attacking: 0
+  attacking: 1
 --- !u!1 &6535655178298414936
 GameObject:
   m_ObjectHideFlags: 0
