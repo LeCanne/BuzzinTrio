@@ -7,6 +7,7 @@ public class HelperScriptButton : MonoBehaviour
 {
     public void RestartGame()
     {
+        MatchManager.instance.HP = 1;
         GameManager.instance.StartGame();
         MatchManager.instance.RestartMatch();
         GameManager.instance.OnLoadScene(1);
