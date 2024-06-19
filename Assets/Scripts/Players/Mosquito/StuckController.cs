@@ -10,6 +10,7 @@ public class StuckController : MonoBehaviour
     [Header ("Dependencies")]
     private MoskitoControls m_Controls;
     private MoskitoController _MoskitoController;
+    private MoskitoGeneral m_General;
     public MoskitoCamera moskitoCamera;
     private Rigidbody rigidMoskito;
     private InputAction _spam;
@@ -48,6 +49,7 @@ public class StuckController : MonoBehaviour
         BloodSlider.maxValue = MatchManager.instance.MaxHP;
         _MoskitoController = GetComponent<MoskitoController>();
         rigidMoskito = GetComponent<Rigidbody>();
+        m_General = GetComponent<MoskitoGeneral>();
     }
 
     private void OnEnable()
@@ -187,6 +189,7 @@ public class StuckController : MonoBehaviour
 
     public void Unstucked() 
     {
+        m_General.invincibilitytime = -2;
         _collider.enabled = false;
         token = 0;
         rigidMoskito.isKinematic = false;

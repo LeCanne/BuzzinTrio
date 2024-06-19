@@ -20,23 +20,31 @@ public class MoskitoGeneral : MonoBehaviour
     public LayerMask layermaskall;
     public LayerMask layermaskempty;
     private AudioSource audioc;
+    public AudioSource audiotrumpet;
 
     public bool deadforgood;
     public ParticleSystem muzzleDed;
+
+    [Header ("Invincibility")]
+    public GameObject HurtBox;
+    public float invincibilitytime;
 
 
     // Start is called before the first frame update
     void Start()
     {
+      
         RbMoskito = GetComponent<Rigidbody>();
         origin = transform.position;
         audioc = GetComponent<AudioSource>();
+        Respawn();
     }
 
     // Update is called once per frame
     void Update()
     {
         Sound();
+        InvincibiltyTime();
         if (_moskControl.dead == true)
         {
             timeSpent += Time.deltaTime;
@@ -95,6 +103,8 @@ public class MoskitoGeneral : MonoBehaviour
     public void Die()
     {
         muzzleDed.Play();
+        audiotrumpet.pitch = Random.Range(1f, 1.6f);
+        audiotrumpet.Play();
         _stuckController.Unstucked();
 
         
@@ -132,6 +142,19 @@ public class MoskitoGeneral : MonoBehaviour
         if (pause.performed)
         {
             GameManager.instance.Pause();
+        }
+    }
+
+    public void InvincibiltyTime()
+    {
+        if (invincibilitytime < 0)
+        {
+            HurtBox.SetActive(false);
+            invincibilitytime += Time.deltaTime;
+        }
+        if(invincibilitytime >= 0)
+        {
+            HurtBox.SetActive(true);
         }
     }
 
