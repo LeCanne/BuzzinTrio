@@ -25,12 +25,13 @@ public class PlayerIndexCheck : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        _inputManager = GetComponent<PlayerInputManager>();
-        MoskitoCameraCheck = 0;
         if (instance == null)
         {
             instance = this;
         }
+        _inputManager = GetComponent<PlayerInputManager>();
+        MoskitoCameraCheck = 0;
+       
         
        
 

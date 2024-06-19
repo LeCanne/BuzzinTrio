@@ -9,6 +9,7 @@ public class MatchManager : MonoBehaviour
 
     public static MatchManager instance;
     public InputActionAsset actionUI;
+    public InputActionAsset actionPlayerUI;
 
 
     [Header ("MatchTimer")]
@@ -39,12 +40,13 @@ public class MatchManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (instance == null)
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(this.gameObject);
        timerLeft = Timer;
-       if(instance == null)
-       {
-            instance = this;
-       }
+      
        
     }
     // Start is called before the first frame update
@@ -88,21 +90,25 @@ public class MatchManager : MonoBehaviour
 
     public void HealthManager()
     {
-        if (HP <= 0)
+        if (HP <= 0 && onlyOnce == false)
         {
+           
             TimerOn = false;
             WinCondition();
-         
+            onlyOnce = true;
+
         }
     }
 
     public void LivesManager()
     {
         
-        if(lives <= 0)
+        if(lives <= 0 && onlyOnce == false)
         {
+            
             TimerOn = false;
             WinCondition();
+            onlyOnce = true;
         }
     }
     void updateTimer(float currentTime)
@@ -151,7 +157,8 @@ public class MatchManager : MonoBehaviour
         
 
         InputSystem.DisableAllEnabledActions();
-        actionUI.Enable();       
+        actionUI.Enable();  
+        
     }
 
     public void RestartMatch()

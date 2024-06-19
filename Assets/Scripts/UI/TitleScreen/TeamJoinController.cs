@@ -33,7 +33,7 @@ public class TeamJoinController : MonoBehaviour
     public bool ready;
     private void Awake()
     {
-      
+        
         playerIndx = playerInput.playerIndex;
         ready = false;
         gameObject.transform.SetParent(GameObject.FindWithTag("RecievePlayers").transform);
@@ -51,6 +51,7 @@ public class TeamJoinController : MonoBehaviour
         center = Center.transform;
         left = LeftMost.transform;
         right = RightMost.transform;
+        playerInput.actions.Enable();
     }
 
     
