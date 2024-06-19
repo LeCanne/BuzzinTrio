@@ -59,7 +59,8 @@ public class StuckController : MonoBehaviour
         rigidMoskito.isKinematic = true;
         _MoskitoController._collider.isTrigger = true;
         _MoskitoController.HitBox.SetActive(false);
-        
+        _MoskitoController.attackCurrent = 0;
+
     }
 
     private void OnDisable()

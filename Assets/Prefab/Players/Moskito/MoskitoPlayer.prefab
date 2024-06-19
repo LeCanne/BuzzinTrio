@@ -846,7 +846,7 @@ RectTransform:
   m_Father: {fileID: 7592310563906301031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -0.00020217896, y: 0.00012207031}
   m_SizeDelta: {x: -0, y: -0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1621,7 +1621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8423147564807770336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1869,7 +1869,8 @@ MonoBehaviour:
   AttackBoostSpeed: 20
   _inFly: 0
   attackTimer: 0
-  attackDuration: 0.5
+  attackCurrent: 0
+  attackDuration: 0.8
   dead: 0
   attackTotalTime: 1
   HitBox: {fileID: 5661667946646621665}
@@ -3571,7 +3572,7 @@ RectTransform:
   m_Father: {fileID: 8398462866450243328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -0.00020217896, y: 0.00012207031}
   m_SizeDelta: {x: -0, y: -0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}

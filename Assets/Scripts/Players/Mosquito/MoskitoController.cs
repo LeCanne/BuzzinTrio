@@ -39,7 +39,7 @@ public class MoskitoController : MonoBehaviour
     [Header("Checker")]
     [HideInInspector] public bool _inFly;
     [HideInInspector] public float attackTimer;
-    private float attackCurrent;
+    [HideInInspector] public float attackCurrent;
     public float attackDuration;
     public bool dead;
     public float attackTotalTime;
@@ -188,7 +188,7 @@ public class MoskitoController : MonoBehaviour
             attackTimer = attackTotalTime;
             rbMoskito.AddForce(transform.forward * AttackBoostSpeed, ForceMode.Impulse);
             attackCurrent = attackDuration;
-            HitBox.SetActive(true);
+            
         }
     }
     private void StingAttack()
@@ -218,6 +218,7 @@ public class MoskitoController : MonoBehaviour
             {
                 cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov + 20, 5 * Time.deltaTime);
                 attackCurrent -= Time.deltaTime;
+                HitBox.SetActive(true);
             }
         }
         else

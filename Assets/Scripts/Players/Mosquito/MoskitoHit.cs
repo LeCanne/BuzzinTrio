@@ -54,5 +54,7 @@ public class MoskitoHit : MonoBehaviour
             stuckController.enabled = true;
             moskitoCam.checkStung = true;
         }
+
+       
     }
 }
