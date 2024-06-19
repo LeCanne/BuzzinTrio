@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: At least 1 Moskito!
+  m_text: At least 1 Mosquito!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46740c8a96f6b5f4499cd4aafae2c288, type: 2}
   m_sharedMaterial: {fileID: -5398263324698860811, guid: 46740c8a96f6b5f4499cd4aafae2c288,
@@ -3626,7 +3626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Moskitoes
+  m_text: 'Mosquitoes
 
 '
   m_isRightToLeft: 0
